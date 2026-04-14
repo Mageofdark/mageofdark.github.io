@@ -1,165 +1,70 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Blog de Destinos</title>
-    <link rel="stylesheet" href="../styles/styles_agencias.css">
-</head>
-<body>
+<section class="articles-grid">
 
-<header>
-        <div class="logo">
-            <h1>Grand Tour GT</h1>
+    <article class="blogs playa aventura">
+        <h3>Viaje a las Maldivas</h3>
+        <p>Descubre las paradisíacas playas de las Maldivas...</p>
+        <div class="tags">
+            <span class="tag">Playa</span>
+            <span class="tag">Aventura</span>
         </div>
+    </article>
 
-        <nav>
-            <ul class="menu">
-                
-                <li><a href="../index.html">Inicio</a></li>
-
-                <li><a href="destinos.html">Destinos</a></li>
-
-                <li><a href="agencias.html">Agencias</a></li>
-
-                <li><a href="blog.html">Blog</a></li>
-
-                <li><a href="contacto.html">Contacto</a></li>
-
-                <li><a href="precios.html">Precios</a></li>
-
-            </ul>
-        </nav>
-    </header>
-
-<main class="blog-container">
-
-    <!-- INPUTS (FILTRO CSS) -->
-    <input type="radio" name="filtro" id="todos" checked>
-    <input type="radio" name="filtro" id="playa">
-    <input type="radio" name="filtro" id="montana">
-    <input type="radio" name="filtro" id="ciudad">
-    <input type="radio" name="filtro" id="aventura">
-
-    <!-- BOTONES -->
-    <section class="filters">
-        <h2>Filtrar por Categoría</h2>
-        <label for="todos">Todos</label>
-        <label for="playa">Playa</label>
-        <label for="montana">Montaña</label>
-        <label for="ciudad">Ciudad</label>
-        <label for="aventura">Aventura</label>
-    </section>
-
-  <!-- GRID -->
-    <section class="articles-grid">
-
-        <article class="article playa aventura">
-            <h3>Viaje a las Maldivas</h3>
-            <p>Descubre las paradisíacas playas de las Maldivas...</p>
-            <div class="tags">
-                <span class="tag">Playa</span>
-                <span class="tag">Aventura</span>
-            </div>
-        </article>
-
-        <article class="article montana">
-            <h3>Escalada en los Alpes</h3>
-            <p>La emoción de conquistar las cumbres...</p>
-            <div class="tags">
-                <span class="tag">Montaña</span>
-            </div>
-        </article>
-
-        <article class="article ciudad">
-            <h3>Explorando Nueva York</h3>
-            <p>La ciudad que nunca duerme...</p>
-            <div class="tags">
-                <span class="tag">Ciudad</span>
-            </div>
-        </article>
-
-        <article class="article playa">
-            <h3>Vacaciones en Cancún</h3>
-            <p>Playas de arena blanca y agua cristalina...</p>
-            <div class="tags">
-                <span class="tag">Playa</span>
-            </div>
-        </article>
-
-        <article class="article montana aventura">
-            <h3>Trekking en el Fitz Roy</h3>
-            <p>Una de las rutas más impresionantes...</p>
-            <div class="tags">
-                <span class="tag">Montaña</span>
-                <span class="tag">Aventura</span>
-            </div>
-        </article>
-
-        <article class="article ciudad">
-            <h3>Buenos Aires</h3>
-            <p>Cultura, gastronomía y vida nocturna...</p>
-            <div class="tags">
-                <span class="tag">Ciudad</span>
-            </div>
-        </article>
-
-        <article class="article aventura">
-            <h3>Rafting en Mendoza</h3>
-            <p>Adrenalina pura en el río Mendoza...</p>
-            <div class="tags">
-                <span class="tag">Aventura</span>
-            </div>
-        </article>
-
-        <article class="article playa ciudad">
-            <h3>Río de Janeiro</h3>
-            <p>Playas icónicas y una ciudad vibrante...</p>
-            <div class="tags">
-                <span class="tag">Playa</span>
-                <span class="tag">Ciudad</span>
-            </div>
-        </article>
-
-    </section>
-</main>
-
-<!-- FOOTER -->
-    <footer>
-
-        <div class="footer-grid">
-
-            <!-- Newsletter -->
-            <section class="newsletter">
-                <h3>Suscríbete</h3>
-                <form>
-                    <input type="email" placeholder="Tu correo" required>
-                    <button type="submit">Enviar</button>
-                </form>
-            </section>
-
-            <!-- Redes -->
-            <section class="redes">
-                <h3>Síguenos</h3>
-                <a href="#">Facebook</a>
-                <a href="#">Instagram</a>
-                <a href="#">Twitter</a>
-            </section>
-
-            <!-- Mapa -->
-            <section class="mapa">
-                <h3>Ubicación</h3>
-                <iframe 
-                    src="https://www.google.com/maps?q=Jujuy&output=embed"
-                    width="100%" 
-                    height="200" 
-                    style="border:0;" 
-                    loading="lazy">
-                </iframe>
-            </section>
-
+    <article class="blogs montana">
+        <h3>Escalada en los Alpes</h3>
+        <p>La emoción de conquistar las cumbres...</p>
+        <div class="tags">
+            <span class="tag">Montaña</span>
         </div>
+    </article>
 
-    </footer>
-    
-</body>
-</html>
+    <article class="blogs ciudad">
+        <h3>Explorando Nueva York</h3>
+        <p>La ciudad que nunca duerme...</p>
+        <div class="tags">
+            <span class="tag">Ciudad</span>
+        </div>
+    </article>
+
+    <article class="blogs playa">
+        <h3>Vacaciones en Cancún</h3>
+        <p>Playas de arena blanca y agua cristalina...</p>
+        <div class="tags">
+            <span class="tag">Playa</span>
+        </div>
+    </article>
+
+    <article class="blogs montana aventura">
+        <h3>Trekking en el Fitz Roy</h3>
+        <p>Una de las rutas más impresionantes...</p>
+        <div class="tags">
+            <span class="tag">Montaña</span>
+            <span class="tag">Aventura</span>
+        </div>
+    </article>
+
+    <article class="blogs ciudad">
+        <h3>Buenos Aires</h3>
+        <p>Cultura, gastronomía y vida nocturna...</p>
+        <div class="tags">
+            <span class="tag">Ciudad</span>
+        </div>
+    </article>
+
+    <article class="blogs aventura">
+        <h3>Rafting en Mendoza</h3>
+        <p>Adrenalina pura en el río Mendoza...</p>
+        <div class="tags">
+            <span class="tag">Aventura</span>
+        </div>
+    </article>
+
+    <article class="blogs playa ciudad">
+        <h3>Río de Janeiro</h3>
+        <p>Playas icónicas y una ciudad vibrante...</p>
+        <div class="tags">
+            <span class="tag">Playa</span>
+            <span class="tag">Ciudad</span>
+        </div>
+    </article>
+
+</section>
