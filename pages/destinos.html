@@ -9,6 +9,19 @@
 
 <body>
 
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="logo"><h1>Turismo</h1></div>
+  <nav>
+    <ul class="menu">
+      <li><a href="#">Inicio</a></li>
+      <li><a href="#">Destinos</a></li>
+      <li><a href="#">Agencias</a></li>
+      <li><a href="#">Precios</a></li>
+    </ul>
+  </nav>
+</header>
+
 <!-- ================= FILTROS ================= -->
 <div class="filtros">
 
@@ -32,10 +45,9 @@
 
 </div>
 
-<!-- ================= DESTINOS ================= -->
+<!-- ================= DESTINOS (GRID REAL) ================= -->
 <div class="destinos">
 
-  <!-- CULTURAL -->
   <div class="card cultural">
     <img src="../img/destinos/cultural/mexico.jpg">
     <div class="overlay">México</div>
@@ -51,10 +63,9 @@
     <div class="overlay">Cusco</div>
   </div>
 
-  <!-- NATURALEZA -->
   <div class="card naturaleza">
     <img src="../img/destinos/naturaleza/cascada.jfif">
-    <div class="overlay">Cascada</div>
+    <div class="overlay">Cascadas</div>
   </div>
 
   <div class="card naturaleza">
@@ -67,7 +78,6 @@
     <div class="overlay">Hiking</div>
   </div>
 
-  <!-- PLAYA -->
   <div class="card playa">
     <img src="../img/destinos/playa/beach.jfif">
     <div class="overlay">Playa</div>
@@ -83,7 +93,6 @@
     <div class="overlay">Cancún</div>
   </div>
 
-  <!-- GASTRONOMÍA -->
   <div class="card gastronomia">
     <img src="../img/destinos/gastronomia/asado.jfif">
     <div class="overlay">Argentina</div>
@@ -99,7 +108,6 @@
     <div class="overlay">Postres</div>
   </div>
 
-  <!-- RELIGIOSO -->
   <div class="card religioso">
     <img src="../img/destinos/religioso/buda.jfif">
     <div class="overlay">Budismo</div>
@@ -131,35 +139,25 @@
 
 <tbody>
 
-<tr class="cultural">
-  <td data-label="Destino">Cusco</td>
-  <td data-label="Categoría">Cultural</td>
-  <td data-label="Precio">$1200</td>
-</tr>
+<tr class="cultural"><td data-label="Destino">México</td><td>Cultural</td><td>$1300</td></tr>
+<tr class="cultural"><td>Roma</td><td>Cultural</td><td>$1500</td></tr>
+<tr class="cultural"><td>Cusco</td><td>Cultural</td><td>$1200</td></tr>
 
-<tr class="naturaleza">
-  <td data-label="Destino">Patagonia</td>
-  <td data-label="Categoría">Naturaleza</td>
-  <td data-label="Precio">$1100</td>
-</tr>
+<tr class="naturaleza"><td>Cascadas</td><td>Naturaleza</td><td>$900</td></tr>
+<tr class="naturaleza"><td>Indómita</td><td>Naturaleza</td><td>$1000</td></tr>
+<tr class="naturaleza"><td>Hiking</td><td>Naturaleza</td><td>$1100</td></tr>
 
-<tr class="playa">
-  <td data-label="Destino">Cancún</td>
-  <td data-label="Categoría">Playa</td>
-  <td data-label="Precio">$1500</td>
-</tr>
+<tr class="playa"><td>Playa</td><td>Playa</td><td>$1200</td></tr>
+<tr class="playa"><td>Caribe</td><td>Playa</td><td>$1400</td></tr>
+<tr class="playa"><td>Cancún</td><td>Playa</td><td>$1500</td></tr>
 
-<tr class="gastronomia">
-  <td data-label="Destino">Lima</td>
-  <td data-label="Categoría">Gastronomía</td>
-  <td data-label="Precio">$1000</td>
-</tr>
+<tr class="gastronomia"><td>Argentina</td><td>Gastronomía</td><td>$1000</td></tr>
+<tr class="gastronomia"><td>Perú</td><td>Gastronomía</td><td>$1100</td></tr>
+<tr class="gastronomia"><td>Postres</td><td>Gastronomía</td><td>$900</td></tr>
 
-<tr class="religioso">
-  <td data-label="Destino">Vaticano</td>
-  <td data-label="Categoría">Religioso</td>
-  <td data-label="Precio">$1400</td>
-</tr>
+<tr class="religioso"><td>Budismo</td><td>Religioso</td><td>$1300</td></tr>
+<tr class="religioso"><td>Templo</td><td>Religioso</td><td>$1200</td></tr>
+<tr class="religioso"><td>Cristianismo</td><td>Religioso</td><td>$1400</td></tr>
 
 </tbody>
 

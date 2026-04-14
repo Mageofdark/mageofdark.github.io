@@ -1,199 +1,255 @@
-/* ================= BASE ================= */
+/* ====================== VARIABLES ====================== */
+:root {
+    --color-primary: #005f8f;
+    --color-accent: #00b4d8;
+    --color-dark: #1a1a2e;
+    --color-light: #f8f9fa;
+    --color-gray: #e9ecef;
+    --text-dark: #222222;
+    --text-light: #ffffff;
+
+    --font-heading: 'Segoe UI', system-ui, sans-serif;
+    --font-body: 'Segoe UI', system-ui, sans-serif;
+
+    --transition: all 0.3s ease;
+}
+
+/* ====================== RESET ====================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-  font-family: Arial;
-  margin: 0;
-  background: #f5f5f5;
+    font-family: var(--font-body);
+    background: var(--color-light);
+    padding-top: 70px; /* 👈 para navbar fijo */
+}
+
+/* ====================== HEADER ====================== */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 95, 143, 0.95);
+    backdrop-filter: blur(12px);
+    z-index: 1000;
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.logo h1 {
+    font-size: 2rem;
+    color: white;
+    letter-spacing: -1px;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.menu li {
+    position: relative;
+}
+
+.menu a {
+    color: white;
+    font-weight: 500;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+}
+
+.menu a:hover {
+    background-color: rgba(255,255,255,0.15);
+    color: white;
+}
+
+/* Dropdown */
+.dropdown .submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    min-width: 180px;
+    box-shadow: var(--shadow-md);
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 0.5rem 0;
+    z-index: 10;
+}
+
+.dropdown:hover .submenu {
+    display: block;
+    animation: fadeDown 0.3s ease forwards;
+}
+
+.submenu li a {
+    color: var(--text-dark);
+    display: block;
+    padding: 0.75rem 1.25rem;
+}
+
+.submenu li a:hover {
+    background-color: var(--color-gray);
+    color: var(--color-primary);
+}
+
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* ================= FILTROS ================= */
 .filtros {
-  text-align: center;
-  padding: 20px;
+    margin-top: 10px;
+    text-align: center;
+    padding: 20px;
 }
 
 .filtros input {
-  display: none;
+    display: none;
 }
 
 .filtros label {
-  margin: 5px;
-  padding: 10px 15px;
-  background: #ddd;
-  cursor: pointer;
-  border-radius: 20px;
-  transition: 0.3s;
+    margin: 5px;
+    padding: 10px 15px;
+    background: #ddd;
+    border-radius: 20px;
+    cursor: pointer;
 }
 
 input:checked + label {
-  background: #333;
-  color: white;
+    background: #333;
+    color: white;
 }
 
-/* ================= GRID ================= */
+/* ================= GRID AVANZADO ================= */
 .destinos {
-  column-count: 4;
-  column-gap: 15px;
-  padding: 20px;
-}
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .destinos { column-count: 2; }
-}
-
-@media (max-width: 600px) {
-  .destinos { column-count: 1; }
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: 10px;
+    gap: 15px;
+    padding: 20px;
 }
 
 /* ================= CARDS ================= */
 .card {
-  break-inside: avoid;
-  margin-bottom: 12px;
-  position: relative;
-  overflow: hidden;
-  border-radius: 10px;
-  background: white;
-  transition: transform 0.2s;
+    grid-row-end: span 20;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    background: white;
+    transition: transform 0.2s;
 }
 
-/* ROTACIÓN LEVE (DESORDEN) */
-.card:nth-child(odd) {
-  transform: rotate(-1deg);
-}
+/* variación tipo masonry */
+.card:nth-child(3n) { grid-row-end: span 25; }
+.card:nth-child(4n) { grid-row-end: span 18; }
+.card:nth-child(5n) { grid-row-end: span 22; }
 
-.card:nth-child(even) {
-  transform: rotate(1deg);
-}
-
-/* IMÁGENES (ALTURAS VARIABLES) */
 .card img {
-  width: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.3s;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: 0.3s;
 }
 
-/* ALTURAS DIFERENTES */
-.card:nth-child(3n) img {
-  height: 220px;
-}
-
-.card:nth-child(4n) img {
-  height: 160px;
-}
-
-.card:nth-child(5n) img {
-  height: 200px;
-}
-
-.card:nth-child(7n) img {
-  height: 140px;
-}
-
-/* HOVER */
 .card:hover img {
-  transform: scale(1.1);
+    transform: scale(1.1);
 }
 
-/* OVERLAY */
+/* overlay */
 .overlay {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background: rgba(0,0,0,0.6);
-  color: white;
-  padding: 8px;
-  font-size: 14px;
-  transform: translateY(100%);
-  transition: 0.3s;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    padding: 8px;
+    transform: translateY(100%);
+    transition: 0.3s;
 }
 
 .card:hover .overlay {
-  transform: translateY(0);
+    transform: translateY(0);
 }
 
 /* ================= TABLA ================= */
 .tabla-container {
-  padding: 20px;
-  overflow-x: auto;
+    padding: 20px;
 }
 
 table {
-  width: 100%;
-  border-collapse: collapse;
-  background: white;
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
 }
 
 th {
-  background: #333;
-  color: white;
+    background: #333;
+    color: white;
 }
 
 th, td {
-  padding: 10px;
-  border: 1px solid #ccc;
-  text-align: left;
+    padding: 10px;
+    border: 1px solid #ccc;
 }
 
-/* ================= FILTROS ================= */
-
-/* CULTURAL */
+/* ================= FILTROS FUNCIONANDO ================= */
 #cultural:checked ~ .destinos .card:not(.cultural),
-#cultural:checked ~ .tabla-container tbody tr:not(.cultural) {
-  display: none;
-}
+#cultural:checked ~ .tabla-container tr:not(.cultural),
 
-/* NATURALEZA */
 #naturaleza:checked ~ .destinos .card:not(.naturaleza),
-#naturaleza:checked ~ .tabla-container tbody tr:not(.naturaleza) {
-  display: none;
-}
+#naturaleza:checked ~ .tabla-container tr:not(.naturaleza),
 
-/* PLAYA */
 #playa:checked ~ .destinos .card:not(.playa),
-#playa:checked ~ .tabla-container tbody tr:not(.playa) {
-  display: none;
-}
+#playa:checked ~ .tabla-container tr:not(.playa),
 
-/* GASTRONOMÍA */
 #gastronomia:checked ~ .destinos .card:not(.gastronomia),
-#gastronomia:checked ~ .tabla-container tbody tr:not(.gastronomia) {
-  display: none;
-}
+#gastronomia:checked ~ .tabla-container tr:not(.gastronomia),
 
-/* RELIGIOSO */
 #religioso:checked ~ .destinos .card:not(.religioso),
-#religioso:checked ~ .tabla-container tbody tr:not(.religioso) {
-  display: none;
+#religioso:checked ~ .tabla-container tr:not(.religioso) {
+    display: none;
 }
 
-/* ================= TABLA RESPONSIVE ================= */
+/* ================= RESPONSIVE TABLA ================= */
 @media (max-width: 600px) {
 
-  table, thead, tbody, tr, td {
-    display: block;
-  }
+    table, thead, tbody, tr, td {
+        display: block;
+    }
 
-  thead {
-    display: none;
-  }
+    thead {
+        display: none;
+    }
 
-  tr {
-    margin-bottom: 10px;
-    background: white;
-    padding: 10px;
-    border-radius: 10px;
-  }
+    tr {
+        margin-bottom: 10px;
+        background: white;
+        padding: 10px;
+        border-radius: 10px;
+    }
 
-  td {
-    position: relative;
-    padding-left: 50%;
-  }
+    td {
+        padding-left: 50%;
+        position: relative;
+    }
 
-  td::before {
-    position: absolute;
-    left: 10px;
-    font-weight: bold;
-    content: attr(data-label);
-  }
+    td::before {
+        position: absolute;
+        left: 10px;
+        font-weight: bold;
+        content: attr(data-label);
+    }
 }
