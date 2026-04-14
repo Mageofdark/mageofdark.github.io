@@ -180,33 +180,5 @@
 
 </main>
 
-<script>
-// Para Scroll Reveal - simple implementación con Intersection Observer
-const articles = document.querySelectorAll('.article');
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
-    });
-});
-articles.forEach(article => observer.observe(article));
-
-// Para filtrado con CSS - pero como es solo CSS, usar :checked, pero JS para toggle
-document.querySelectorAll('.filter').forEach(filter => {
-    filter.addEventListener('change', () => {
-        const category = filter.dataset.category;
-        const checked = filter.checked;
-        document.querySelectorAll('.article').forEach(article => {
-            if (checked && !article.classList.contains(category)) {
-                article.style.display = 'none';
-            } else {
-                article.style.display = 'block';
-            }
-        });
-    });
-});
-</script>
-
 </body>
 </html>
