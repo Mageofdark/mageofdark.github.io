@@ -1,0 +1,342 @@
+/* Custom Properties (Variables CSS) para colores y temas */
+:root {
+    --bg-color: #f4f4f4;
+    --text-color: #333;
+    --header-bg: #fff;
+    --card-bg: #fff;
+    --accent: #007bff;
+    --shadow: rgba(0,0,0,0.1);
+    --border-radius: 5px;
+}
+
+[data-theme="dark"] {
+    --bg-color: #333;
+    --text-color: #f4f4f4;
+    --header-bg: #222;
+    --card-bg: #444;
+    --accent: #ffcc00;
+    --shadow: rgba(255,255,255,0.1);
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Times New Roman', serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+    scroll-snap-type: y mandatory;
+}
+
+header {
+    text-align: center;
+    background-color: var(--header-bg);
+    padding: 20px;
+    box-shadow: 0 2px 5px var(--shadow);
+    position: relative;
+}
+
+#theme-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#theme-toggle:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    transform: scale(1.05);
+}
+
+#theme-toggle:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+/* Blog container */
+.blog-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Filtros */
+.filters {
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.filters label {
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+/* Grid de artículos - sin responsividad */
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 300px);
+    gap: 20px;
+}
+
+.article {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 5px var(--shadow);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.article.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.article h3 {
+    font-size: 1.5em;
+    margin-top: 0;
+}
+
+.article p {
+    line-height: 1.6;
+}
+
+/* Tags */
+.tags {
+    margin: 10px 0;
+}
+
+.tag {
+    display: inline-block;
+    background-color: var(--accent);
+    color: #fff;
+    padding: 5px 10px;
+    margin-right: 5px;
+    border-radius: 3px;
+    font-size: 0.8em;
+}
+
+/* Comentarios */
+.comments {
+    margin-top: 20px;
+}
+
+.comment {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin-right: 10px;
+    position: relative;
+}
+
+.avatar::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+.avatar::after {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 20px;
+    height: 5px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+/* Clip-path & Masking para imágenes */
+.clip-image {
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    transition: clip-path 0.5s;
+}
+
+.clip-image:hover {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+/* Estilos para Agencias - Tarjetas sin responsividad */
+.agencias {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 100px;
+    padding: 50px;
+    padding-bottom: 700px;
+    scroll-snap-align: start;
+    min-height: 100vh;
+}
+
+.flip-card {
+    display: flex;
+    background-color: transparent;
+    width: 400px;
+    height: 250px;
+    margin: 0 auto;
+    perspective: 1000px;
+}
+
+.flip-card:hover .flip-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-front, .flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.flip-front {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
+.flip-back {
+    background-color: var(--accent);
+    color: white;
+    transform: rotateY(180deg);
+}
+
+/* Rating con estrellas animadas */
+.rating {
+    margin-top: 10px;
+}
+
+.star {
+    font-size: 30px;
+    color: #ddd;
+    display: inline-block;
+}
+
+.star.filled {
+    color: #ffcc00;
+}
+
+.star.half, .star.partial {
+    position: relative;
+}
+
+.star.half::before, .star.partial::before {
+    content: '★';
+    position: absolute;
+    left: 0;
+    color: #ffcc00;
+}
+
+.star.half::after {
+    content: '★';
+    position: absolute;
+    left: 0;
+    color: #ddd;
+    clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+}
+
+.star.partial::after {
+    content: '★';
+    position: absolute;
+    left: 0;
+    color: #ddd;
+    clip-path: polygon(15% 0, 100% 0, 100% 100%, 50% 100%);
+}
+
+/* Keyframes para animaciones avanzadas */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--shadow);
+    border-top: 4px solid var(--accent);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes counter {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+.counter-bar {
+    height: 10px;
+    background-color: var(--accent);
+    animation: counter 2s ease-in-out;
+}
+
+/* Transiciones SVG */
+svg path {
+    transition: fill 0.3s, stroke 0.3s;
+}
+
+svg:hover path {
+    fill: var(--accent);
+    stroke: var(--text-color);
+}
+
+/* Accesibilidad: Estados de focus */
+button:focus, a:focus, input:focus, label:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* Micro-interacciones */
+button:hover, a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow);
+}
+
+.flip-card:hover {
+    box-shadow: 0 8px 16px var(--shadow);
+}
+
+img {
+    width: auto;
+    height: 70px;
+    object-fit: cover;
+    padding: 0;
+}
