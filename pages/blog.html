@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog de Destinos</title>
+    <link rel="stylesheet" href="../styles/styles_agencias.css">
+</head>
+<body>
+
+<header>
+    <h1>Blog de Destinos</h1>
+    <p>Explora los mejores destinos de viaje en estilo revista</p>
+</header>
+
+<main class="blog-container">
+
+    <!-- Filtros de categorías -->
+    <section class="filters">
+        <h2>Filtrar por Categoría</h2>
+        <label><input type="checkbox" class="filter" data-category="playa"> Playa</label>
+        <label><input type="checkbox" class="filter" data-category="montana"> Montaña</label>
+        <label><input type="checkbox" class="filter" data-category="ciudad"> Ciudad</label>
+        <label><input type="checkbox" class="filter" data-category="aventura"> Aventura</label>
+    </section>
+
+    <!-- Grid de artículos -->
+    <section class="articles-grid">
+        <article class="article playa aventura" data-tags="playa, aventura">
+            <h3>Viaje a las Maldivas</h3>
+            <p>Descubre las paradisíacas playas de las Maldivas...</p>
+            <div class="tags">
+                <span class="tag">Playa</span>
+                <span class="tag">Aventura</span>
+            </div>
+            <div class="comments">
+                <div class="comment">
+                    <div class="avatar"></div>
+                    <p><strong>Usuario1:</strong> Increíble lugar!</p>
+                </div>
+                <div class="comment">
+                    <div class="avatar"></div>
+                    <p><strong>Usuario2:</strong> Quiero ir ya.</p>
+                </div>
+            </div>
+        </article>
+
+        <article class="article montana" data-tags="montana">
+            <h3>Escalada en los Alpes</h3>
+            <p>La emoción de conquistar las cumbres...</p>
+            <div class="tags">
+                <span class="tag">Montaña</span>
+            </div>
+            <div class="comments">
+                <div class="comment">
+                    <div class="avatar"></div>
+                    <p><strong>Usuario3:</strong> Paisajes espectaculares.</p>
+                </div>
+            </div>
+        </article>
+
+        <article class="article ciudad" data-tags="ciudad">
+            <h3>Explorando Nueva York</h3>
+            <p>La ciudad que nunca duerme...</p>
+            <div class="tags">
+                <span class="tag">Ciudad</span>
+            </div>
+            <div class="comments">
+                <div class="comment">
+                    <div class="avatar"></div>
+                    <p><strong>Usuario4:</strong> Energía única.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Más artículos aquí -->
+    </section>
+
+</main>
+
+<script>
+// Para Scroll Reveal - simple implementación con Intersection Observer
+const articles = document.querySelectorAll('.article');
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+});
+articles.forEach(article => observer.observe(article));
+
+// Para filtrado con CSS - pero como es solo CSS, usar :checked, pero JS para toggle
+document.querySelectorAll('.filter').forEach(filter => {
+    filter.addEventListener('change', () => {
+        const category = filter.dataset.category;
+        const checked = filter.checked;
+        document.querySelectorAll('.article').forEach(article => {
+            if (checked && !article.classList.contains(category)) {
+                article.style.display = 'none';
+            } else {
+                article.style.display = 'block';
+            }
+        });
+    });
+});
+</script>
+
+</body>
+</html>
