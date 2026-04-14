@@ -7,6 +7,9 @@
 <link rel="stylesheet" href="../styles/destinos.css">
 </head>
 
+<body>
+
+<!-- ================= HEADER ================= -->
 <header>
     <div class="logo">
         <h1>Turismo</h1>
@@ -17,38 +20,33 @@
             <li><a href="home.html">Inicio</a></li>
             <li><a href="destinos.html">Destinos</a></li>
             <li><a href="agencias.html">Agencias</a></li>
-            <li><a href="destinos.html">Destinos</a></li>
+            <li><a href="precios.html">Precios</a></li>
         </ul>
     </nav>
 </header>
 
+<!-- ================= INPUTS (CLAVE PARA FILTRO) ================= -->
+<input type="radio" name="filtro" id="todos" checked>
+<input type="radio" name="filtro" id="cultural">
+<input type="radio" name="filtro" id="naturaleza">
+<input type="radio" name="filtro" id="playa">
+<input type="radio" name="filtro" id="gastronomia">
+<input type="radio" name="filtro" id="religioso">
 
-<!-- ================= FILTROS ================= -->
+<!-- ================= BOTONES ================= -->
 <div class="filtros">
-
-  <input type="radio" name="filtro" id="todos" checked>
   <label for="todos">Todos</label>
-
-  <input type="radio" name="filtro" id="cultural">
   <label for="cultural">Cultural</label>
-
-  <input type="radio" name="filtro" id="naturaleza">
   <label for="naturaleza">Naturaleza</label>
-
-  <input type="radio" name="filtro" id="playa">
   <label for="playa">Playa</label>
-
-  <input type="radio" name="filtro" id="gastronomia">
   <label for="gastronomia">Gastronomía</label>
-
-  <input type="radio" name="filtro" id="religioso">
   <label for="religioso">Religioso</label>
-
 </div>
 
-<!-- ================= DESTINOS (GRID REAL) ================= -->
+<!-- ================= DESTINOS ================= -->
 <div class="destinos">
 
+  <!-- CULTURAL -->
   <div class="card cultural">
     <img src="../img/destinos/cultural/mexico.jpg">
     <div class="overlay">México</div>
@@ -64,64 +62,68 @@
     <div class="overlay">Cusco</div>
   </div>
 
+  <!-- NATURALEZA -->
   <div class="card naturaleza">
     <img src="../img/destinos/naturaleza/cascada.jfif">
-    <div class="overlay">Cascadas</div>
+    <div class="overlay">Amazonas</div>
   </div>
 
   <div class="card naturaleza">
     <img src="../img/destinos/naturaleza/indomita.jfif">
-    <div class="overlay">Indómita</div>
+    <div class="overlay">Patagonia</div>
   </div>
 
   <div class="card naturaleza">
     <img src="../img/destinos/naturaleza/naturalezaHiking.jfif">
-    <div class="overlay">Hiking</div>
+    <div class="overlay">Yellowstone</div>
   </div>
 
+  <!-- PLAYA -->
   <div class="card playa">
     <img src="../img/destinos/playa/beach.jfif">
-    <div class="overlay">Playa</div>
+    <div class="overlay">Cancún</div>
   </div>
 
   <div class="card playa">
     <img src="../img/destinos/playa/caribe.jpg">
-    <div class="overlay">Caribe</div>
+    <div class="overlay">Punta Cana</div>
   </div>
 
   <div class="card playa">
     <img src="../img/destinos/playa/playa top.jpg">
-    <div class="overlay">Cancún</div>
+    <div class="overlay">Maldivas</div>
   </div>
 
+  <!-- GASTRONOMÍA -->
   <div class="card gastronomia">
     <img src="../img/destinos/gastronomia/asado.jfif">
-    <div class="overlay">Argentina</div>
+    <div class="overlay">Lima</div>
   </div>
 
   <div class="card gastronomia">
     <img src="../img/destinos/gastronomia/peru.jfif">
-    <div class="overlay">Perú</div>
+    <div class="overlay">París</div>
   </div>
 
   <div class="card gastronomia">
     <img src="../img/destinos/gastronomia/argentina.jfif">
-    <div class="overlay">Postres</div>
+    <div class="overlay">Tokio</div>
   </div>
 
+  <!-- RELIGIOSO -->
   <div class="card religioso">
     <img src="../img/destinos/religioso/buda.jfif">
-    <div class="overlay">Budismo</div>
+    <div class="overlay">Vaticano</div>
   </div>
 
   <div class="card religioso">
     <img src="../img/destinos/religioso/budismo.jfif">
-    <div class="overlay">Templo</div>
+    <div class="overlay">La Meca</div>
   </div>
 
   <div class="card religioso">
     <img src="../img/destinos/religioso/cristiano.webp">
-    <div class="overlay">Cristianismo</div>
+    <div class="overlay">Jerusalén</div>
   </div>
 
 </div>
@@ -140,25 +142,90 @@
 
 <tbody>
 
-<tr class="cultural"><td data-label="Destino">México</td><td>Cultural</td><td>$1300</td></tr>
-<tr class="cultural"><td>Roma</td><td>Cultural</td><td>$1500</td></tr>
-<tr class="cultural"><td>Cusco</td><td>Cultural</td><td>$1200</td></tr>
+<!-- 🌎 CULTURAL -->
+<tr class="cultural">
+  <td data-label="Destino">Cusco (Perú)</td>
+  <td data-label="Categoría">Cultural</td>
+  <td data-label="Precio">$1200</td>
+</tr>
+<tr class="cultural">
+  <td data-label="Destino">Roma (Italia)</td>
+  <td data-label="Categoría">Cultural</td>
+  <td data-label="Precio">$1500</td>
+</tr>
+<tr class="cultural">
+  <td data-label="Destino">Kioto (Japón)</td>
+  <td data-label="Categoría">Cultural</td>
+  <td data-label="Precio">$1800</td>
+</tr>
 
-<tr class="naturaleza"><td>Cascadas</td><td>Naturaleza</td><td>$900</td></tr>
-<tr class="naturaleza"><td>Indómita</td><td>Naturaleza</td><td>$1000</td></tr>
-<tr class="naturaleza"><td>Hiking</td><td>Naturaleza</td><td>$1100</td></tr>
+<!-- 🌿 NATURALEZA -->
+<tr class="naturaleza">
+  <td data-label="Destino">Amazonas (Brasil)</td>
+  <td data-label="Categoría">Naturaleza</td>
+  <td data-label="Precio">$900</td>
+</tr>
+<tr class="naturaleza">
+  <td data-label="Destino">Patagonia (Argentina)</td>
+  <td data-label="Categoría">Naturaleza</td>
+  <td data-label="Precio">$1100</td>
+</tr>
+<tr class="naturaleza">
+  <td data-label="Destino">Parque Yellowstone (EE.UU)</td>
+  <td data-label="Categoría">Naturaleza</td>
+  <td data-label="Precio">$1400</td>
+</tr>
 
-<tr class="playa"><td>Playa</td><td>Playa</td><td>$1200</td></tr>
-<tr class="playa"><td>Caribe</td><td>Playa</td><td>$1400</td></tr>
-<tr class="playa"><td>Cancún</td><td>Playa</td><td>$1500</td></tr>
+<!-- 🏖️ PLAYA -->
+<tr class="playa">
+  <td data-label="Destino">Cancún (México)</td>
+  <td data-label="Categoría">Playa</td>
+  <td data-label="Precio">$1500</td>
+</tr>
+<tr class="playa">
+  <td data-label="Destino">Punta Cana (R. Dominicana)</td>
+  <td data-label="Categoría">Playa</td>
+  <td data-label="Precio">$1300</td>
+</tr>
+<tr class="playa">
+  <td data-label="Destino">Maldivas</td>
+  <td data-label="Categoría">Playa</td>
+  <td data-label="Precio">$2500</td>
+</tr>
 
-<tr class="gastronomia"><td>Argentina</td><td>Gastronomía</td><td>$1000</td></tr>
-<tr class="gastronomia"><td>Perú</td><td>Gastronomía</td><td>$1100</td></tr>
-<tr class="gastronomia"><td>Postres</td><td>Gastronomía</td><td>$900</td></tr>
+<!-- 🍽️ GASTRONOMÍA -->
+<tr class="gastronomia">
+  <td data-label="Destino">Lima (Perú)</td>
+  <td data-label="Categoría">Gastronomía</td>
+  <td data-label="Precio">$1000</td>
+</tr>
+<tr class="gastronomia">
+  <td data-label="Destino">París (Francia)</td>
+  <td data-label="Categoría">Gastronomía</td>
+  <td data-label="Precio">$1700</td>
+</tr>
+<tr class="gastronomia">
+  <td data-label="Destino">Tokio (Japón)</td>
+  <td data-label="Categoría">Gastronomía</td>
+  <td data-label="Precio">$2000</td>
+</tr>
 
-<tr class="religioso"><td>Budismo</td><td>Religioso</td><td>$1300</td></tr>
-<tr class="religioso"><td>Templo</td><td>Religioso</td><td>$1200</td></tr>
-<tr class="religioso"><td>Cristianismo</td><td>Religioso</td><td>$1400</td></tr>
+<!-- ⛪ RELIGIOSO -->
+<tr class="religioso">
+  <td data-label="Destino">Vaticano</td>
+  <td data-label="Categoría">Religioso</td>
+  <td data-label="Precio">$1400</td>
+</tr>
+<tr class="religioso">
+  <td data-label="Destino">La Meca (Arabia Saudita)</td>
+  <td data-label="Categoría">Religioso</td>
+  <td data-label="Precio">$2200</td>
+</tr>
+<tr class="religioso">
+  <td data-label="Destino">Jerusalén (Israel)</td>
+  <td data-label="Categoría">Religioso</td>
+  <td data-label="Precio">$1600</td>
+</tr>
 
 </tbody>
 

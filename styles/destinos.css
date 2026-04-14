@@ -2,15 +2,12 @@
 :root {
     --color-primary: #005f8f;
     --color-accent: #00b4d8;
-    --color-dark: #1a1a2e;
     --color-light: #f8f9fa;
     --color-gray: #e9ecef;
     --text-dark: #222222;
     --text-light: #ffffff;
 
-    --font-heading: 'Segoe UI', system-ui, sans-serif;
     --font-body: 'Segoe UI', system-ui, sans-serif;
-
     --transition: all 0.3s ease;
 }
 
@@ -24,14 +21,13 @@
 body {
     font-family: var(--font-body);
     background: var(--color-light);
-    padding-top: 70px; /* 👈 para navbar fijo */
+    padding-top: 70px; /* espacio para navbar */
 }
 
 /* ====================== HEADER ====================== */
 header {
     position: fixed;
     top: 0;
-    left: 0;
     width: 100%;
     background: rgba(0, 95, 143, 0.95);
     backdrop-filter: blur(12px);
@@ -40,119 +36,38 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: var(--shadow-sm);
 }
 
 .logo h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: white;
-    letter-spacing: -1px;
 }
 
 .menu {
     list-style: none;
     display: flex;
-    gap: 2.5rem;
-    align-items: center;
-}
-
-.menu li {
-    position: relative;
+    gap: 2rem;
 }
 
 .menu a {
     color: white;
-    font-weight: 500;
-    padding: 0.6rem 1rem;
+    padding: 0.5rem 0.8rem;
     border-radius: 6px;
 }
 
 .menu a:hover {
-    background-color: rgba(255,255,255,0.15);
-    color: white;
-}
-
-/* Dropdown */
-.dropdown .submenu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: white;
-    min-width: 180px;
-    box-shadow: var(--shadow-md);
-    border-radius: 8px;
-    overflow: hidden;
-    padding: 0.5rem 0;
-    z-index: 10;
-}
-
-.dropdown:hover .submenu {
-    display: block;
-    animation: fadeDown 0.3s ease forwards;
-}
-
-.submenu li a {
-    color: var(--text-dark);
-    display: block;
-    padding: 0.75rem 1.25rem;
-}
-
-.submenu li a:hover {
-    background-color: var(--color-gray);
-    color: var(--color-primary);
-}
-
-@keyframes fadeDown {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Dropdown */
-.dropdown .submenu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: white;
-    min-width: 180px;
-    box-shadow: var(--shadow-md);
-    border-radius: 8px;
-    overflow: hidden;
-    padding: 0.5rem 0;
-    z-index: 10;
-}
-
-.dropdown:hover .submenu {
-    display: block;
-    animation: fadeDown 0.3s ease forwards;
-}
-
-.submenu li a {
-    color: var(--text-dark);
-    display: block;
-    padding: 0.75rem 1.25rem;
-}
-
-.submenu li a:hover {
-    background-color: var(--color-gray);
-    color: var(--color-primary);
-}
-
-@keyframes fadeDown {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+    background: rgba(255,255,255,0.15);
 }
 
 /* ================= FILTROS ================= */
+input[type="radio"] {
+    display: none;
+}
+
 .filtros {
     margin-top: 10px;
     text-align: center;
     padding: 20px;
-}
-
-.filtros input {
-    display: none;
 }
 
 .filtros label {
@@ -184,10 +99,10 @@ input:checked + label {
     overflow: hidden;
     border-radius: 10px;
     background: white;
-    transition: transform 0.2s;
+    transition: var(--transition);
 }
 
-/* variación tipo masonry */
+/* efecto masonry */
 .card:nth-child(3n) { grid-row-end: span 25; }
 .card:nth-child(4n) { grid-row-end: span 18; }
 .card:nth-child(5n) { grid-row-end: span 22; }
@@ -196,12 +111,16 @@ input:checked + label {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
-    transition: 0.3s;
+    transition: var(--transition);
 }
 
+/* hover */
 .card:hover img {
     transform: scale(1.1);
+}
+
+.card:hover {
+    transform: translateY(-6px) scale(1.02);
 }
 
 /* overlay */
@@ -213,7 +132,7 @@ input:checked + label {
     color: white;
     padding: 8px;
     transform: translateY(100%);
-    transition: 0.3s;
+    transition: var(--transition);
 }
 
 .card:hover .overlay {
@@ -242,18 +161,42 @@ th, td {
 }
 
 /* ================= FILTROS FUNCIONANDO ================= */
+
+/* TODOS */
+#todos:checked ~ .destinos .card,
+#todos:checked ~ .tabla-container tr {
+    display: table-row;
+}
+
+#todos:checked ~ .destinos .card {
+    display: block;
+}
+
+/* CULTURAL */
 #cultural:checked ~ .destinos .card:not(.cultural),
-#cultural:checked ~ .tabla-container tr:not(.cultural),
+#cultural:checked ~ .tabla-container tr:not(.cultural) {
+    display: none;
+}
 
+/* NATURALEZA */
 #naturaleza:checked ~ .destinos .card:not(.naturaleza),
-#naturaleza:checked ~ .tabla-container tr:not(.naturaleza),
+#naturaleza:checked ~ .tabla-container tr:not(.naturaleza) {
+    display: none;
+}
 
+/* PLAYA */
 #playa:checked ~ .destinos .card:not(.playa),
-#playa:checked ~ .tabla-container tr:not(.playa),
+#playa:checked ~ .tabla-container tr:not(.playa) {
+    display: none;
+}
 
+/* GASTRONOMÍA */
 #gastronomia:checked ~ .destinos .card:not(.gastronomia),
-#gastronomia:checked ~ .tabla-container tr:not(.gastronomia),
+#gastronomia:checked ~ .tabla-container tr:not(.gastronomia) {
+    display: none;
+}
 
+/* RELIGIOSO */
 #religioso:checked ~ .destinos .card:not(.religioso),
 #religioso:checked ~ .tabla-container tr:not(.religioso) {
     display: none;
@@ -290,11 +233,69 @@ th, td {
     }
 }
 
-.card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+
+
+
+/* ================= TABLA MEJORADA ================= */
+.tabla-container {
+    padding: 30px;
 }
 
-.card:hover {
-    transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+/* contenedor visual */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* encabezado */
+th {
+    background: linear-gradient(135deg, #005f8f, #00b4d8);
+    color: white;
+    text-align: left;
+    padding: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* celdas */
+td {
+    padding: 14px;
+    border-bottom: 1px solid #eee;
+    transition: 0.2s;
+}
+
+/* zebra (alternado) */
+tbody tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+/* hover fila */
+tbody tr:hover {
+    background: rgba(0, 180, 216, 0.1);
+    transform: scale(1.01);
+}
+
+/* categoría destacada */
+td:nth-child(2) {
+    font-weight: 500;
+    color: #005f8f;
+}
+
+/* precio estilo */
+td:nth-child(3) {
+    font-weight: bold;
+    color: #00b4d8;
+}
+
+/* bordes redondeados arriba */
+th:first-child {
+    border-top-left-radius: 12px;
+}
+th:last-child {
+    border-top-right-radius: 12px;
 }
