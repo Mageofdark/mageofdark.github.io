@@ -84,7 +84,7 @@ input[type="radio"] {
     display: none;
 }
 
-.article {
+.blogs {
     background-color: var(--card-bg);
     padding: 20px;
     border-radius: var(--border-radius);
