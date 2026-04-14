@@ -512,3 +512,82 @@ img {
     object-fit: cover;
     padding: 0;
 }
+/* ====================== FOOTER ====================== */
+footer {
+    background: var(--color-dark);
+    color: #ddd;
+    padding: 80px 5% 40px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 3rem;
+    max-width: 1400px;
+    margin: 0 auto 4rem;
+}
+
+.newsletter h3,
+.redes h3,
+.mapa h3 {
+    color: white;
+    margin-bottom: 1.25rem;
+    font-size: 1.35rem;
+}
+
+.newsletter form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.newsletter input {
+    flex: 1;
+    min-width: 220px;
+    padding: 14px 18px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.newsletter button {
+    padding: 14px 28px;
+    background: var(--color-accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.newsletter button:hover {
+    background: #0099b8;
+    transform: translateY(-2px);
+}
+
+.redes a {
+    display: inline-block;
+    margin: 8px 12px 8px 0;
+    color: #bbb;
+    font-size: 1.1rem;
+}
+
+.redes a:hover {
+    color: var(--color-accent);
+}
+
+.mapa iframe {
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+}
+
+/* Copyright */
+footer p {
+    text-align: center;
+    opacity: 0.7;
+    font-size: 0.95rem;
+    margin-top: 2rem;
+    border-top: 1px solid #333;
+    padding-top: 2rem;
+}
