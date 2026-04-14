@@ -71,8 +71,9 @@ header {
 .menu {
     list-style: none;
     display: flex;
-    gap: 2.5rem;
+    gap: 2rem; /* antes 2.5rem */
     align-items: center;
+    flex-wrap: wrap; /* 👈 AGREGADO */
 }
 
 .menu li {
