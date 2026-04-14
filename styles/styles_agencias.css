@@ -84,6 +84,17 @@ input[type="radio"] {
     display: none;
 }
 
+.article {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 5px var(--shadow);
+    
+    /* 👇 IMPORTANTE */
+    opacity: 1;
+    transform: translateY(0);
+}
+
 #todos:checked ~ .articles-grid .article {
     display: block;
 }
@@ -297,11 +308,6 @@ h1 {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s, transform 0.5s;
-}
-
-.article.visible {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 .article h3 {
