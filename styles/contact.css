@@ -1,0 +1,176 @@
+/* ====================== VARIABLES ====================== */
+:root {
+    --color-primary: #005f8f;
+    --color-accent: #00b4d8;
+    --color-dark: #1a1a2e;
+    --color-light: #f8f9fa;
+    --color-gray: #e9ecef;
+    --text-dark: #222;
+    --text-light: #fff;
+
+    --transition: all 0.3s ease;
+    --shadow-sm: 0 4px 15px rgba(0,0,0,0.08);
+    --shadow-lg: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+/* ====================== BASE ====================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--color-light);
+    color: var(--text-dark);
+}
+
+/* ====================== HEADER ====================== */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 95, 143, 0.95);
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.logo h1 {
+    color: white;
+}
+
+/* NAV */
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: var(--transition);
+}
+
+.menu a:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+/* ====================== MAIN ====================== */
+main {
+    padding-top: 100px;
+}
+
+/* ====================== CONTACTO ====================== */
+.contacto {
+    max-width: 500px;
+    margin: 0 auto;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+}
+
+.contacto h1 {
+    margin-bottom: 20px;
+}
+
+/* FORM */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* INPUTS */
+input, textarea {
+    padding: 12px;
+    border: 1px solid var(--color-gray);
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: var(--transition);
+}
+
+input:focus, textarea:focus {
+    border-color: var(--color-accent);
+}
+
+/* TEXTAREA */
+textarea {
+    resize: none;
+    height: 120px;
+}
+
+/* BOTON */
+button {
+    padding: 12px;
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 16px;
+}
+
+button:hover {
+    background: var(--color-accent);
+}
+
+/* ====================== SPINNER ====================== */
+.spinner {
+    margin: 20px auto;
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--color-gray);
+    border-top: 4px solid var(--color-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    display: none; /* oculto por defecto */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ====================== MODAL ====================== */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none; /* oculto */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+}
+
+.modal-content button {
+    margin-top: 15px;
+}
+
+/* ====================== RESPONSIVE ====================== */
+@media (max-width: 600px) {
+    .contacto {
+        margin: 20px;
+        padding: 25px;
+    }
+}
