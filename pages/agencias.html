@@ -8,7 +8,6 @@
 <body>
 
     <header>
-            <link rel="stylesheet" href="../styles/styles.css">
         <div class="logo">
             <h1>Turismo</h1>
         </div>
@@ -120,18 +119,6 @@
 
 
 </main>
-
-<script>
-// Modo Oscuro con mínimo JS
-const themeToggle = document.getElementById('theme-toggle');
-themeToggle.addEventListener('click', () => {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', newTheme);
-    themeToggle.textContent = newTheme === 'dark' ? 'Modo Claro' : 'Modo Oscuro';
-    themeToggle.setAttribute('aria-label', newTheme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
-});
-</script>
 
 </body>
 </html>
