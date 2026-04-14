@@ -1,0 +1,199 @@
+/* ================= BASE ================= */
+body {
+  font-family: Arial;
+  margin: 0;
+  background: #f5f5f5;
+}
+
+/* ================= FILTROS ================= */
+.filtros {
+  text-align: center;
+  padding: 20px;
+}
+
+.filtros input {
+  display: none;
+}
+
+.filtros label {
+  margin: 5px;
+  padding: 10px 15px;
+  background: #ddd;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+input:checked + label {
+  background: #333;
+  color: white;
+}
+
+/* ================= GRID ================= */
+.destinos {
+  column-count: 4;
+  column-gap: 15px;
+  padding: 20px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .destinos { column-count: 2; }
+}
+
+@media (max-width: 600px) {
+  .destinos { column-count: 1; }
+}
+
+/* ================= CARDS ================= */
+.card {
+  break-inside: avoid;
+  margin-bottom: 12px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  background: white;
+  transition: transform 0.2s;
+}
+
+/* ROTACIÓN LEVE (DESORDEN) */
+.card:nth-child(odd) {
+  transform: rotate(-1deg);
+}
+
+.card:nth-child(even) {
+  transform: rotate(1deg);
+}
+
+/* IMÁGENES (ALTURAS VARIABLES) */
+.card img {
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s;
+}
+
+/* ALTURAS DIFERENTES */
+.card:nth-child(3n) img {
+  height: 220px;
+}
+
+.card:nth-child(4n) img {
+  height: 160px;
+}
+
+.card:nth-child(5n) img {
+  height: 200px;
+}
+
+.card:nth-child(7n) img {
+  height: 140px;
+}
+
+/* HOVER */
+.card:hover img {
+  transform: scale(1.1);
+}
+
+/* OVERLAY */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  padding: 8px;
+  font-size: 14px;
+  transform: translateY(100%);
+  transition: 0.3s;
+}
+
+.card:hover .overlay {
+  transform: translateY(0);
+}
+
+/* ================= TABLA ================= */
+.tabla-container {
+  padding: 20px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+th {
+  background: #333;
+  color: white;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+/* ================= FILTROS ================= */
+
+/* CULTURAL */
+#cultural:checked ~ .destinos .card:not(.cultural),
+#cultural:checked ~ .tabla-container tbody tr:not(.cultural) {
+  display: none;
+}
+
+/* NATURALEZA */
+#naturaleza:checked ~ .destinos .card:not(.naturaleza),
+#naturaleza:checked ~ .tabla-container tbody tr:not(.naturaleza) {
+  display: none;
+}
+
+/* PLAYA */
+#playa:checked ~ .destinos .card:not(.playa),
+#playa:checked ~ .tabla-container tbody tr:not(.playa) {
+  display: none;
+}
+
+/* GASTRONOMÍA */
+#gastronomia:checked ~ .destinos .card:not(.gastronomia),
+#gastronomia:checked ~ .tabla-container tbody tr:not(.gastronomia) {
+  display: none;
+}
+
+/* RELIGIOSO */
+#religioso:checked ~ .destinos .card:not(.religioso),
+#religioso:checked ~ .tabla-container tbody tr:not(.religioso) {
+  display: none;
+}
+
+/* ================= TABLA RESPONSIVE ================= */
+@media (max-width: 600px) {
+
+  table, thead, tbody, tr, td {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tr {
+    margin-bottom: 10px;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  td {
+    position: relative;
+    padding-left: 50%;
+  }
+
+  td::before {
+    position: absolute;
+    left: 10px;
+    font-weight: bold;
+    content: attr(data-label);
+  }
+}
