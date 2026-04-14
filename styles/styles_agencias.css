@@ -189,6 +189,7 @@ h1 {
     display: flex;
     gap: 20px;
     justify-content: center;
+    margin-top: 100px;
     padding: 50px;
     padding-bottom: 700px;
     scroll-snap-align: start;
