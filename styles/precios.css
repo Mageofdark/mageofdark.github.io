@@ -30,24 +30,30 @@ body {
 header {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
     background: rgba(0, 95, 143, 0.95);
-    padding: 15px 5%;
+    backdrop-filter: blur(12px);
+    z-index: 1000;
+    padding: 1rem 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1000;
+    box-shadow: var(--shadow-sm);
 }
 
 .logo h1 {
+    font-size: 2rem;
     color: white;
+    letter-spacing: -1px;
 }
 
 .menu {
     list-style: none;
     display: flex;
-    gap: 2.5rem;
+    gap: 2rem; /* antes 2.5rem */
     align-items: center;
+    flex-wrap: wrap; /* 👈 AGREGADO */
 }
 
 .menu li {
@@ -65,6 +71,42 @@ header {
 .menu a:hover {
     background-color: rgba(255,255,255,0.15);
     color: white;
+}
+
+/* Dropdown */
+.dropdown .submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    min-width: 180px;
+    box-shadow: var(--shadow-md);
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 0.5rem 0;
+    z-index: 10;
+}
+
+.dropdown:hover .submenu {
+    display: block;
+    animation: fadeDown 0.3s ease forwards;
+}
+
+.submenu li a {
+    color: var(--text-dark);
+    display: block;
+    padding: 0.75rem 1.25rem;
+}
+
+.submenu li a:hover {
+    background-color: var(--color-gray);
+    color: var(--color-primary);
+}
+
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 /* ====================== HERO ====================== */
 .hero {
@@ -178,10 +220,82 @@ header {
 
 /* ====================== FOOTER ====================== */
 footer {
-    text-align: center;
-    padding: 20px;
     background: var(--color-dark);
+    color: #ddd;
+    padding: 80px 5% 40px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 3rem;
+    max-width: 1400px;
+    margin: 0 auto 4rem;
+}
+
+.newsletter h3,
+.redes h3,
+.mapa h3 {
     color: white;
+    margin-bottom: 1.25rem;
+    font-size: 1.35rem;
+}
+
+.newsletter form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.newsletter input {
+    flex: 1;
+    min-width: 220px;
+    padding: 14px 18px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.newsletter button {
+    padding: 14px 28px;
+    background: var(--color-accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.newsletter button:hover {
+    background: #0099b8;
+    transform: translateY(-2px);
+}
+
+.redes a {
+    display: inline-block;
+    margin: 8px 12px 8px 0;
+    color: #bbb;
+    font-size: 1.1rem;
+}
+
+.redes a:hover {
+    color: var(--color-accent);
+}
+
+.mapa iframe {
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+}
+
+/* Copyright */
+footer p {
+    text-align: center;
+    opacity: 0.7;
+    font-size: 0.95rem;
+    margin-top: 2rem;
+    border-top: 1px solid #333;
+    padding-top: 2rem;
 }
 
 /* ====================== RESPONSIVE ====================== */

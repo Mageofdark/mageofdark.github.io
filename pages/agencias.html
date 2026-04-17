@@ -8,33 +8,25 @@
 <body>
 
     <header>
-            <link rel="stylesheet" href="../styles/styles.css">
         <div class="logo">
-            <h1>Turismo</h1>
+            <h1>Grand Tour GT</h1>
         </div>
 
         <nav>
             <ul class="menu">
-                <li><a href="/pages/home.html">Inicio</a></li>
+                
+                <li><a href="../index.html">Inicio</a></li>
 
-                <li class="dropdown">
-                    <a href="#">Destinos</a>
-                    <ul class="submenu">
-                        <li><a href="#">Playa</a></li>
-                        <li><a href="#">Montaña</a></li>
-                        <li><a href="#">Ciudad</a></li>
-                    </ul>
-                </li>
+                <li><a href="destinos.html">Destinos</a></li>
 
-                <li class="dropdown">
-                    <a href="#">Agencias</a>
-                    <ul class="submenu">
-                        <li><a href="/pages/agencias.html">Top agencias</a></li>
-                        <li><a href="#">Ofertas</a></li>
-                    </ul>
-                </li>
+                <li><a href="agencias.html">Agencias</a></li>
 
-                <li><a href="#">Precios</a></li>
+                <li><a href="blog.html">Blog</a></li>
+
+                <li><a href="contacto.html">Contacto</a></li>
+
+                <li><a href="precios.html">Precios</a></li>
+
             </ul>
         </nav>
     </header>
@@ -128,17 +120,42 @@
 
 </main>
 
-<script>
-// Modo Oscuro con mínimo JS
-const themeToggle = document.getElementById('theme-toggle');
-themeToggle.addEventListener('click', () => {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', newTheme);
-    themeToggle.textContent = newTheme === 'dark' ? 'Modo Claro' : 'Modo Oscuro';
-    themeToggle.setAttribute('aria-label', newTheme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
-});
-</script>
+<!-- FOOTER -->
+    <footer>
 
+        <div class="footer-grid">
+
+            <!-- Newsletter -->
+            <section class="newsletter">
+                <h3>Suscríbete</h3>
+                <form>
+                    <input type="email" placeholder="Tu correo" required>
+                    <button type="submit">Enviar</button>
+                </form>
+            </section>
+
+            <!-- Redes -->
+            <section class="redes">
+                <h3>Síguenos</h3>
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">Twitter</a>
+            </section>
+
+            <!-- Mapa -->
+            <section class="mapa">
+                <h3>Ubicación</h3>
+                <iframe 
+                    src="https://www.google.com/maps?q=Jujuy&output=embed"
+                    width="100%" 
+                    height="200" 
+                    style="border:0;" 
+                    loading="lazy">
+                </iframe>
+            </section>
+
+        </div>
+
+    </footer>
 </body>
 </html>

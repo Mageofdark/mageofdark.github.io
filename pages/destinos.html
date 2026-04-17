@@ -11,19 +11,28 @@
 
 <!-- ================= HEADER ================= -->
 <header>
-    <div class="logo">
-        <h1>Turismo</h1>
-    </div>
+        <div class="logo">
+            <h1>Grand Tour GT</h1>
+        </div>
 
-    <nav>
-        <ul class="menu">
-            <li><a href="home.html">Inicio</a></li>
-            <li><a href="destinos.html">Destinos</a></li>
-            <li><a href="agencias.html">Agencias</a></li>
-            <li><a href="precios.html">Precios</a></li>
-        </ul>
-    </nav>
-</header>
+        <nav>
+            <ul class="menu">
+                
+                <li><a href="../index.html">Inicio</a></li>
+
+                <li><a href="destinos.html">Destinos</a></li>
+
+                <li><a href="agencias.html">Agencias</a></li>
+
+                <li><a href="blog.html">Blog</a></li>
+
+                <li><a href="contacto.html">Contacto</a></li>
+
+                <li><a href="precios.html">Precios</a></li>
+
+            </ul>
+        </nav>
+    </header>
 
 <!-- ================= INPUTS (CLAVE PARA FILTRO) ================= -->
 <input type="radio" name="filtro" id="todos" checked>
@@ -231,6 +240,42 @@
 
 </table>
 </div>
+<!-- FOOTER -->
+    <footer>
 
+        <div class="footer-grid">
+
+            <!-- Newsletter -->
+            <section class="newsletter">
+                <h3>Suscríbete</h3>
+                <form>
+                    <input type="email" placeholder="Tu correo" required>
+                    <button type="submit">Enviar</button>
+                </form>
+            </section>
+
+            <!-- Redes -->
+            <section class="redes">
+                <h3>Síguenos</h3>
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">Twitter</a>
+            </section>
+
+            <!-- Mapa -->
+            <section class="mapa">
+                <h3>Ubicación</h3>
+                <iframe 
+                    src="https://www.google.com/maps?q=Jujuy&output=embed"
+                    width="100%" 
+                    height="200" 
+                    style="border:0;" 
+                    loading="lazy">
+                </iframe>
+            </section>
+
+        </div>
+
+    </footer>
 </body>
 </html>
