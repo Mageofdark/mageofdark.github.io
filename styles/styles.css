@@ -17,10 +17,8 @@
     --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.15);
 }
 
-/* ====================== RESET & BASE ====================== */
-*,
-*::before,
-*::after {
+/* ================= RESET ================= */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -28,32 +26,18 @@
 
 body {
     font-family: var(--font-body);
-    color: var(--text-dark);
-    background-color: var(--color-light);
-    line-height: 1.6;
-    overflow-x: hidden;
+    background: var(--color-light);
+    padding-top: 70px;
 }
 
-h1, h2, h3, h4 {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    line-height: 1.2;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-    transition: var(--transition);
-}
-
-/* ====================== HEADER ====================== */
+/* ================= HEADER ================= */
 header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     background: rgba(0, 95, 143, 0.95);
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(10px);
     z-index: 1000;
     padding: 1rem 5%;
     display: flex;
@@ -71,9 +55,9 @@ header {
 .menu {
     list-style: none;
     display: flex;
-    gap: 2rem; /* antes 2.5rem */
+    gap: 2rem;
     align-items: center;
-    flex-wrap: wrap; /* 👈 AGREGADO */
+    flex-wrap: wrap;
 }
 
 .menu li {

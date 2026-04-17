@@ -33,7 +33,7 @@ header {
     left: 0;
     width: 100%;
     background: rgba(0, 95, 143, 0.95);
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(10px);
     z-index: 1000;
     padding: 1rem 5%;
     display: flex;
@@ -51,9 +51,9 @@ header {
 .menu {
     list-style: none;
     display: flex;
-    gap: 2rem; /* antes 2.5rem */
+    gap: 2rem;
     align-items: center;
-    flex-wrap: wrap; /* 👈 AGREGADO */
+    flex-wrap: wrap;
 }
 
 .menu li {
