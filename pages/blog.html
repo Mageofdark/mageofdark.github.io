@@ -33,180 +33,186 @@
 
 <main class="blog-container">
 
-    <!-- Filtros de categorías -->
-    <section class="filters">
+    <!----- INPUTS (FILTROS) ----->
+    <input type="radio" name="filtro" id="todos" checked>
+    <input type="radio" name="filtro" id="cultural">
+    <input type="radio" name="filtro" id="naturaleza">
+    <input type="radio" name="filtro" id="playa">
+    <input type="radio" name="filtro" id="aventura">
+
+    <!----- BOTONES ----->
+    <section class="filtros">
         <h2>Filtrar por Categoría</h2>
-        <label><input type="checkbox" class="filter" data-category="playa"> Playa</label>
-        <label><input type="checkbox" class="filter" data-category="montana"> Montaña</label>
-        <label><input type="checkbox" class="filter" data-category="ciudad"> Ciudad</label>
-        <label><input type="checkbox" class="filter" data-category="aventura"> Aventura</label>
+        <label for="todos" tabindex="0">Todos</label>
+        <label for="cultural" tabindex="0">Cultural</label>
+        <label for="naturaleza" tabindex="0">Naturaleza</label>
+        <label for="playa" tabindex="0">Playa</label>
+        <label for="aventura" tabindex="0">Aventura</label>
     </section>
 
-    <!-- Grid de artículos -->
-    <section class="articles-grid">
-        <article class="article playa aventura" data-tags="playa, aventura">
-            <h3>Viaje a las Maldivas</h3>
-            <p>Descubre las paradisíacas playas de las Maldivas...</p>
-            <div class="tags">
-                <span class="tag">Playa</span>
-                <span class="tag">Aventura</span>
+  <!-- COMENTARIOS -->
+    <section class="comments">
+
+        <article class="card xl playa" tabindex="0">
+            <ul class="tags">
+                <li class="tag">Playa</li>
+            </ul>
+            <h2>Maldivas</h2>
+            <p>Un paraíso total. Agua cristalina y paisajes de otro mundo.</p>
+            <div class="user">
+                <div class="avatar1">VL </div>
+                <small> — Valentina López</small>
             </div>
-            <div class="comments">
-                <div class="comment">
-                    <div class="avatar"></div>
-                    <p><strong>Susana Daza:</strong> Increíble lugar!</p>
-                </div>
-                <div class="comment">
-                    <div class="avatar"></div>
-                    <p><strong>Esteban Mamani:</strong> Quiero ir ya.</p>
-                </div>
-            </div>
+            <div class="like">32</div>
         </article>
 
-        <article class="article montana" data-tags="montana">
-            <h3>Escalada en los Alpes</h3>
+        <article class="card aventura" tabindex="0">
+            <ul class="tags">
+                <li class="tag">Aventura</li>
+            </ul>
+            <h2>Escalada en los Alpes</h2>
             <p>La emoción de conquistar las cumbres...</p>
-            <div class="tags">
-                <span class="tag">Montaña</span>
+            <div class="user">
+                <div class="avatar1">MS </div>
+                <small> — Martín Silva</small>
             </div>
-            <div class="comments">
-                <div class="comment">
-                    <div class="avatar"></div>
-                    <p><strong> Pablo Rodríguez:</strong> Paisajes espectaculares.</p>
-                </div>
-            </div>
+            <div class="like">21</div>
         </article>
 
-        <article class="article ciudad" data-tags="ciudad">
-            <h3>Explorando Nueva York</h3>
-            <p>La ciudad que nunca duerme...</p>
-            <div class="tags">
-                <span class="tag">Ciudad</span>
+        <article class="card cultural" tabindex="0">
+            <ul class="tags">
+                <li class="tag">Cultural</li>
+            </ul>
+            <h2>Cusco (Perú)</h2>
+            <p>Una experiencia increíble llena de historia y cultura. Volvería sin dudarlo.</p>
+            <div class="user">
+                <div class="avatar2"> </div>
+                <small> — María González</small>
             </div>
-            <div class="comments">
-                <div class="comment">
-                    <div class="avatar"></div>
-                    <p><strong>Juan Perez:</strong> Energía única.</p>
-                </div>
-            </div>
+            <div class="like">13</div>
         </article>
 
-        <article class="article playa" data-tags="playa">
-    <h3>Vacaciones en Cancún</h3>
-    <p>Playas de arena blanca y agua cristalina en el Caribe mexicano...</p>
-    <div class="tags">
-        <span class="tag">Playa</span>
-    </div>
-    <div class="comments">
-        <div class="comment">
-            <div class="avatar"></div>
-            <p><strong>María López:</strong> El agua es increíble, súper transparente.</p>
-        </div>
-        <div class="comment">
-            <div class="avatar"></div>
-            <p><strong>Lucas Fernández:</strong> Los all inclusive valen totalmente la pena.</p>
-        </div>
-    </div>
-    </article>
+        <article class="card large playa" tabindex="0">
+            <ul class="tags">
+                <li class="tag">Playa</li>
+            </ul>
+            <h2>Cancún (México)</h2>
+            <p>Playas hermosas y excelente servicio. Perfecto para relajarse.</p>
+            <div class="user">
+                <div class="avatar1">DR </div>
+                <small> — Diego Ramírez</small>
+            </div>
+            <div class="like">17</div>
+        </article>
 
-    <article class="article montana aventura" data-tags="montana, aventura">
-        <h3>Trekking en el Cerro Fitz Roy</h3>
-        <p>Una de las rutas más impresionantes de la Patagonia argentina...</p>
-        <div class="tags">
-            <span class="tag">Montaña</span>
-            <span class="tag">Aventura</span>
-        </div>
-        <div class="comments">
-            <div class="comment">
-                <div class="avatar"></div>
-                <p><strong>Juan Pérez:</strong> Es exigente, pero las vistas lo valen todo.</p>
+        <article class="card gastronomia cultural" tabindex="0">
+            <ul class="tags">
+                <li class="tag">Gastronomía</li>
+                <li class="tag">Cultural</li>
+            </ul>
+            <h2>Lima (Perú)</h2>
+            <p>La comida es espectacular. Cada plato fue una sorpresa increíble.</p>
+            <div class="user">
+                <div class="avatar1">JF </div>
+                <small> — Joaquin Figueroa</small>
             </div>
-        </div>
-    </article>
+            <div class="like">26</div>
+        </article>
 
-    <article class="article ciudad" data-tags="ciudad">
-        <h3>Fin de semana en Buenos Aires</h3>
-        <p>Entre cafés históricos, tango y una gran vida nocturna...</p>
-        <div class="tags">
-            <span class="tag">Ciudad</span>
-        </div>
-        <div class="comments">
-            <div class="comment">
-                <div class="avatar"></div>
-                <p><strong>Carla Gómez:</strong> Caminito y San Telmo me encantaron.</p>
+        <article class="card religioso" tabindex="0">
+            <ul class="tags">
+                <li class="tag">Religioso</li>
+            </ul>
+            <h2>Jerusalén (Israel)</h2>
+            <p>Una experiencia única, cargada de significado cultural y religioso.</p>
+            <div class="user">
+                <div class="avatar2"> </div>
+                <small> — Laura Díaz</small>
             </div>
-            <div class="comment">
-                <div class="avatar"></div>
-                <p><strong>Diego Ruiz:</strong> Mucha variedad de comida, imposible aburrirse.</p>
-            </div>
-        </div>
-    </article>
+            <div class="like">13</div>
+        </article>
 
-    <article class="article aventura" data-tags="aventura">
-        <h3>Rafting en Mendoza</h3>
-        <p>Descenso por rápidos en el río Mendoza rodeado de montañas...</p>
-        <div class="tags">
-            <span class="tag">Aventura</span>
-        </div>
-        <div class="comments">
-            <div class="comment">
-                <div class="avatar"></div>
-                <p><strong>Sofía Martínez:</strong> Adrenalina pura, lo volvería a hacer.</p>
+        <article class="card xl naturaleza" tabindex="0">
+            <ul class="tags">
+                <li class="tag">Naturaleza</li>
+            </ul>
+            <h2>Patagonia (Argentina)</h2>
+            <p>Paisajes únicos y naturaleza pura. Ideal para desconectar completamente.</p>
+            <div class="user">
+                <div class="avatar2"></div>
+                <small> — Lucas Fernández</small>
             </div>
-        </div>
-    </article>
+            <div class="like">26</div>
+        </article>
 
-    <article class="article playa ciudad" data-tags="playa, ciudad">
-        <h3>Verano en Río de Janeiro</h3>
-        <p>Playas icónicas como Copacabana y una ciudad llena de vida...</p>
-        <div class="tags">
-            <span class="tag">Playa</span>
-            <span class="tag">Ciudad</span>
-        </div>
-        <div class="comments">
-            <div class="comment">
-                <div class="avatar"></div>
-                <p><strong>Fernando Silva:</strong> El Cristo Redentor es impresionante en persona.</p>
+        <article class="card large gastronomia" tabindex="0">
+            <ul class="tags">
+                <li class="tag">Gastronomía</li>
+            </ul>
+            <h2>París (Francia)</h2>
+            <p>Una experiencia gourmet única. Todo es elegante y delicioso.</p>
+            <div class="user">
+                <div class="avatar1">CT </div>
+                <small> — Camila Torres</small>
             </div>
-            <div class="comment">
-                <div class="avatar"></div>
-                <p><strong>Lucía Torres:</strong> Las playas son hermosas y siempre hay ambiente.</p>
-            </div>
-        </div>
-    </article>
+            <div class="like">20</div>
+        </article>
 
-        <!-- Más artículos aquí -->
+        <article class="card cultural" tabindex="0">
+            <ul class="tags">
+                <li class="tag">Cultural</li>
+            </ul>
+            <h2>Roma (Italia)</h2>
+            <p>Caminar por sus calles es como viajar en el tiempo. Todo es impresionante.</p>
+            <div class="user">
+                <div class="avatar1">JP </div>
+                <small> — Juan Pérez</small>
+            </div>
+            <div class="like">8</div>
+        </article>
+
+        <article class="card playa cultural" tabindex="0">
+            <ul class="tags">
+                <li class="tag">Playa</li>
+                <li class="tag">Cultural</li>
+            </ul>
+            <h2>Río de Janeiro</h2>
+            <p>Playas icónicas y un carnaval vibrante.</p>
+            <div class="user">
+                <div class="avatar1"> AM </div>
+                <small> — Ana Mamani</small>
+            </div>
+            <div class="like">11</div>
+        </article>
+
+        <article class="card large naturaleza" tabindex="0">
+            <ul class="tags">
+                <li class="tag">Naturaleza</li>
+            </ul>
+            <h2>Patagonia (Argentina)</h2>
+            <p>Paisajes únicos y naturaleza pura. Ideal para desconectar completamente.</p>
+            <div class="user">
+                <div class="avatar2"> </div>
+                <small> — Lautaro Luque</small>
+            </div>
+            <div class="like">13</div>
+        </article>
+
+        <article class="card large religioso" tabindex="0">
+            <ul class="tags">
+                <li class="tag">Religioso</li>
+            </ul>
+            <h2>Vaticano</h2>
+            <p>Un lugar lleno de historia y espiritualidad. Muy impactante.</p>
+            <div class="user">
+                <div class="avatar2"> </div>
+                <small> — Andrés Morales</small>
+            </div>
+            <div class="like">12</div>
+        </article>
+
     </section>
-
 </main>
-
-<script>
-// Para Scroll Reveal - simple implementación con Intersection Observer
-const articles = document.querySelectorAll('.article');
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
-    });
-});
-articles.forEach(article => observer.observe(article));
-
-// Para filtrado con CSS - pero como es solo CSS, usar :checked, pero JS para toggle
-document.querySelectorAll('.filter').forEach(filter => {
-    filter.addEventListener('change', () => {
-        const category = filter.dataset.category;
-        const checked = filter.checked;
-        document.querySelectorAll('.article').forEach(article => {
-            if (checked && !article.classList.contains(category)) {
-                article.style.display = 'none';
-            } else {
-                article.style.display = 'block';
-            }
-        });
-    });
-});
-</script>
 
 <!-- FOOTER -->
     <footer>
