@@ -121,6 +121,7 @@ input[type="radio"] {
 .filtros {
     text-align: center;
     padding: 20px;
+    padding-top: 30px;
 }
 
 .filtros label {
@@ -282,6 +283,58 @@ td:nth-child(2) {
 
 td:nth-child(3) {
     color: #00b4d8;
+    font-weight: bold;
+}
+
+/* ================= COLORES POR CATEGORÍA ================= */
+
+/* CULTURAL */
+tr.cultural td:first-child {
+    border-left: 6px solid #e63946;
+}
+
+tr.cultural td:nth-child(2) {
+    color: #e63946;
+    font-weight: bold;
+}
+
+/* NATURALEZA */
+tr.naturaleza td:first-child {
+    border-left: 6px solid #2a9d8f;
+}
+
+tr.naturaleza td:nth-child(2) {
+    color: #2a9d8f;
+    font-weight: bold;
+}
+
+/* PLAYA */
+tr.playa td:first-child {
+    border-left: 6px solid #219ebc;
+}
+
+tr.playa td:nth-child(2) {
+    color: #219ebc;
+    font-weight: bold;
+}
+
+/* GASTRONOMÍA */
+tr.gastronomia td:first-child {
+    border-left: 6px solid #f4a261;
+}
+
+tr.gastronomia td:nth-child(2) {
+    color: #f4a261;
+    font-weight: bold;
+}
+
+/* RELIGIOSO */
+tr.religioso td:first-child {
+    border-left: 6px solid #9b5de5;
+}
+
+tr.religioso td:nth-child(2) {
+    color: #9b5de5;
     font-weight: bold;
 }
 
@@ -512,6 +565,7 @@ footer p {
     color: black;
 }
 
+
 /* ================= TABLA ================= */
 
 .dark-mode table {
@@ -552,3 +606,9 @@ footer p {
 .dark-toggle:hover {
     background: rgba(255,255,255,0.2);
 }
+
+.dark-mode tr.cultural td:first-child { border-left-color: #ff6b6b; }
+.dark-mode tr.naturaleza td:first-child { border-left-color: #52b788; }
+.dark-mode tr.playa td:first-child { border-left-color: #48cae4; }
+.dark-mode tr.gastronomia td:first-child { border-left-color: #ffb703; }
+.dark-mode tr.religioso td:first-child { border-left-color: #c77dff; }
