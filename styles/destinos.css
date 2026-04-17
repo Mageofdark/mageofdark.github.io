@@ -1,14 +1,20 @@
 /* ================= VARIABLES ================= */
 :root {
-    --color-primary: #005f8f;
-    --color-accent: #00b4d8;
+    --color-primary: #005f8f;      /* Azul profundo profesional */
+    --color-accent: #00b4d8;       /* Turquesa vibrante */
+    --color-dark: #1a1a2e;
     --color-light: #f8f9fa;
     --color-gray: #e9ecef;
-    --text-dark: #222;
-    --text-light: #fff;
-
-    --font-body: 'Segoe UI', system-ui, sans-serif;
-    --transition: all 0.3s ease;
+    --text-dark: #222222;
+    --text-light: #ffffff;
+    
+    --font-heading: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --font-body: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    
+    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.15);
 }
 
 /* ================= RESET ================= */
