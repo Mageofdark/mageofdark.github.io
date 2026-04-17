@@ -1,17 +1,23 @@
-/* ====================== VARIABLES ====================== */
+/* ================= VARIABLES ================= */
 :root {
-    --color-primary: #005f8f;
-    --color-accent: #00b4d8;
+    --color-primary: #005f8f;      /* Azul profundo profesional */
+    --color-accent: #00b4d8;       /* Turquesa vibrante */
+    --color-dark: #1a1a2e;
     --color-light: #f8f9fa;
     --color-gray: #e9ecef;
     --text-dark: #222222;
     --text-light: #ffffff;
-
-    --font-body: 'Segoe UI', system-ui, sans-serif;
-    --transition: all 0.3s ease;
+    
+    --font-heading: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --font-body: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    
+    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.15);
 }
 
-/* ====================== RESET ====================== */
+/* ================= RESET ================= */
 * {
     margin: 0;
     padding: 0;
@@ -21,17 +27,17 @@
 body {
     font-family: var(--font-body);
     background: var(--color-light);
-    padding-top: 70px; /* espacio para navbar */
+    padding-top: 70px;
 }
 
-/* ====================== HEADER ====================== */
+/* ================= HEADER ================= */
 header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     background: rgba(0, 95, 143, 0.95);
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(10px);
     z-index: 1000;
     padding: 1rem 5%;
     display: flex;
@@ -49,9 +55,9 @@ header {
 .menu {
     list-style: none;
     display: flex;
-    gap: 2rem; /* antes 2.5rem */
+    gap: 2rem;
     align-items: center;
-    flex-wrap: wrap; /* 👈 AGREGADO */
+    flex-wrap: wrap;
 }
 
 .menu li {
@@ -113,9 +119,9 @@ input[type="radio"] {
 }
 
 .filtros {
-    margin-top: 10px;
     text-align: center;
     padding: 20px;
+    padding-top: 30px;
 }
 
 .filtros label {
@@ -124,14 +130,21 @@ input[type="radio"] {
     background: #ddd;
     border-radius: 20px;
     cursor: pointer;
+    transition: var(--transition);
 }
 
-input:checked + label {
+/* activo (FIX correcto) */
+#todos:checked ~ .filtros label[for="todos"],
+#cultural:checked ~ .filtros label[for="cultural"],
+#naturaleza:checked ~ .filtros label[for="naturaleza"],
+#playa:checked ~ .filtros label[for="playa"],
+#gastronomia:checked ~ .filtros label[for="gastronomia"],
+#religioso:checked ~ .filtros label[for="religioso"] {
     background: #333;
     color: white;
 }
 
-/* ================= GRID AVANZADO ================= */
+/* ================= GRID ================= */
 .destinos {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -146,11 +159,10 @@ input:checked + label {
     position: relative;
     overflow: hidden;
     border-radius: 10px;
-    background: white;
     transition: var(--transition);
 }
 
-/* efecto masonry */
+/* masonry fake */
 .card:nth-child(3n) { grid-row-end: span 25; }
 .card:nth-child(4n) { grid-row-end: span 18; }
 .card:nth-child(5n) { grid-row-end: span 22; }
@@ -178,7 +190,7 @@ input:checked + label {
     width: 100%;
     background: rgba(0,0,0,0.6);
     color: white;
-    padding: 8px;
+    padding: 10px;
     transform: translateY(100%);
     transition: var(--transition);
 }
@@ -187,37 +199,14 @@ input:checked + label {
     transform: translateY(0);
 }
 
-/* ================= TABLA ================= */
-.tabla-container {
-    padding: 20px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
-}
-
-th {
-    background: #333;
-    color: white;
-}
-
-th, td {
-    padding: 10px;
-    border: 1px solid #ccc;
-}
-
 /* ================= FILTROS FUNCIONANDO ================= */
 
 /* TODOS */
-#todos:checked ~ .destinos .card,
-#todos:checked ~ .tabla-container tr {
-    display: table-row;
-}
-
 #todos:checked ~ .destinos .card {
     display: block;
+}
+#todos:checked ~ .tabla-container tr {
+    display: table-row;
 }
 
 /* CULTURAL */
@@ -250,7 +239,106 @@ th, td {
     display: none;
 }
 
-/* ================= RESPONSIVE TABLA ================= */
+/* ================= TABLA ================= */
+.tabla-container {
+    padding: 30px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+th {
+    background: linear-gradient(135deg, #005f8f, #00b4d8);
+    color: white;
+    padding: 14px;
+    text-align: left;
+}
+
+td {
+    padding: 14px;
+    border-bottom: 1px solid #eee;
+}
+
+/* zebra */
+tbody tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+/* hover */
+tbody tr:hover {
+    background: rgba(0,180,216,0.1);
+}
+
+/* estilos */
+td:nth-child(2) {
+    color: #005f8f;
+    font-weight: 500;
+}
+
+td:nth-child(3) {
+    color: #00b4d8;
+    font-weight: bold;
+}
+
+/* ================= COLORES POR CATEGORÍA ================= */
+
+/* CULTURAL */
+tr.cultural td:first-child {
+    border-left: 6px solid #e63946;
+}
+
+tr.cultural td:nth-child(2) {
+    color: #e63946;
+    font-weight: bold;
+}
+
+/* NATURALEZA */
+tr.naturaleza td:first-child {
+    border-left: 6px solid #2a9d8f;
+}
+
+tr.naturaleza td:nth-child(2) {
+    color: #2a9d8f;
+    font-weight: bold;
+}
+
+/* PLAYA */
+tr.playa td:first-child {
+    border-left: 6px solid #219ebc;
+}
+
+tr.playa td:nth-child(2) {
+    color: #219ebc;
+    font-weight: bold;
+}
+
+/* GASTRONOMÍA */
+tr.gastronomia td:first-child {
+    border-left: 6px solid #f4a261;
+}
+
+tr.gastronomia td:nth-child(2) {
+    color: #f4a261;
+    font-weight: bold;
+}
+
+/* RELIGIOSO */
+tr.religioso td:first-child {
+    border-left: 6px solid #9b5de5;
+}
+
+tr.religioso td:nth-child(2) {
+    color: #9b5de5;
+    font-weight: bold;
+}
+
+/* ================= RESPONSIVE ================= */
 @media (max-width: 600px) {
 
     table, thead, tbody, tr, td {
@@ -427,3 +515,100 @@ footer p {
     border-top: 1px solid #333;
     padding-top: 2rem;
 }
+
+/* ================= DARK MODE ================= */
+
+.dark-mode {
+    /* 🎨 COLORES PRINCIPALES */
+    --color-primary: #0a84ff;
+    --color-accent: #00d4ff;
+    --color-dark: #0d1117;
+    --color-light: #121212;
+    --color-gray: #1e1e1e;
+    --text-dark: #e6e6e6;
+    --text-light: #ffffff;
+
+    /* 🌑 SOMBRAS (más intensas en oscuro) */
+    --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.6);
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.7);
+    --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.8);
+}
+
+/* ================= BASE ================= */
+
+.dark-mode body {
+    background: var(--color-light);
+    color: var(--text-dark);
+}
+
+/* ================= HEADER ================= */
+
+.dark-mode header {
+    background: rgba(13, 17, 23, 0.95);
+}
+
+/* ================= FILTROS ================= */
+
+.dark-mode .filtros label {
+    background: var(--color-gray);
+    color: var(--text-dark);
+}
+
+/* activo */
+.dark-mode #todos:checked ~ .filtros label[for="todos"],
+.dark-mode #cultural:checked ~ .filtros label[for="cultural"],
+.dark-mode #naturaleza:checked ~ .filtros label[for="naturaleza"],
+.dark-mode #playa:checked ~ .filtros label[for="playa"],
+.dark-mode #gastronomia:checked ~ .filtros label[for="gastronomia"],
+.dark-mode #religioso:checked ~ .filtros label[for="religioso"] {
+    background: var(--color-accent);
+    color: black;
+}
+
+
+/* ================= TABLA ================= */
+
+.dark-mode table {
+    background: var(--color-gray);
+    color: var(--text-dark);
+}
+
+.dark-mode td {
+    border-bottom: 1px solid #333;
+}
+
+.dark-mode tbody tr:nth-child(even) {
+    background: #2a2a2a;
+}
+
+.dark-mode tbody tr:hover {
+    background: rgba(0, 212, 255, 0.15);
+}
+
+/* ================= FOOTER ================= */
+
+.dark-mode footer {
+    background: var(--color-dark);
+}
+
+/* ================= BOTÓN ================= */
+
+.dark-toggle {
+    background: none;
+    border: 2px solid white;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.dark-toggle:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.dark-mode tr.cultural td:first-child { border-left-color: #ff6b6b; }
+.dark-mode tr.naturaleza td:first-child { border-left-color: #52b788; }
+.dark-mode tr.playa td:first-child { border-left-color: #48cae4; }
+.dark-mode tr.gastronomia td:first-child { border-left-color: #ffb703; }
+.dark-mode tr.religioso td:first-child { border-left-color: #c77dff; }

@@ -33,7 +33,7 @@ header {
     left: 0;
     width: 100%;
     background: rgba(0, 95, 143, 0.95);
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(10px);
     z-index: 1000;
     padding: 1rem 5%;
     display: flex;
@@ -51,9 +51,9 @@ header {
 .menu {
     list-style: none;
     display: flex;
-    gap: 2rem; /* antes 2.5rem */
+    gap: 2rem;
     align-items: center;
-    flex-wrap: wrap; /* 👈 AGREGADO */
+    flex-wrap: wrap;
 }
 
 .menu li {
@@ -300,4 +300,94 @@ footer p {
         margin: 20px;
         padding: 25px;
     }
+}
+
+/* ================= DARK MODE ================= */
+
+.dark-mode {
+    /* 🎨 COLORES PRINCIPALES */
+    --color-primary: #0a84ff;
+    --color-accent: #00d4ff;
+    --color-dark: #0d1117;
+    --color-light: #121212;
+    --color-gray: #1e1e1e;
+    --text-dark: #e6e6e6;
+    --text-light: #ffffff;
+
+    /* 🌑 SOMBRAS (más intensas en oscuro) */
+    --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.6);
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.7);
+    --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.8);
+}
+
+/* ================= BASE ================= */
+
+.dark-mode body {
+    background: var(--color-light);
+    color: var(--text-dark);
+}
+
+/* ================= HEADER ================= */
+
+.dark-mode header {
+    background: rgba(13, 17, 23, 0.95);
+}
+
+/* ================= FILTROS ================= */
+
+.dark-mode .filtros label {
+    background: var(--color-gray);
+    color: var(--text-dark);
+}
+
+/* activo */
+.dark-mode #todos:checked ~ .filtros label[for="todos"],
+.dark-mode #cultural:checked ~ .filtros label[for="cultural"],
+.dark-mode #naturaleza:checked ~ .filtros label[for="naturaleza"],
+.dark-mode #playa:checked ~ .filtros label[for="playa"],
+.dark-mode #gastronomia:checked ~ .filtros label[for="gastronomia"],
+.dark-mode #religioso:checked ~ .filtros label[for="religioso"] {
+    background: var(--color-accent);
+    color: black;
+}
+
+/* ================= TABLA ================= */
+
+.dark-mode table {
+    background: var(--color-gray);
+    color: var(--text-dark);
+}
+
+.dark-mode td {
+    border-bottom: 1px solid #333;
+}
+
+.dark-mode tbody tr:nth-child(even) {
+    background: #2a2a2a;
+}
+
+.dark-mode tbody tr:hover {
+    background: rgba(0, 212, 255, 0.15);
+}
+
+/* ================= FOOTER ================= */
+
+.dark-mode footer {
+    background: var(--color-dark);
+}
+
+/* ================= BOTÓN ================= */
+
+.dark-toggle {
+    background: none;
+    border: 2px solid white;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.dark-toggle:hover {
+    background: rgba(255,255,255,0.2);
 }
