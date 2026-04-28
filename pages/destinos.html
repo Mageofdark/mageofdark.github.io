@@ -1,285 +1,433 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-bs-theme="light">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Destinos</title>
-<link rel="stylesheet" href="../styles/destinos.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Destinos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../styles/destinos.css">
 </head>
 
 <body>
 
 <!-- ================= HEADER ================= -->
 <header>
-        <div class="logo">
-            <h1>Grand Tour GT</h1>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary py-3">
+        <div class="container-fluid">
+
+            <!-- Brand -->
+            <a class="navbar-brand fs-1 ps-5 py-2 fw-bold" href="../index.html">
+                Grand Tour GT
+            </a>
+
+            <!-- Toggler -->
+            <button class="navbar-toggler" type="button" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#navbarToggler" 
+                aria-controls="navbarToggler" 
+                aria-expanded="false" 
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Menu -->
+            <div class="collapse navbar-collapse" id="navbarToggler">
+                <ul class="navbar-nav ms-auto fs-4 gap-3">
+
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link py-3 px-3">Inicio</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="destinos.html" class="nav-link active py-3 px-3" aria-current="page">Destinos</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="agencias.html" class="nav-link py-3 px-3">Agencias</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="blog.html" class="nav-link py-3 px-3">Blog</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="contacto.html" class="nav-link py-3 px-3">Contacto</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="precios.html" class="nav-link py-3 px-3">Precios</a>
+                    </li>
+
+                    <li class="nav-item pe-5">
+                        <button id="themeToggle" class="nav-link fs-4 px-3 py-3 border-0 bg-transparent" onclick=toggleDarkMode()>
+                            <i class="bi bi-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
         </div>
-
-        <nav>
-            <ul class="menu">
-                
-                <li><a href="../index.html">Inicio</a></li>
-
-                <li><a href="destinos.html">Destinos</a></li>
-
-                <li><a href="agencias.html">Agencias</a></li>
-
-                <li><a href="blog.html">Blog</a></li>
-
-                <li><a href="contacto.html">Contacto</a></li>
-
-                <li><a href="precios.html">ofertas</a></li>
-                
-                <li>
-                  <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
-                </li>
-            </ul>
-        </nav>
-    </header>
-
-<!-- ================= INPUTS (CLAVE PARA FILTRO) ================= -->
-<input type="radio" name="filtro" id="todos" checked>
-<input type="radio" name="filtro" id="cultural">
-<input type="radio" name="filtro" id="naturaleza">
-<input type="radio" name="filtro" id="playa">
-<input type="radio" name="filtro" id="gastronomia">
-<input type="radio" name="filtro" id="religioso">
+    </nav>
+</header>
 
 <!-- ================= BOTONES ================= -->
-<div class="filtros">
-  <label for="todos">Todos</label>
-  <label for="cultural">Cultural</label>
-  <label for="naturaleza">Naturaleza</label>
-  <label for="playa">Playa</label>
-  <label for="gastronomia">Gastronomía</label>
-  <label for="religioso">Religioso</label>
+<div class="text-center p-4 text-dark">
+  <label class="filtro bg-secondary-subtle text-body m-1 px-3 py-2 rounded-pill" data-category="todos">Todos</label>
+  <label class="filtro bg-secondary-subtle text-body m-1 px-3 py-2 rounded-pill" data-category="cultural">Cultural</label>
+  <label class="filtro bg-secondary-subtle text-body m-1 px-3 py-2 rounded-pill" data-category="naturaleza">Naturaleza</label>
+  <label class="filtro bg-secondary-subtle text-body m-1 px-3 py-2 rounded-pill" data-category="playa">Playa</label>
+  <label class="filtro bg-secondary-subtle text-body m-1 px-3 py-2 rounded-pill" data-category="gastronomia">Gastronomía</label>
+  <label class="filtro bg-secondary-subtle text-body m-1 px-3 py-2 rounded-pill" data-category="religioso">Religioso</label>
 </div>
 
 <!-- ================= DESTINOS ================= -->
-<div class="destinos">
+<div class="row gx-3 gy-3 px-4 mx-0">
 
   <!-- CULTURAL -->
-  <div class="card cultural">
-    <img src="../img/destinos/cultural/mexico.jpg">
-    <div class="overlay">México</div>
+   <div class="col-12 col-sm-6 col-lg-4">
+      <div class="card position-relative overflow-hidden rounded-4 position-relative overflow-hidden rounded-4 cultural">
+        <div class="ratio ratio-4x3">
+      <img src="../img/destinos/cultural/mexico.jpg" class="w-100 h-100 object-fit-cover">
+      </div>
+      <div class="overlay position-absolute bottom-0 start-0 w-100 bg-dark bg-opacity-75 text-white p-2">México</div>
+    </div>
   </div>
 
-  <div class="card cultural">
-    <img src="../img/destinos/cultural/coliseo romano.jpg">
-    <div class="overlay">Roma</div>
+  <div class="col-12 col-sm-6 col-lg-4">
+    <div class="card position-relative overflow-hidden rounded-4 cultural">
+        <div class="ratio ratio-4x3">
+          <img src="../img/destinos/cultural/coliseo romano.jpg" class="w-100 h-100 object-fit-cover">
+        </div>
+      <div class="overlay position-absolute bottom-0 start-0 w-100 bg-dark bg-opacity-75 text-white p-2">Roma</div>
+    </div>
   </div>
 
-  <div class="card cultural">
-    <img src="../img/destinos/cultural/Capa_turismo_cultural.png.png">
-    <div class="overlay">Cusco</div>
+  <div class="col-12 col-sm-6 col-lg-4">
+    <div class="card position-relative overflow-hidden rounded-4 cultural">
+        <div class="ratio ratio-4x3">
+          <img src="../img/destinos/cultural/Capa_turismo_cultural.png.png" class="w-100 h-100 object-fit-cover">
+        </div>
+        <div class="overlay position-absolute bottom-0 start-0 w-100 bg-dark bg-opacity-75 text-white p-2">Cusco</div>
+    </div>
   </div>
 
   <!-- NATURALEZA -->
-  <div class="card naturaleza">
-    <img src="../img/destinos/naturaleza/cascada.jfif">
-    <div class="overlay">Amazonas</div>
+  <div class="col-12 col-sm-6 col-lg-4">
+    <div class="card position-relative overflow-hidden rounded-4 naturaleza">
+        <div class="ratio ratio-4x3">
+         <img src="../img/destinos/naturaleza/cascada.jfif" class="w-100 h-100 object-fit-cover">
+        </div>
+        <div class="overlay position-absolute bottom-0 start-0 w-100 bg-dark bg-opacity-75 text-white p-2">Amazonas</div>
+    </div>
   </div>
 
-  <div class="card naturaleza">
-    <img src="../img/destinos/naturaleza/indomita.jfif">
-    <div class="overlay">Patagonia</div>
+  <div class="col-12 col-sm-6 col-lg-4">
+    <div class="card position-relative overflow-hidden rounded-4 naturaleza">
+        <div class="ratio ratio-4x3">
+          <img src="../img/destinos/naturaleza/indomita.jfif" class="w-100 h-100 object-fit-cover">
+        </div>
+      <div class="overlay position-absolute bottom-0 start-0 w-100 bg-dark bg-opacity-75 text-white p-2">Patagonia</div>
+    </div>
   </div>
 
-  <div class="card naturaleza">
-    <img src="../img/destinos/naturaleza/naturalezaHiking.jfif">
-    <div class="overlay">Yellowstone</div>
+  <div class="col-12 col-sm-6 col-lg-4">
+    <div class="card position-relative overflow-hidden rounded-4 naturaleza">
+        <div class="ratio ratio-4x3">
+          <img src="../img/destinos/naturaleza/naturalezaHiking.png" class="w-100 h-100 object-fit-cover">
+        </div>
+      <div class="overlay position-absolute bottom-0 start-0 w-100 bg-dark bg-opacity-75 text-white p-2">Yellowstone</div>
+    </div>
   </div>
 
   <!-- PLAYA -->
-  <div class="card playa">
-    <img src="../img/destinos/playa/beach.jfif">
-    <div class="overlay">Cancún</div>
+  <div class="col-12 col-sm-6 col-lg-4">
+    <div class="card position-relative overflow-hidden rounded-4 playa">
+        <div class="ratio ratio-4x3">
+          <img src="../img/destinos/playa/beach.jfif" class="w-100 h-100 object-fit-cover">
+        </div>
+      <div class="overlay position-absolute bottom-0 start-0 w-100 bg-dark bg-opacity-75 text-white p-2">Cancún</div>
+    </div>
   </div>
 
-  <div class="card playa">
-    <img src="../img/destinos/playa/caribe.jpg">
-    <div class="overlay">Punta Cana</div>
+  <div class="col-12 col-sm-6 col-lg-4">
+    <div class="card position-relative overflow-hidden rounded-4 playa">
+        <div class="ratio ratio-4x3">
+          <img src="../img/destinos/playa/caribe.jpg" class="w-100 h-100 object-fit-cover">
+        </div>
+      <div class="overlay position-absolute bottom-0 start-0 w-100 bg-dark bg-opacity-75 text-white p-2">Punta Cana</div>
+    </div>
   </div>
 
-  <div class="card playa">
-    <img src="../img/destinos/playa/playa top.jpg">
-    <div class="overlay">Maldivas</div>
+  <div class="col-12 col-sm-6 col-lg-4">
+    <div class="card position-relative overflow-hidden rounded-4 playa">
+        <div class="ratio ratio-4x3">
+          <img src="../img/destinos/playa/playa top.jpg" class="w-100 h-100 object-fit-cover">
+        </div>
+      <div class="overlay position-absolute bottom-0 start-0 w-100 bg-dark bg-opacity-75 text-white p-2">Maldivas</div>
+    </div>
   </div>
 
   <!-- GASTRONOMÍA -->
-  <div class="card gastronomia">
-    <img src="../img/destinos/gastronomia/asado.jfif">
-    <div class="overlay">Asado</div>
+  <div class="col-12 col-sm-6 col-lg-4">
+    <div class="card position-relative overflow-hidden rounded-4 gastronomia">
+        <div class="ratio ratio-4x3">
+          <img src="../img/destinos/gastronomia/asado.jpg" class="w-100 h-100 object-fit-cover">
+        </div>
+      <div class="overlay position-absolute bottom-0 start-0 w-100 bg-dark bg-opacity-75 text-white p-2">Buenos Aires</div>
+    </div>
   </div>
 
-  <div class="card gastronomia">
-    <img src="../img/destinos/gastronomia/peru.jfif">
-    <div class="overlay">Peru</div>
+  <div class="col-12 col-sm-6 col-lg-4">
+    <div class="card position-relative overflow-hidden rounded-4 gastronomia">
+        <div class="ratio ratio-4x3">
+          <img src="../img/destinos/gastronomia/peru.jfif" class="w-100 h-100 object-fit-cover">
+        </div>
+      <div class="overlay position-absolute bottom-0 start-0 w-100 bg-dark bg-opacity-75 text-white p-2">Peru</div>
+    </div>
   </div>
 
-  <div class="card gastronomia">
-    <img src="../img/destinos/gastronomia/argentina.jfif">
-    <div class="overlay">Postres</div>
+  <div class="col-12 col-sm-6 col-lg-4">
+    <div class="card position-relative overflow-hidden rounded-4 gastronomia">
+        <div class="ratio ratio-4x3">
+          <img src="../img/destinos/gastronomia/argentina.jfif" class="w-100 h-100 object-fit-cover">
+        </div>
+        <div class="overlay position-absolute bottom-0 start-0 w-100 bg-dark bg-opacity-75 text-white p-2">París</div>
+    </div>
   </div>
 
   <!-- RELIGIOSO -->
-  <div class="card religioso">
-    <img src="../img/destinos/religioso/buda.jfif">
-    <div class="overlay">Tailandia</div>
+  <div class="col-12 col-sm-6 col-lg-4">
+    <div class="card position-relative overflow-hidden rounded-4 religioso">
+        <div class="ratio ratio-4x3">
+          <img src="../img/destinos/religioso/buda.jfif" class="w-100 h-100 object-fit-cover">
+        </div>
+      <div class="overlay position-absolute bottom-0 start-0 w-100 bg-dark bg-opacity-75 text-white p-2">Budismo</div>
+    </div>
+  </div>  
+
+  <div class="col-12 col-sm-6 col-lg-4">
+    <div class="card position-relative overflow-hidden rounded-4 religioso">
+        <div class="ratio ratio-4x3">
+          <img src="../img/destinos/religioso/budismo.jfif" class="w-100 h-100 object-fit-cover">
+        </div>
+      <div class="overlay position-absolute bottom-0 start-0 w-100 bg-dark bg-opacity-75 text-white p-2">Tailandia</div>
+    </div>
   </div>
 
-  <div class="card religioso">
-    <img src="../img/destinos/religioso/budismo.jfif">
-    <div class="overlay">Budismo</div>
+  <div class="col-12 col-sm-6 col-lg-4 col-sm-3">
+    <div class="card position-relative overflow-hidden rounded-4 religioso">
+        <div class="ratio ratio-4x3">
+          <img src="../img/destinos/religioso/cristiano.webp" class="w-100 h-100 object-fit-cover">
+        </div>
+      <div class="overlay position-absolute bottom-0 start-0 w-100 bg-dark bg-opacity-75 text-white p-2">Jerusalén</div>
+    </div>
   </div>
-
-  <div class="card religioso">
-    <img src="../img/destinos/religioso/cristiano.webp">
-    <div class="overlay">Jerusalén</div>
-  </div>
-
 </div>
 
 <!-- ================= TABLA ================= -->
-<div class="tabla-container">
-<table>
+<div class="tabla-responsive tabla-container m-4">
+  <table class="table table-hover table-lg shadow rounded-3 overflow-hidden">
 
-<thead>
-<tr>
-  <th>Destino</th>
-  <th>Categoría</th>
-  <th>Precio</th>
-</tr>
-</thead>
+    <thead class="text-white">
+      <tr class="titulos">
+        <th class="py-3">Destino</th>
+        <th class="py-3">Categoría</th>
+        <th class="py-3">Precio</th>
+      </tr>
+    </thead>
 
-<tbody>
+    <tbody class="color-dark">
 
-<!-- 🌎 CULTURAL -->
-<tr class="cultural">
-  <td data-label="Destino">Cusco (Perú)</td>
-  <td data-label="Categoría">Cultural</td>
-  <td data-label="Precio">$1200</td>
-</tr>
-<tr class="cultural">
-  <td data-label="Destino">Roma (Italia)</td>
-  <td data-label="Categoría">Cultural</td>
-  <td data-label="Precio">$1500</td>
-</tr>
-<tr class="cultural">
-  <td data-label="Destino">Kioto (Japón)</td>
-  <td data-label="Categoría">Cultural</td>
-  <td data-label="Precio">$1800</td>
-</tr>
+      <!-- 🌎 CULTURAL -->
+      <tr class="cultural">
+        <td data-label="Destino">Cusco (Perú)</td>
+        <td data-label="Categoría" class="text-danger fw-bold">Cultural</td>
+        <td data-label="Precio" class="text-info fw-bold">$1200</td>
+      </tr>
+      <tr class="cultural">
+        <td data-label="Destino">Roma (Italia)</td>
+        <td data-label="Categoría " class="text-danger fw-bold">Cultural</td>
+        <td data-label="Precio" class="text-info fw-bold">$1500</td>
+      </tr>
+      <tr class="cultural">
+        <td data-label="Destino">Kioto (Japón)</td>
+        <td data-label="Categoría" class="text-danger fw-bold">Cultural</td>
+        <td data-label="Precio" class="text-info fw-bold">$1800</td>
+      </tr>
 
-<!-- 🌿 NATURALEZA -->
-<tr class="naturaleza">
-  <td data-label="Destino">Amazonas (Brasil)</td>
-  <td data-label="Categoría">Naturaleza</td>
-  <td data-label="Precio">$900</td>
-</tr>
-<tr class="naturaleza">
-  <td data-label="Destino">Patagonia (Argentina)</td>
-  <td data-label="Categoría">Naturaleza</td>
-  <td data-label="Precio">$1100</td>
-</tr>
-<tr class="naturaleza">
-  <td data-label="Destino">Parque Yellowstone (EE.UU)</td>
-  <td data-label="Categoría">Naturaleza</td>
-  <td data-label="Precio">$1400</td>
-</tr>
+      <!-- 🌿 NATURALEZA -->
+      <tr class="naturaleza">
+        <td data-label="Destino">Amazonas (Brasil)</td>
+        <td data-label="Categoría" class="text-success fw-bold">Naturaleza</td>
+        <td data-label="Precio" class="text-info fw-bold">$900</td>
+      </tr>
+      <tr class="naturaleza">
+        <td data-label="Destino">Patagonia (Argentina)</td>
+        <td data-label="Categoría" class="text-success fw-bold">Naturaleza</td>
+        <td data-label="Precio" class="text-info fw-bold">$1100</td>
+      </tr>
+      <tr class="naturaleza">
+        <td data-label="Destino">Parque Yellowstone (EE.UU)</td>
+        <td data-label="Categoría" class="text-success fw-bold">Naturaleza</td>
+        <td data-label="Precio" class="text-info fw-bold">$1400</td>
+      </tr>
 
-<!-- 🏖️ PLAYA -->
-<tr class="playa">
-  <td data-label="Destino">Cancún (México)</td>
-  <td data-label="Categoría">Playa</td>
-  <td data-label="Precio">$1500</td>
-</tr>
-<tr class="playa">
-  <td data-label="Destino">Punta Cana (R. Dominicana)</td>
-  <td data-label="Categoría">Playa</td>
-  <td data-label="Precio">$1300</td>
-</tr>
-<tr class="playa">
-  <td data-label="Destino">Maldivas</td>
-  <td data-label="Categoría">Playa</td>
-  <td data-label="Precio">$2500</td>
-</tr>
+      <!-- 🏖️ PLAYA -->
+      <tr class="playa">
+        <td data-label="Destino">Cancún (México)</td>
+        <td data-label="Categoría" class="text-info fw-bold">Playa</td>
+        <td data-label="Precio" class="text-info fw-bold">$1500</td>
+      </tr>
+      <tr class="playa">
+        <td data-label="Destino">Punta Cana (R. Dominicana)</td>
+        <td data-label="Categoría" class="text-info fw-bold">Playa</td>
+        <td data-label="Precio" class="text-info fw-bold">$1300</td>
+      </tr>
+      <tr class="playa">
+        <td data-label="Destino">Maldivas</td>
+        <td data-label="Categoría" class="text-info fw-bold">Playa</td>
+        <td data-label="Precio" class="text-info fw-bold">$2500</td>
+      </tr>
 
-<!-- 🍽️ GASTRONOMÍA -->
-<tr class="gastronomia">
-  <td data-label="Destino">Lima (Perú)</td>
-  <td data-label="Categoría">Gastronomía</td>
-  <td data-label="Precio">$1000</td>
-</tr>
-<tr class="gastronomia">
-  <td data-label="Destino">París (Francia)</td>
-  <td data-label="Categoría">Gastronomía</td>
-  <td data-label="Precio">$1700</td>
-</tr>
-<tr class="gastronomia">
-  <td data-label="Destino">Tokio (Japón)</td>
-  <td data-label="Categoría">Gastronomía</td>
-  <td data-label="Precio">$2000</td>
-</tr>
+      <!-- 🍽️ GASTRONOMÍA -->
+      <tr class="gastronomia">
+        <td data-label="Destino">Lima (Perú)</td>
+        <td data-label="Categoría" class="text-warning fw-bold">Gastronomía</td>
+        <td data-label="Precio" class="text-info fw-bold">$1000</td>
+      </tr>
+      <tr class="gastronomia">
+        <td data-label="Destino">París (Francia)</td>
+        <td data-label="Categoría" class="text-warning fw-bold">Gastronomía</td>
+        <td data-label="Precio" class="text-info fw-bold">$1700</td>
+      </tr>
+      <tr class="gastronomia">
+        <td data-label="Destino">Buenos Aires (Argentina)</td>
+        <td data-label="Categoría" class="text-warning fw-bold">Gastronomía</td>
+        <td data-label="Precio" class="text-info fw-bold">$1000</td>
+      </tr>
 
-<!-- ⛪ RELIGIOSO -->
-<tr class="religioso">
-  <td data-label="Destino">Vaticano</td>
-  <td data-label="Categoría">Religioso</td>
-  <td data-label="Precio">$1400</td>
-</tr>
-<tr class="religioso">
-  <td data-label="Destino">La Meca (Arabia Saudita)</td>
-  <td data-label="Categoría">Religioso</td>
-  <td data-label="Precio">$2200</td>
-</tr>
-<tr class="religioso">
-  <td data-label="Destino">Jerusalén (Israel)</td>
-  <td data-label="Categoría">Religioso</td>
-  <td data-label="Precio">$1600</td>
-</tr>
+      <!-- ⛪ RELIGIOSO -->
+      <tr class="religioso">
+        <td data-label="Destino">Vaticano</td>
+        <td data-label="Categoría" class="morado fw-bold">Religioso</td>
+        <td data-label="Precio" class="text-info fw-bold">$1400</td>
+      </tr>
+      <tr class="religioso">
+        <td data-label="Destino">La Meca (Arabia Saudita)</td>
+        <td data-label="Categoría" class="morado fw-bold">Religioso</td>
+        <td data-label="Precio" class="text-info fw-bold">$2200</td>
+      </tr>
+      <tr class="religioso">
+        <td data-label="Destino">Jerusalén (Israel)</td>
+        <td data-label="Categoría" class="fw-bold morado">Religioso</td>
+        <td data-label="Precio" class="text-info fw-bold">$1600</td>
+      </tr>
 
-</tbody>
+    </tbody>
 
-</table>
+  </table>
 </div>
 <!-- FOOTER -->
-    <footer>
+<footer class="bg-body-tertiary py-5 mt-5">
+    <div class="container">
 
-        <div class="footer-grid">
+        <div class="row g-4">
 
             <!-- Newsletter -->
-            <section class="newsletter">
-                <h3>Suscríbete</h3>
-                <form>
-                    <input type="email" placeholder="Tu correo" required>
-                    <button type="submit">Enviar</button>
+            <div class="col-12 col-md-4">
+                <h5 class="mb-3 fw-bold">Suscríbete</h5>
+
+                <form class="d-flex flex-column gap-2">
+                    <input 
+                        type="email" 
+                        class="form-control needs-validation" 
+                        placeholder="Tu correo" 
+                        required
+                    >
+                    <button type="submit" class="btn btn-primary w-100">
+                        Enviar
+                    </button>
                 </form>
-            </section>
+            </div>
 
             <!-- Redes -->
-            <section class="redes">
-                <h3>Síguenos</h3>
-                <a href="#">Facebook</a>
-                <a href="#">Instagram</a>
-                <a href="#">Twitter</a>
-            </section>
+            <div class="col-12 col-md-4 text-center">
+                <h5 class="mb-3 fw-bold">Síguenos</h5>
+
+                <div class="d-flex justify-content-center gap-3 fs-3">
+
+                    <a href="#" class="text-body" aria-label="Facebook">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+
+                    <a href="https://www.instagram.com/nacho367_/" class="text-body" aria-label="Instagram">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+
+                    <a href="#" class="text-body" aria-label="Twitter">
+                        <i class="bi bi-twitter"></i>
+                    </a>
+
+                </div>
+            </div>
 
             <!-- Mapa -->
-            <section class="mapa">
-                <h3>Ubicación</h3>
-                <iframe 
-                    src="https://www.google.com/maps?q=Jujuy&output=embed"
-                    width="100%" 
-                    height="200" 
-                    style="border:0;" 
-                    loading="lazy">
-                </iframe>
-            </section>
+            <div class="col-12 col-md-4">
+                <h5 class="mb-3 fw-bold">Ubicación</h5>
+
+                <div class="ratio ratio-16x9">
+                    <iframe 
+                        src="https://www.google.com/maps?q=Jujuy&output=embed"
+                        style="border:0;"
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
 
         </div>
 
-    </footer>
+        <hr class="my-4">
+
+        <div class="text-center small opacity-75">
+            © 2026 Turismo Jujuy - Todos los derechos reservados
+        </div>
+
+    </div>
+</footer>
+
+
     <script src="../javascript/darkmode.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+<script>
+  $(".filtro").click(function(){
+    let categoria = $(this).data("category");
+
+    if(categoria === "todos"){
+    $("tr").show();
+    $(".card").show();
+
+    }else{
+    $(".card").hide();
+    $("tr").hide();
+    $(".titulos").show();
+    $("." + categoria).show();
+
+  }
+});
+
+  $(".card").hover(
+  function() {
+    $(this).find("img").css("transform", "scale(1.1)");
+  },
+  function() {
+    $(this).find("img").css("transform", "scale(1)");
+  }
+);
+
+</script>
+
 </body>
 </html>

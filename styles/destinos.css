@@ -1,182 +1,23 @@
 /* ================= VARIABLES ================= */
 :root {
-    --color-primary: #005f8f;      /* Azul profundo profesional */
-    --color-accent: #00b4d8;       /* Turquesa vibrante */
-    --color-dark: #1a1a2e;
-    --color-light: #f8f9fa;
-    --color-gray: #e9ecef;
-    --text-dark: #222222;
-    --text-light: #ffffff;
-    
-    --font-heading: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    --font-body: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    
     --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.08);
-    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.12);
-    --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.15);
 }
 
-/* ================= RESET ================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* ================= FILTROS: cursor y transición ================= */
 
-body {
-    font-family: var(--font-body);
-    background: var(--color-light);
-    padding-top: 70px;
-}
-
-/* ================= HEADER ================= */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(0, 95, 143, 0.95);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-    padding: 1rem 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: var(--shadow-sm);
-}
-
-.logo h1 {
-    font-size: 2rem;
-    color: white;
-    letter-spacing: -1px;
-}
-
-.menu {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.menu li {
-    position: relative;
-}
-
-.menu a {
-    color: white;
-    font-weight: 500;
-    padding: 0.6rem 1rem;
-    border-radius: 6px;
-    text-decoration: none;
-}
-
-.menu a:hover {
-    background-color: rgba(255,255,255,0.15);
-    color: white;
-}
-
-/* Dropdown */
-.dropdown .submenu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: white;
-    min-width: 180px;
-    box-shadow: var(--shadow-md);
-    border-radius: 8px;
-    overflow: hidden;
-    padding: 0.5rem 0;
-    z-index: 10;
-}
-
-.dropdown:hover .submenu {
-    display: block;
-    animation: fadeDown 0.3s ease forwards;
-}
-
-.submenu li a {
-    color: var(--text-dark);
-    display: block;
-    padding: 0.75rem 1.25rem;
-}
-
-.submenu li a:hover {
-    background-color: var(--color-gray);
-    color: var(--color-primary);
-}
-
-@keyframes fadeDown {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* ================= FILTROS ================= */
-input[type="radio"] {
-    display: none;
-}
-
-.filtros {
-    text-align: center;
-    padding: 20px;
-    padding-top: 30px;
-}
-
-.filtros label {
-    margin: 5px;
-    padding: 10px 15px;
-    background: #ddd;
-    border-radius: 20px;
+div label {
     cursor: pointer;
     transition: var(--transition);
 }
 
-/* activo (FIX correcto) */
-#todos:checked ~ .filtros label[for="todos"],
-#cultural:checked ~ .filtros label[for="cultural"],
-#naturaleza:checked ~ .filtros label[for="naturaleza"],
-#playa:checked ~ .filtros label[for="playa"],
-#gastronomia:checked ~ .filtros label[for="gastronomia"],
-#religioso:checked ~ .filtros label[for="religioso"] {
-    background: #333;
-    color: white;
-}
-
-/* ================= GRID ================= */
-.destinos {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-auto-rows: 10px;
-    gap: 15px;
-    padding: 20px;
-}
 
 /* ================= CARDS ================= */
 .card {
-    grid-row-end: span 20;
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
     transition: var(--transition);
 }
-
-/* masonry fake */
-.card:nth-child(3n) { grid-row-end: span 25; }
-.card:nth-child(4n) { grid-row-end: span 18; }
-.card:nth-child(5n) { grid-row-end: span 22; }
 
 .card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
     transition: var(--transition);
-}
-
-/* hover */
-.card:hover img {
-    transform: scale(1.1);
 }
 
 .card:hover {
@@ -185,12 +26,6 @@ input[type="radio"] {
 
 /* overlay */
 .overlay {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background: rgba(0,0,0,0.6);
-    color: white;
-    padding: 10px;
     transform: translateY(100%);
     transition: var(--transition);
 }
@@ -199,103 +34,12 @@ input[type="radio"] {
     transform: translateY(0);
 }
 
-/* ================= FILTROS FUNCIONANDO ================= */
 
-/* TODOS */
-#todos:checked ~ .destinos .card {
-    display: block;
-}
-#todos:checked ~ .tabla-container tr {
-    display: table-row;
-}
-
-/* CULTURAL */
-#cultural:checked ~ .destinos .card:not(.cultural),
-#cultural:checked ~ .tabla-container tr:not(.cultural) {
-    display: none;
-}
-
-/* NATURALEZA */
-#naturaleza:checked ~ .destinos .card:not(.naturaleza),
-#naturaleza:checked ~ .tabla-container tr:not(.naturaleza) {
-    display: none;
-}
-
-/* PLAYA */
-#playa:checked ~ .destinos .card:not(.playa),
-#playa:checked ~ .tabla-container tr:not(.playa) {
-    display: none;
-}
-
-/* GASTRONOMÍA */
-#gastronomia:checked ~ .destinos .card:not(.gastronomia),
-#gastronomia:checked ~ .tabla-container tr:not(.gastronomia) {
-    display: none;
-}
-
-/* RELIGIOSO */
-#religioso:checked ~ .destinos .card:not(.religioso),
-#religioso:checked ~ .tabla-container tr:not(.religioso) {
-    display: none;
-}
-
-/* ================= TABLA ================= */
-.tabla-container {
-    padding: 30px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-
-th {
-    background: linear-gradient(135deg, #005f8f, #00b4d8);
-    color: white;
-    padding: 14px;
-    text-align: left;
-}
-
-td {
-    padding: 14px;
-    border-bottom: 1px solid #eee;
-}
-
-/* zebra */
-tbody tr:nth-child(even) {
-    background: #f9f9f9;
-}
-
-/* hover */
-tbody tr:hover {
-    background: rgba(0,180,216,0.1);
-}
-
-/* estilos */
-td:nth-child(2) {
-    color: #005f8f;
-    font-weight: 500;
-}
-
-td:nth-child(3) {
-    color: #00b4d8;
-    font-weight: bold;
-}
-
-/* ================= COLORES POR CATEGORÍA ================= */
+/* ================= COLOR DEL BORDE IZQUIERDO EN LA TABLA ================= */
 
 /* CULTURAL */
 tr.cultural td:first-child {
     border-left: 6px solid #e63946;
-}
-
-tr.cultural td:nth-child(2) {
-    color: #e63946;
-    font-weight: bold;
 }
 
 /* NATURALEZA */
@@ -303,19 +47,9 @@ tr.naturaleza td:first-child {
     border-left: 6px solid #2a9d8f;
 }
 
-tr.naturaleza td:nth-child(2) {
-    color: #2a9d8f;
-    font-weight: bold;
-}
-
 /* PLAYA */
 tr.playa td:first-child {
     border-left: 6px solid #219ebc;
-}
-
-tr.playa td:nth-child(2) {
-    color: #219ebc;
-    font-weight: bold;
 }
 
 /* GASTRONOMÍA */
@@ -323,109 +57,32 @@ tr.gastronomia td:first-child {
     border-left: 6px solid #f4a261;
 }
 
-tr.gastronomia td:nth-child(2) {
-    color: #f4a261;
-    font-weight: bold;
-}
-
 /* RELIGIOSO */
 tr.religioso td:first-child {
     border-left: 6px solid #9b5de5;
 }
 
-tr.religioso td:nth-child(2) {
-    color: #9b5de5;
-    font-weight: bold;
+.morado {
+    color: #9b5de5 !important;
 }
-
-/* ================= RESPONSIVE ================= */
-@media (max-width: 600px) {
-
-    table, thead, tbody, tr, td {
-        display: block;
-    }
-
-    thead {
-        display: none;
-    }
-
-    tr {
-        margin-bottom: 10px;
-        background: white;
-        padding: 10px;
-        border-radius: 10px;
-    }
-
-    td {
-        padding-left: 50%;
-        position: relative;
-    }
-
-    td::before {
-        position: absolute;
-        left: 10px;
-        font-weight: bold;
-        content: attr(data-label);
-    }
-}
-
-
-
 
 
 /* ================= TABLA MEJORADA ================= */
-.tabla-container {
-    padding: 30px;
-}
-
-/* contenedor visual */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
 
 /* encabezado */
 th {
     background: linear-gradient(135deg, #005f8f, #00b4d8);
-    color: white;
-    text-align: left;
-    padding: 14px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
 }
 
 /* celdas */
 td {
-    padding: 14px;
-    border-bottom: 1px solid #eee;
     transition: 0.2s;
-}
-
-/* zebra (alternado) */
-tbody tr:nth-child(even) {
-    background: #f9f9f9;
 }
 
 /* hover fila */
 tbody tr:hover {
     background: rgba(0, 180, 216, 0.1);
     transform: scale(1.01);
-}
-
-/* categoría destacada */
-td:nth-child(2) {
-    font-weight: 500;
-    color: #005f8f;
-}
-
-/* precio estilo */
-td:nth-child(3) {
-    font-weight: bold;
-    color: #00b4d8;
 }
 
 /* bordes redondeados arriba */
@@ -435,180 +92,3 @@ th:first-child {
 th:last-child {
     border-top-right-radius: 12px;
 }
-
-/* ====================== FOOTER ====================== */
-footer {
-    background: var(--color-dark);
-    color: #ddd;
-    padding: 80px 5% 40px;
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 3rem;
-    max-width: 1400px;
-    margin: 0 auto 4rem;
-}
-
-.newsletter h3,
-.redes h3,
-.mapa h3 {
-    color: white;
-    margin-bottom: 1.25rem;
-    font-size: 1.35rem;
-}
-
-.newsletter form {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.newsletter input {
-    flex: 1;
-    min-width: 220px;
-    padding: 14px 18px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-}
-
-.newsletter button {
-    padding: 14px 28px;
-    background: var(--color-accent);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.newsletter button:hover {
-    background: #0099b8;
-    transform: translateY(-2px);
-}
-
-.redes a {
-    display: inline-block;
-    margin: 8px 12px 8px 0;
-    color: #bbb;
-    font-size: 1.1rem;
-}
-
-.redes a:hover {
-    color: var(--color-accent);
-}
-
-.mapa iframe {
-    border-radius: 12px;
-    box-shadow: var(--shadow-md);
-}
-
-/* Copyright */
-footer p {
-    text-align: center;
-    opacity: 0.7;
-    font-size: 0.95rem;
-    margin-top: 2rem;
-    border-top: 1px solid #333;
-    padding-top: 2rem;
-}
-
-/* ================= DARK MODE ================= */
-
-.dark-mode {
-    /* 🎨 COLORES PRINCIPALES */
-    --color-primary: #0a84ff;
-    --color-accent: #00d4ff;
-    --color-dark: #0d1117;
-    --color-light: #121212;
-    --color-gray: #1e1e1e;
-    --text-dark: #e6e6e6;
-    --text-light: #ffffff;
-
-    /* 🌑 SOMBRAS (más intensas en oscuro) */
-    --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.6);
-    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.7);
-    --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.8);
-}
-
-/* ================= BASE ================= */
-
-.dark-mode body {
-    background: var(--color-light);
-    color: var(--text-dark);
-}
-
-/* ================= HEADER ================= */
-
-.dark-mode header {
-    background: rgba(13, 17, 23, 0.95);
-}
-
-/* ================= FILTROS ================= */
-
-.dark-mode .filtros label {
-    background: var(--color-gray);
-    color: var(--text-dark);
-}
-
-/* activo */
-.dark-mode #todos:checked ~ .filtros label[for="todos"],
-.dark-mode #cultural:checked ~ .filtros label[for="cultural"],
-.dark-mode #naturaleza:checked ~ .filtros label[for="naturaleza"],
-.dark-mode #playa:checked ~ .filtros label[for="playa"],
-.dark-mode #gastronomia:checked ~ .filtros label[for="gastronomia"],
-.dark-mode #religioso:checked ~ .filtros label[for="religioso"] {
-    background: var(--color-accent);
-    color: black;
-}
-
-
-/* ================= TABLA ================= */
-
-.dark-mode table {
-    background: var(--color-gray);
-    color: var(--text-dark);
-}
-
-.dark-mode td {
-    border-bottom: 1px solid #333;
-}
-
-.dark-mode tbody tr:nth-child(even) {
-    background: #2a2a2a;
-}
-
-.dark-mode tbody tr:hover {
-    background: rgba(0, 212, 255, 0.15);
-}
-
-/* ================= FOOTER ================= */
-
-.dark-mode footer {
-    background: var(--color-dark);
-}
-
-/* ================= BOTÓN ================= */
-
-.dark-toggle {
-    background: none;
-    border: 2px solid white;
-    color: white;
-    padding: 6px 10px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.dark-toggle:hover {
-    background: rgba(255,255,255,0.2);
-}
-
-.dark-mode tr.cultural td:first-child { border-left-color: #ff6b6b; }
-.dark-mode tr.naturaleza td:first-child { border-left-color: #52b788; }
-.dark-mode tr.playa td:first-child { border-left-color: #48cae4; }
-.dark-mode tr.gastronomia td:first-child { border-left-color: #ffb703; }
-.dark-mode tr.religioso td:first-child { border-left-color: #c77dff; }
