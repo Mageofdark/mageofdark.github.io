@@ -27,56 +27,11 @@
 body {
     font-family: var(--font-body);
     background: var(--color-light);
-    padding-top: 70px;
+    padding-top: 0; /* Removido porque navbar es sticky */
 }
 
-/* ================= HEADER ================= */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(0, 95, 143, 0.95);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-    padding: 1rem 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: var(--shadow-sm);
-}
-
-.logo h1 {
-    font-size: 2rem;
-    color: white;
-    letter-spacing: -1px;
-}
-
-.menu {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.menu li {
-    position: relative;
-}
-
-.menu a {
-    color: white;
-    font-weight: 500;
-    padding: 0.6rem 1rem;
-    border-radius: 6px;
-    text-decoration: none;
-}
-
-.menu a:hover {
-    background-color: rgba(255,255,255,0.15);
-    color: white;
-}
-
+/* ====================== HEADER ====================== */
+/* Estilos del navbar ahora están en el HTML inline para evitar conflictos con Bootstrap */
 /* ============hero ======= */
 .hero {
     position: relative;
@@ -124,6 +79,57 @@ header {
     max-width: 700px;
     margin: 0 auto 2rem;
     opacity: 0.95;
+}
+
+/* ============ DESTINOS ============ */
+.destinos {
+    padding: 100px 5%;
+    background: var(--color-light);
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
+.card h3 {
+    padding: 1rem 1.5rem 0.5rem;
+    font-size: 1.4rem;
+    color: var(--color-dark);
+}
+
+.card p {
+    padding: 0 1.5rem 1.5rem;
+    color: #666;
+    font-size: 1rem;
 }
 
 /* ========secciones generales== */
@@ -301,9 +307,9 @@ input[type="radio"] {
 
 /* ============footer============ */
 footer {
-    background: var(--color-dark);
-    color: #ddd;
+    color: var(--text-dark);
     padding: 80px 5% 40px;
+    border-top: 1px solid var(--color-gray);
 }
 
 .footer-grid {
@@ -317,7 +323,7 @@ footer {
 .newsletter h3,
 .redes h3,
 .mapa h3 {
-    color: white;
+    color: var(--color-dark);
     margin-bottom: 1.25rem;
     font-size: 1.35rem;
 }
@@ -328,13 +334,58 @@ footer {
     flex-wrap: wrap;
 }
 
-.newsletter input {
+.email-input-group {
     flex: 1;
     min-width: 220px;
+    position: relative;
+}
+
+.newsletter input {
+    width: 100%;
     padding: 14px 18px;
-    border: none;
+    border: 2px solid #ddd;
     border-radius: 8px;
     font-size: 1rem;
+    transition: var(--transition);
+}
+
+.newsletter input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.1);
+}
+
+/* Validación en tiempo real */
+.newsletter input.is-valid {
+    border-color: #28a745;
+    background-color: #f1f9f6;
+}
+
+.newsletter input.is-invalid {
+    border-color: #dc3545;
+    background-color: #fff5f5;
+}
+
+.email-feedback {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.1rem;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.newsletter input.is-valid ~ .email-feedback {
+    opacity: 1;
+    color: #28a745;
+    content: "✓";
+}
+
+.newsletter input.is-invalid ~ .email-feedback {
+    opacity: 1;
+    color: #dc3545;
+    content: "✗";
 }
 
 .newsletter button {
@@ -353,10 +404,22 @@ footer {
     transform: translateY(-2px);
 }
 
+.btn-submit {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px !important;
+}
+
+.spinner-border-sm {
+    width: 1rem;
+    height: 1rem;
+}
+
 .redes a {
     display: inline-block;
     margin: 8px 12px 8px 0;
-    color: #bbb;
+    color: var(--color-primary);
     font-size: 1.1rem;
 }
 
@@ -375,25 +438,64 @@ footer p {
     opacity: 0.7;
     font-size: 0.95rem;
     margin-top: 2rem;
-    border-top: 1px solid #333;
+    border-top: 1px solid var(--color-gray);
     padding-top: 2rem;
 }
 
-/* ============responsive========= */
-@media (max-width: 992px) {
-    header {
-        padding: 1rem 5%;
-    }
-    
-    .menu {
-        gap: 1.5rem;
-    }
+.icono {
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    background-image: url('../img/sprite.png');
+    background-repeat: no-repeat;
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-@media (max-width: 768px) {
-    .hero-overlay h2 {
-        font-size: 2.8rem;
-    }
+.icono.facebook {
+    background-position: 0 0; 
+}
+
+.icono.instagram {
+    background-position: -64px 0; 
+}
+
+.icono.twitter {
+    background-position: -32px 0; 
+}
+
+.icono:hover {
+    transform: scale(1.2);
+    filter: brightness(1.2);
+}
+
+
+
+/* ============ DARK MODE NEWSLETTER ============ */
+[data-bs-theme="dark"] .newsletter input {
+    background: var(--color-gray);
+    color: var(--text-dark);
+    border-color: #333;
+}
+
+[data-bs-theme="dark"] .newsletter input:focus {
+    border-color: var(--color-accent);
+}
+
+[data-bs-theme="dark"] .email-feedback {
+    color: var(--color-accent);
+}
+
+[data-bs-theme="dark"] .phishing-banner {
+    background: linear-gradient(135deg, rgba(255, 193, 7, 0.2), rgba(255, 230, 156, 0.1));
+    border-color: rgba(255, 193, 7, 0.5);
+}
+
+[data-bs-theme="dark"] .modal-content {
+    background: var(--color-dark);
+    color: var(--text-dark);
+}
+@media (max-width: 992px) {
+    /* Removidos estilos del header/menu ya que Bootstrap los maneja */
     
     section {
         padding: 70px 5%;
@@ -410,7 +512,7 @@ footer p {
 
 /* ================= DARK MODE ================= */
 
-.dark-mode {
+[data-bs-theme="dark"] {
     /* 🎨 COLORES PRINCIPALES */
     --color-primary: #0a84ff;
     --color-accent: #00d4ff;
@@ -428,58 +530,92 @@ footer p {
 
 /* ================= BASE ================= */
 
-.dark-mode body {
+[data-bs-theme="dark"] body {
     background: var(--color-light);
     color: var(--text-dark);
 }
 
-/* ================= HEADER ================= */
-
-.dark-mode header {
-    background: rgba(13, 17, 23, 0.95);
-}
 
 /* ================= FILTROS ================= */
 
-.dark-mode .filtros label {
+[data-bs-theme="dark"] .filtros label {
     background: var(--color-gray);
     color: var(--text-dark);
 }
 
 /* activo */
-.dark-mode #todos:checked ~ .filtros label[for="todos"],
-.dark-mode #cultural:checked ~ .filtros label[for="cultural"],
-.dark-mode #naturaleza:checked ~ .filtros label[for="naturaleza"],
-.dark-mode #playa:checked ~ .filtros label[for="playa"],
-.dark-mode #gastronomia:checked ~ .filtros label[for="gastronomia"],
-.dark-mode #religioso:checked ~ .filtros label[for="religioso"] {
+[data-bs-theme="dark"] #todos:checked ~ .filtros label[for="todos"],
+[data-bs-theme="dark"] #cultural:checked ~ .filtros label[for="cultural"],
+[data-bs-theme="dark"] #naturaleza:checked ~ .filtros label[for="naturaleza"],
+[data-bs-theme="dark"] #playa:checked ~ .filtros label[for="playa"],
+[data-bs-theme="dark"] #gastronomia:checked ~ .filtros label[for="gastronomia"],
+[data-bs-theme="dark"] #religioso:checked ~ .filtros label[for="religioso"] {
     background: var(--color-accent);
     color: black;
 }
 
 /* ================= TABLA ================= */
 
-.dark-mode table {
+[data-bs-theme="dark"] table {
     background: var(--color-gray);
     color: var(--text-dark);
 }
 
-.dark-mode td {
+[data-bs-theme="dark"] td {
     border-bottom: 1px solid #333;
 }
 
-.dark-mode tbody tr:nth-child(even) {
+[data-bs-theme="dark"] tbody tr:nth-child(even) {
     background: #2a2a2a;
 }
 
-.dark-mode tbody tr:hover {
+[data-bs-theme="dark"] tbody tr:hover {
     background: rgba(0, 212, 255, 0.15);
+}
+
+/* ================= DESTINOS DARK MODE ================= */
+
+[data-bs-theme="dark"] .destinos {
+    background: var(--color-light);
+}
+
+[data-bs-theme="dark"] .destinos h2 {
+    color: var(--text-light);
+}
+
+[data-bs-theme="dark"] .card {
+    background: var(--color-gray);
+    color: var(--text-dark);
+}
+
+[data-bs-theme="dark"] .card h3 {
+    color: var(--text-light);
+}
+
+[data-bs-theme="dark"] .card p {
+    color: var(--text-dark);
 }
 
 /* ================= FOOTER ================= */
 
-.dark-mode footer {
+[data-bs-theme="dark"] footer {
     background: var(--color-dark);
+    color: #ddd;
+    border-top-color: #333;
+}
+
+[data-bs-theme="dark"] .newsletter h3,
+[data-bs-theme="dark"] .redes h3,
+[data-bs-theme="dark"] .mapa h3 {
+    color: white;
+}
+
+[data-bs-theme="dark"] .redes a {
+    color: #bbb;
+}
+
+[data-bs-theme="dark"] footer p {
+    border-top-color: #333;
 }
 
 /* ================= BOTÓN ================= */
