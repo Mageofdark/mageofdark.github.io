@@ -1,44 +1,83 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-bs-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Turismo - Explora el Mundo</title>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- Bootstrap ICONS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 
 <body>
 
-    <!-- HEADER + NAV -->
-    <header>
-        <div class="logo">
-            <h1>Turismo</h1>
+<header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary py-3">
+        <div class="container-fluid">
+
+            <!-- Brand -->
+            <a class="navbar-brand fs-1 ps-5 py-2 fw-bold" href="index.html">
+                Grand Tour GT
+            </a>
+
+            <!-- Toggler -->
+            <button class="navbar-toggler" type="button" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#navbarToggler" 
+                aria-controls="navbarToggler" 
+                aria-expanded="false" 
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Menu -->
+            <div class="collapse navbar-collapse" id="navbarToggler">
+                <ul class="navbar-nav ms-auto fs-4 gap-3">
+
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link active py-3 px-3" aria-current="page">Inicio</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="pages/destinos.html" class="nav-link py-3 px-3">Destinos</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="pages/agencias.html" class="nav-link py-3 px-3">Agencias</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="pages/blog.html" class="nav-link py-3 px-3">Blog</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="pages/contacto.html" class="nav-link py-3 px-3">Contacto</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="pages/precios.html" class="nav-link py-3 px-3">Precios</a>
+                    </li>
+
+                    <li class="nav-item pe-5">
+                        <button id="themeToggle" class="nav-link fs-4 px-3 py-3 border-0 bg-transparent" onclick=toggleDarkMode()>
+                            <i class="bi bi-sun-fill"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
         </div>
-
-        <nav>
-            <ul class="menu">
-                
-                <li><a href="index.html">Inicio</a></li>
-
-                <li><a href="pages/destinos.html">Destinos</a></li>
-
-                <li><a href="pages/agencias.html">Agencias</a></li>
-
-                <li><a href="pages/blog.html">Blog</a></li>
-
-                <li><a href="pages/contacto.html">Contacto</a></li>
-
-                <li><a href="pages/precios.html">Ofertas</a></li>
-
-            </ul>
-        </nav>
-    </header>
+    </nav>
+</header>
 
     <!-- HERO CON VIDEO -->
     <section class="hero">
         <video autoplay muted loop class="hero-video">
             <source src="img/hero.mp4" type="video/mp4">
-            te papie
+            Tu navegador no soporta el elemento video.
         </video>
 
         <div class="hero-overlay">
@@ -47,21 +86,61 @@
         </div>
     </section>
 
+
+    <!-- DESTINOS -->
+    <section class="destinos">
+        <h2>Destinos Populares</h2>
+        <div class="cards">
+            <div class="card">
+                <img src="img/amazonas.jfif" alt="Amazonas">
+                <h3>Amazonas</h3>
+                <p>Explora la selva amazónica y su biodiversidad única.</p>
+            </div>
+            <div class="card">
+                <img src="img/kiotojapan.jfif" alt="Kioto">
+                <h3>Kioto, Japón</h3>
+                <p>Descubre templos antiguos y cultura tradicional.</p>
+            </div>
+            <div class="card">
+                <img src="img/maldivas.jfif" alt="Maldivas">
+                <h3>Maldivas</h3>
+                <p>Relájate en playas paradisíacas y aguas cristalinas.</p>
+            </div>
+            <div class="card">
+                <img src="img/patagony.jfif" alt="Patagonia">
+                <h3>Patagonia</h3>
+                <p>Aventura en glaciares y paisajes extremos.</p>
+            </div>
+            <div class="card">
+                <img src="img/puntacana.jfif" alt="Punta Cana">
+                <h3>Punta Cana</h3>
+                <p>Disfruta de resorts de lujo y sol caribeño.</p>
+            </div>
+            <div class="card">
+                <img src="img/romaItaly.jfif" alt="Roma">
+                <h3>Roma, Italia</h3>
+                <p>Historia viva en la Ciudad Eterna.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- CONTADOR -->
-    <section class="contador">
-        <div class="contador-item">
-            <h3>500+</h3>
-            <p>Visitantes</p>
-        </div>
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number" data-target="500" data-suffix="+">0</div>
+                <div class="stat-label">Visitantes</div>
+            </div>
 
-        <div class="contador-item">
-            <h3>120+</h3>
-            <p>Destinos</p>
-        </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="120" data-suffix="+">0</div>
+                <div class="stat-label">Destinos</div>
+            </div>
 
-        <div class="contador-item">
-            <h3>80+</h3>
-            <p>Agencias</p>
+            <div class="stat-item">
+                <div class="stat-number" data-target="80" data-suffix="+">0</div>
+                <div class="stat-label">Agencias</div>
+            </div>
         </div>
     </section>
 
@@ -71,9 +150,9 @@
     <h2>Testimonios</h2>
 
     <!-- inputs -->
-    <input type="radio" name="slider" id="slide1" checked>
-    <input type="radio" name="slider" id="slide2">
-    <input type="radio" name="slider" id="slide3">
+    <input type="radio" name="slider" id="slide1" checked aria-label="Testimonio 1 de 3">
+    <input type="radio" name="slider" id="slide2" aria-label="Testimonio 2 de 3">
+    <input type="radio" name="slider" id="slide3" aria-label="Testimonio 3 de 3">
 
     <!-- contenedor que arregla el problema -->
     <div class="viewport">
@@ -98,51 +177,218 @@
     </div>
 
     <!-- botones -->
-    <div class="controles">
-        <label for="slide1" class="dot"></label>
-        <label for="slide2" class="dot"></label>
-        <label for="slide3" class="dot"></label>
+    <div class="controles" role="group" aria-label="Navegación de testimonios">
+        <label for="slide1" class="dot" aria-label="Ir al testimonio 1"></label>
+        <label for="slide2" class="dot" aria-label="Ir al testimonio 2"></label>
+        <label for="slide3" class="dot" aria-label="Ir al testimonio 3"></label>
     </div>
 
 </section>
 
-    <!-- FOOTER -->
-    <footer>
+<footer class="bg-body-tertiary py-5 mt-5">
+    <div class="container">
 
-        <div class="footer-grid">
+        <div class="row g-4">
 
             <!-- Newsletter -->
-            <section class="newsletter">
-                <h3>Suscríbete</h3>
-                <form>
-                    <input type="email" placeholder="Tu correo" required>
-                    <button type="submit">Enviar</button>
+            <div class="col-12 col-md-4">
+                <h5 class="mb-3 fw-bold">Suscríbete</h5>
+
+                <form class="d-flex flex-column gap-2">
+                    <input 
+                        type="email" 
+                        class="form-control needs-validation" 
+                        placeholder="Tu correo" 
+                        required
+                    >
+                    <button type="submit" class="btn btn-primary w-100">
+                        Enviar
+                    </button>
                 </form>
-            </section>
+            </div>
 
             <!-- Redes -->
-            <section class="redes">
-                <h3>Síguenos</h3>
-                <a href="#">Facebook</a>
-                <a href="#">Instagram</a>
-                <a href="#">Twitter</a>
-            </section>
+            <div class="col-12 col-md-4 text-center">
+                <h5 class="mb-3 fw-bold">Síguenos</h5>
+
+                <div class="d-flex justify-content-center gap-3 fs-3">
+
+                    <a href="#" class="text-body" aria-label="Facebook">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+
+                    <a href="https://www.instagram.com/nacho367_/" class="text-body" aria-label="Instagram">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+
+                    <a href="#" class="text-body" aria-label="Twitter">
+                        <i class="bi bi-twitter"></i>
+                    </a>
+
+                </div>
+            </div>
 
             <!-- Mapa -->
-            <section class="mapa">
-                <h3>Ubicación</h3>
-                <iframe 
-                    src="https://www.google.com/maps?q=Jujuy&output=embed"
-                    width="100%" 
-                    height="200" 
-                    style="border:0;" 
-                    loading="lazy">
-                </iframe>
-            </section>
+            <div class="col-12 col-md-4">
+                <h5 class="mb-3 fw-bold">Ubicación</h5>
+
+                <div class="ratio ratio-16x9">
+                    <iframe 
+                        src="https://www.google.com/maps?q=Jujuy&output=embed"
+                        style="border:0;"
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
 
         </div>
 
-    </footer>
+        <hr class="my-4">
+
+        <div class="text-center small opacity-75">
+            © 2026 Turismo Jujuy - Todos los derechos reservados
+        </div>
+
+    </div>
+</footer>
+
+    </div>
+
+    <!-- MODAL CONFIRMACIÓN NEWSLETTER -->
+    <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmTitle" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h1 class="modal-title fs-5" id="confirmTitle">
+                        <i class="bi bi-check-circle-fill"></i> ¡Suscripción Confirmada!
+                    </h1>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Gracias por suscribirte a nuestro newsletter.</p>
+                    <p class="text-muted small">Recibirás actualizaciones sobre los mejores destinos y ofertas exclusivas.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bootstrap JavaScript Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="../javascript/darkmode.js"></script>
+
+    <script>
+        // Verificar que Bootstrap esté cargado
+        console.log('Bootstrap loaded:', typeof bootstrap !== 'undefined');
+        
+
+
+        // jQuery animated text in hero
+        $(document).ready(function() {
+            $('.hero-overlay h2').hide().fadeIn(2000);
+            $('.hero-overlay p').hide().delay(500).fadeIn(2000);
+
+            // ========== VALIDACIÓN NEWSLETTER - TIEMPO REAL ==========
+            const $email = $('#newsletterEmail');
+            const $emailFeedback = $('.email-feedback');
+            const $form = $('#newsletterForm');
+            const $btn = $('#newsletterBtn');
+            
+            // Función para validar email
+            function validateEmail(email) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+            }
+
+            // Validación en tiempo real mientras escribe
+            $email.on('input', function() {
+                const email = $(this).val().trim();
+                
+                if (email === '') {
+                    $email.removeClass('is-valid is-invalid');
+                    $emailFeedback.text('');
+                } else if (validateEmail(email)) {
+                    $email.removeClass('is-invalid').addClass('is-valid');
+                    $emailFeedback.html('✓').css('color', '#28a745');
+                } else {
+                    $email.removeClass('is-valid').addClass('is-invalid');
+                    $emailFeedback.html('✗').css('color', '#dc3545');
+                }
+            });
+
+            // Submit del formulario
+            $form.on('submit', function(e) {
+                e.preventDefault();
+                
+                const email = $email.val().trim();
+                
+                if (!validateEmail(email)) {
+                    $email.addClass('is-invalid');
+                    $emailFeedback.html('✗ Email inválido').css('color', '#dc3545');
+                    return;
+                }
+
+                // Mostrar spinner y deshabilitar botón
+                $btn.prop('disabled', true);
+                $btn.find('.btn-text').addClass('d-none');
+                $btn.find('.spinner-border').removeClass('d-none');
+
+                // Simular envío (en realidad no envía datos - educativo)
+                setTimeout(function() {
+                    // Mostrar modal de confirmación
+                    const confirmModal = new bootstrap.Modal(document.getElementById('confirmModal'));
+                    confirmModal.show();
+
+                    // Resetear formulario
+                    $form.trigger('reset');
+                    $email.removeClass('is-valid is-invalid');
+                    $emailFeedback.text('');
+                    $btn.prop('disabled', false);
+                    $btn.find('.btn-text').removeClass('d-none');
+                    $btn.find('.spinner-border').addClass('d-none');
+                }, 1500);
+            });
+
+            // Validación en blur (cuando sale del input)
+            $email.on('blur', function() {
+                const email = $(this).val().trim();
+                if (email !== '' && !validateEmail(email)) {
+                    $email.addClass('is-invalid');
+                }
+            });
+
+            // ========== ANIMACIÓN CONTADORES ==========
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counters = entry.target.querySelectorAll('.stat-number');
+                        counters.forEach(counter => {
+                            const target = +counter.getAttribute('data-target');
+                            const suffix = counter.getAttribute('data-suffix') || '';
+                            let count = 0;
+                            const increment = target / 100;
+                            const timer = setInterval(() => {
+                                count += increment;
+                                if (count >= target) {
+                                    count = target;
+                                    clearInterval(timer);
+                                }
+                                counter.textContent = Math.floor(count) + suffix;
+                            }, 30);
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            });
+            const statsSection = document.querySelector('.stats-section');
+            if(statsSection) {
+                observer.observe(statsSection);
+            }
+        });
+    </script>
 
 </body>
 </html>
