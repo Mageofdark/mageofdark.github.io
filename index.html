@@ -185,59 +185,72 @@
 
 </section>
 
+<footer class="bg-body-tertiary py-5 mt-5">
+    <div class="container">
 
-    <!-- FOOTER -->
-    <footer class="bg-body-tertiary">
-
-        <div class="footer-grid">
+        <div class="row g-4">
 
             <!-- Newsletter -->
-            <section class="newsletter">
-                <h3>Suscríbete</h3>
-                <form id="newsletterForm" class="newsletter-form">
-                    <div class="email-input-group">
-                        <input type="email" id="newsletterEmail" class="newsletter-input" placeholder="Tu correo" required>
-                        <span class="email-feedback"></span>
-                    </div>
-                    <button type="submit" id="newsletterBtn" class="btn-submit">
-                        <span class="btn-text">Enviar</span>
-                        <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+            <div class="col-12 col-md-4">
+                <h5 class="mb-3 fw-bold">Suscríbete</h5>
+
+                <form class="d-flex flex-column gap-2">
+                    <input 
+                        type="email" 
+                        class="form-control needs-validation" 
+                        placeholder="Tu correo" 
+                        required
+                    >
+                    <button type="submit" class="btn btn-primary w-100">
+                        Enviar
                     </button>
                 </form>
-            </section>
+            </div>
 
             <!-- Redes -->
-            <section class="redes">
-                <h3>Síguenos</h3>
-                <div class="social-icons d-flex gap-3">
-                    <a href="#" class="icono facebook" title="Facebook" aria-label="Síguenos en Facebook"></a>
-                    <a href="#" class="icono instagram" title="Instagram" aria-label="Síguenos en Instagram"></a>
-                    <a href="#" class="icono twitter" title="Twitter" aria-label="Síguenos en Twitter"></a>
+            <div class="col-12 col-md-4 text-center">
+                <h5 class="mb-3 fw-bold">Síguenos</h5>
+
+                <div class="d-flex justify-content-center gap-3 fs-3">
+
+                    <a href="#" class="text-body" aria-label="Facebook">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+
+                    <a href="https://www.instagram.com/nacho367_/" class="text-body" aria-label="Instagram">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+
+                    <a href="#" class="text-body" aria-label="Twitter">
+                        <i class="bi bi-twitter"></i>
+                    </a>
+
                 </div>
-            </section>
+            </div>
 
             <!-- Mapa -->
-            <section class="mapa">
-                <h3>Ubicación</h3>
-                <iframe 
-                    src="https://www.google.com/maps?q=Jujuy&output=embed"
-                    width="100%" 
-                    height="200" 
-                    style="border:0;" 
-                    loading="lazy">
-                </iframe>
-            </section>
+            <div class="col-12 col-md-4">
+                <h5 class="mb-3 fw-bold">Ubicación</h5>
+
+                <div class="ratio ratio-16x9">
+                    <iframe 
+                        src="https://www.google.com/maps?q=Jujuy&output=embed"
+                        style="border:0;"
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
 
         </div>
 
-        <!-- Copyright -->
-        <div class="text-center mt-4 pt-3 border-top border-secondary">
-            <p class="mb-0 opacity-75">
-                © 2026 Turismo Jujuy - Todos los derechos reservados
-            </p>
+        <hr class="my-4">
+
+        <div class="text-center small opacity-75">
+            © 2026 Turismo Jujuy - Todos los derechos reservados
         </div>
 
-    </footer>
+    </div>
+</footer>
 
     </div>
 
