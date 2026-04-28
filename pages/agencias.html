@@ -1,330 +1,293 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-bs-theme="light">
 <head>
     <meta charset="UTF-8">
-    <title>Agencias</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agencias — Grand Tour GT</title>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- Bootstrap JS (necesario para el navbar toggler en mobile) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous" defer></script>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../styles/styles_agencias.css">
 </head>
 <body>
-
-    <header>
-        <div class="logo">
-            <h1>Grand Tour GT</h1>
+ 
+<!-- NAVBAR (del compañero — active en Agencias) -->
+<header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary py-3">
+        <div class="container-fluid">
+            <a class="navbar-brand fs-1 ps-5 py-2 fw-bold" href="../index.html">
+                Grand Tour GT
+            </a>
+            <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarToggler"
+                aria-controls="navbarToggler"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarToggler">
+                <ul class="navbar-nav ms-auto fs-4 gap-3">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link py-3 px-3">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="destinos.html" class="nav-link py-3 px-3">Destinos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="agencias.html" class="nav-link active py-3 px-3" aria-current="page">Agencias</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="blog.html" class="nav-link py-3 px-3">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contacto.html" class="nav-link py-3 px-3">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="precios.html" class="nav-link py-3 px-3">Precios</a>
+                    </li>
+                    <li class="nav-item pe-5">
+                        <button id="themeToggle" class="nav-link fs-4 px-3 py-3 border-0 bg-transparent" onclick="toggleDarkMode()">
+                            <i class="bi bi-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
         </div>
-
-        <nav>
-            <ul class="menu">
-                
-                <li><a href="../index.html">Inicio</a></li>
-
-                <li><a href="destinos.html">Destinos</a></li>
-
-                <li><a href="agencias.html">Agencias</a></li>
-
-                <li><a href="blog.html">Blog</a></li>
-
-                <li><a href="contacto.html">Contacto</a></li>
-
-                <li><a href="precios.html">Ofertas</a></li>
-
-                <li>
-                  <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
-                </li>
-            </ul>
-        </nav>
-    </header>
-
+    </nav>
+</header>
+ 
 <main>
-
-    <!-- TARJETAS FLIP -->
-    <section class="agencias">
-
-        <article class="flip-card" tabindex="0">
+    <div class="agencias">
+ 
+        <!-- Agencia 1 -->
+        <div class="flip-card" tabindex="0" aria-label="Horizonte Viajes, clic para ver detalles">
             <div class="flip-inner">
-
                 <div class="flip-front">
-                    <img src="../img/despegar.jpg" />
-                    <h2>Despegar</h2>
-                    <p>Viajes y paquetes turísticos</p>
-                    <div class="rating">
-                        <span class="star filled">★</span>
-                        <span class="star filled">★</span>
-                        <span class="star filled">★</span>
-                        <span class="star filled">★</span>
-                        <span class="star half">★</span>
-                    </div>
-                    <p class="review"> 4.6 (51 reseñas)</p>
+                    <i class="bi bi-globe2" style="font-size:2.5rem; color:var(--color-primary)"></i>
+                    <h3>Horizonte Viajes</h3>
+                    <p class="review">Buenos Aires, Argentina</p>
+                    <div class="rating" data-score="4.5" aria-label="Puntuación 4.5 de 5"></div>
+                    <p style="font-size:0.8rem; opacity:0.6; margin-top:8px;">
+                        <i class="bi bi-hand-index-thumb"></i> Clic para más info
+                    </p>
                 </div>
-
                 <div class="flip-back">
-                    <h3>Detalles</h3>
-                    <p>Agencia online líder en Latinoamérica para vuelos, hoteles y paquetes completos.</p>
-                    <p>🌍 Presencia en varios países</p>
-                    <p>✉️ clientes@despegar.com</p>
+                    <h3>Horizonte Viajes</h3>
+                    <p>Especialistas en Sudamérica y Europa. Más de 15 años llevando sueños a la realidad.</p>
+                    <ul style="list-style:none; padding:0; text-align:left; font-size:0.9rem; margin-top:8px;">
+                        <li><i class="bi bi-check-circle-fill me-1"></i>Tours personalizados</li>
+                        <li><i class="bi bi-check-circle-fill me-1"></i>Visa incluida</li>
+                        <li><i class="bi bi-check-circle-fill me-1"></i>Seguro de viaje</li>
+                    </ul>
                 </div>
-
             </div>
-        </article>
-
-        <article class="flip-card" tabindex="0">
-            <div class="flip-inner">
-
-                <div class="flip-front">
-                    <img src="../img/intrepid-travel.jpg" />
-                    <h2>Intrepid Travel</h2>
-                    <p>Aventuras en grupo</p>
-                    <div class="rating">
-                        <span class="star filled">★</span>
-                        <span class="star filled">★</span>
-                        <span class="star filled">★</span>
-                        <span class="star filled">★</span>
-                        <span class="star filled">★</span>
-                    </div>
-                    <p class="review"> 4.9 (39 reseñas)</p>
-                </div>
-
-                <div class="flip-back">
-                    <h3>Detalles</h3>
-                    <p>Agencia internacional enfocada en viajes sostenibles y experiencias culturales.</p>
-                    <p>🌍 Tours en más de 100 países</p>
-                    <p>✉️ info@intrepidtravel.com</p>
-                </div>
-
-            </div>
-        </article>
-
-        <article class="flip-card" tabindex="0">
-            <div class="flip-inner">
-
-                <div class="flip-front">
-                    <img src="../img/tui-group.jpg" />
-                    <h2>TUI Group</h2>
-                    <p>Turismo global</p>
-                    <div class="rating">
-                        <span class="star filled">★</span>
-                        <span class="star filled">★</span>
-                        <span class="star filled">★</span>
-                        <span class="star filled">★</span>
-                        <span class="star half">★</span>
-                    </div>
-                    <p class="review"> 4.5 (34 reseñas)</p>
-                </div>
-
-                <div class="flip-back">
-                    <h3>Detalles</h3>
-                    <p>Una de las mayores compañías de turismo del mundo, con paquetes, cruceros y hoteles propios.</p>
-                    <p>🌍 Europa y destinos globales</p>
-                    <p>✉️ info@tui.com</p>
-                </div>
-
-            </div>
-        </article>
-
-        <article class="flip-card" tabindex="0">
-            <div class="flip-inner">
-
-                <div class="flip-front">
-                    <img src="../img/booking.jpg" />
-                    <h2>Booking.com</h2>
-                    <p>Reservas de alojamiento</p>
-                    <div class="rating">
-                        <span class="star filled">★</span>
-                        <span class="star filled">★</span>
-                        <span class="star filled">★</span>
-                        <span class="star filled">★</span>
-                        <span class="star filled">★</span>
-                    </div>
-                    <p class="review"> 4.8 (27 reseñas)</p>
-                </div>
-
-                <div class="flip-back">
-                    <h3>Detalles</h3>
-                    <p>Reservas de hoteles, departamentos y experiencias en todo el mundo.</p>
-                    <p>🌍 Cobertura en más de 200 países</p>
-                    <p>✉️ support@booking.com</p>
-                </div>
-
-            </div>
-        </article>
-
-        <article class="flip-card" tabindex="0">
-            <div class="flip-inner">
-
-                <div class="flip-front">
-                    <img src="../img/tangol-tours.png" />
-                    <h2>Tangol tours</h2>
-                    <p>Tours en Argentina</p>
-                    <div class="rating">
-                        <span class="star filled">★</span>
-                        <span class="star filled">★</span>
-                        <span class="star filled">★</span>
-                        <span class="star filled">★</span>
-                        <span class="star">★</span>
-                    </div>
-                    <p class="review"> 4 (23 reseñas)</p>
-                </div>
-
-                <div class="flip-back">
-                    <h3>Detalles</h3>
-                    <p>Especialistas en excursiones en Buenos Aires, Patagonia y norte argentino.</p>
-                    <p>🌍 Turismo nacional e internacional</p>
-                    <p>✉️ info@tangol.com</p>
-                </div>
-
-            </div>
-        </article>
-
-        <article class="flip-card" tabindex="0">
-            <div class="flip-inner">
-
-                <div class="flip-front">
-                    <img src="../img/expedia-es.png" />
-                    <h2>Expedia</h2>
-                    <p>Reservas globales</p>
-                    <div class="rating">
-                        <span class="star filled">★</span>
-                        <span class="star filled">★</span>
-                        <span class="star filled">★</span>
-                        <span class="star half">★</span>
-                        <span class="star">★</span>
-                    </div>
-                    <p class="review"> 3.5 (23 reseñas)</p>
-                </div>
-
-                <div class="flip-back">
-                    <h3>Detalles</h3>
-                    <p>Plataforma internacional para reservar vuelos, hoteles y autos.</p>
-                    <p>🌍 Cobertura mundial</p>
-                    <p>✉️ support@expedia.com</p>
-                </div>
-
-            </div>
-        </article>
-
-        <article class="flip-card" tabindex="0">
-            <div class="flip-inner">
-
-                <div class="flip-front">
-                    <img src="../img/purmatur.jpg"/>
-                    <h2>PURMATUR</h2>
-                    <p>Viajes a la Quebrada de Humahuaca</p>
-                    <div class="rating">
-                        <span class="star filled">★</span>
-                        <span class="star filled">★</span>
-                        <span class="star filled">★</span>
-                        <span class="star filled">★</span>
-                        <span class="star partial">★</span>
-                    </div>
-                    <p class="review"> 4.3 (16 reseñas)</p>
-                </div>
-
-                <div class="flip-back">
-                    <h3>Detalles</h3>
-                    <p>Agencia reconocida por su atención personalizada y conocimiento del destino.</p>
-                    <p>📍 Jujuy, Argentina</p>
-                    <p>✉️ info@purmatur.tur.ar</p>
-                </div>
-
-            </div>
-        </article>
-
-        <article class="flip-card" tabindex="0">
-            <div class="flip-inner">
-
-                <div class="flip-front">
-                    <img src="../img/arami_viajes.jpg" />
-                    <h2>Arami Viajes</h2>
-                    <p>Turismo regional</p>
-                    <div class="rating">
-                        <span class="star filled">★</span>
-                        <span class="star filled">★</span>
-                        <span class="star filled">★</span>
-                        <span class="star filled">★</span>
-                        <span class="star partial">★</span>
-                    </div>
-                    <p class="review"> 4.2 (13 reseñas)</p>
-                </div>
-
-                <div class="flip-back">
-                    <h3>Detalles</h3>
-                    <p>Recorridos por los paisajes de Jujuy con experiencias culturales y naturales únicas.</p>
-                    <p>📍 Jujuy, Argentina</p>
-                    <p>✉️ consultas@aramiviajes.com</p>
-                </div>
-
-            </div>
-        </article>
-
-        <article class="flip-card" tabindex="0">
-            <div class="flip-inner">
-
-                <div class="flip-front">
-                    <img src="../img/horus-turismo.png" />
-                    <h2>Horus Turismo</h2>
-                    <p>Excursiones guiadas</p>
-                    <div class="rating">
-                        <span class="star filled">★</span>
-                        <span class="star filled">★</span>
-                        <span class="star filled">★</span>
-                        <span class="star partial">★</span>
-                        <span class="star">★</span>
-                    </div>
-                    <p class="review"> 3.2 (10 reseñas)</p>
-                </div>
-
-                <div class="flip-back">
-                    <h3>Detalles</h3>
-                    <p>Agencia enfocada en recorridos por la Quebrada de Humahuaca y Salinas Grandes.</p>
-                    <p>📍 Jujuy, Argentina</p>
-                    <p>✉️ info@horusturismo.com</p>
-                </div>
-
-            </div>
-        </article>
-
-    </section>
-
-
-
-</main>
-
-<!-- FOOTER -->
-    <footer>
-
-        <div class="footer-grid">
-
-            <!-- Newsletter -->
-            <section class="newsletter">
-                <h3>Suscríbete</h3>
-                <form>
-                    <input type="email" placeholder="Tu correo" required>
-                    <button type="submit">Enviar</button>
-                </form>
-            </section>
-
-            <!-- Redes -->
-            <section class="redes">
-                <h3>Síguenos</h3>
-                <a href="#">Facebook</a>
-                <a href="#">Instagram</a>
-                <a href="#">Twitter</a>
-            </section>
-
-            <!-- Mapa -->
-            <section class="mapa">
-                <h3>Ubicación</h3>
-                <iframe 
-                    src="https://www.google.com/maps?q=Jujuy&output=embed"
-                    width="100%" 
-                    height="200" 
-                    style="border:0;" 
-                    loading="lazy">
-                </iframe>
-            </section>
-
         </div>
-
-    </footer>
-    <script src="../javascript/darkmode.js"></script>
+ 
+        <!-- Agencia 2 -->
+        <div class="flip-card" tabindex="0" aria-label="Ruta del Sol, clic para ver detalles">
+            <div class="flip-inner">
+                <div class="flip-front">
+                    <i class="bi bi-sun" style="font-size:2.5rem; color:#f4a100"></i>
+                    <h3>Ruta del Sol</h3>
+                    <p class="review">Córdoba, Argentina</p>
+                    <div class="rating" data-score="4" aria-label="Puntuación 4 de 5"></div>
+                    <p style="font-size:0.8rem; opacity:0.6; margin-top:8px;">
+                        <i class="bi bi-hand-index-thumb"></i> Clic para más info
+                    </p>
+                </div>
+                <div class="flip-back">
+                    <h3>Ruta del Sol</h3>
+                    <p>Expertos en playas tropicales y destinos de sol. Paquetes all-inclusive para toda la familia.</p>
+                    <ul style="list-style:none; padding:0; text-align:left; font-size:0.9rem; margin-top:8px;">
+                        <li><i class="bi bi-check-circle-fill me-1"></i>All-inclusive</li>
+                        <li><i class="bi bi-check-circle-fill me-1"></i>Traslados incluidos</li>
+                        <li><i class="bi bi-check-circle-fill me-1"></i>Guía en español</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+ 
+        <!-- Agencia 3 -->
+        <div class="flip-card" tabindex="0" aria-label="Cumbre Expediciones, clic para ver detalles">
+            <div class="flip-inner">
+                <div class="flip-front">
+                    <i class="bi bi-mountain" style="font-size:2.5rem; color:#2d7a3a"></i>
+                    <h3>Cumbre Expediciones</h3>
+                    <p class="review">Mendoza, Argentina</p>
+                    <div class="rating" data-score="5" aria-label="Puntuación 5 de 5"></div>
+                    <p style="font-size:0.8rem; opacity:0.6; margin-top:8px;">
+                        <i class="bi bi-hand-index-thumb"></i> Clic para más info
+                    </p>
+                </div>
+                <div class="flip-back">
+                    <h3>Cumbre Expediciones</h3>
+                    <p>Trekking, escalada y aventura extrema. Los mejores guías certificados de la Patagonia y Los Andes.</p>
+                    <ul style="list-style:none; padding:0; text-align:left; font-size:0.9rem; margin-top:8px;">
+                        <li><i class="bi bi-check-circle-fill me-1"></i>Guías certificados</li>
+                        <li><i class="bi bi-check-circle-fill me-1"></i>Equipo incluido</li>
+                        <li><i class="bi bi-check-circle-fill me-1"></i>Grupos reducidos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+ 
+        <!-- Agencia 4 -->
+        <div class="flip-card" tabindex="0" aria-label="Cultura Viva, clic para ver detalles">
+            <div class="flip-inner">
+                <div class="flip-front">
+                    <i class="bi bi-building-fill-check" style="font-size:2.5rem; color:#c0392b"></i>
+                    <h3>Cultura Viva</h3>
+                    <p class="review">Salta, Argentina</p>
+                    <div class="rating" data-score="3.5" aria-label="Puntuación 3.5 de 5"></div>
+                    <p style="font-size:0.8rem; opacity:0.6; margin-top:8px;">
+                        <i class="bi bi-hand-index-thumb"></i> Clic para más info
+                    </p>
+                </div>
+                <div class="flip-back">
+                    <h3>Cultura Viva</h3>
+                    <p>Tours culturales e históricos por el Noroeste argentino. Arte, historia y gastronomía local.</p>
+                    <ul style="list-style:none; padding:0; text-align:left; font-size:0.9rem; margin-top:8px;">
+                        <li><i class="bi bi-check-circle-fill me-1"></i>Sitios históricos</li>
+                        <li><i class="bi bi-check-circle-fill me-1"></i>Gastronomía local</li>
+                        <li><i class="bi bi-check-circle-fill me-1"></i>Alojamiento boutique</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+ 
+        <!-- Agencia 5 -->
+        <div class="flip-card" tabindex="0" aria-label="Mar Abierto, clic para ver detalles">
+            <div class="flip-inner">
+                <div class="flip-front">
+                    <i class="bi bi-water" style="font-size:2.5rem; color:#0d9fca"></i>
+                    <h3>Mar Abierto</h3>
+                    <p class="review">Mar del Plata, Argentina</p>
+                    <div class="rating" data-score="4.5" aria-label="Puntuación 4.5 de 5"></div>
+                    <p style="font-size:0.8rem; opacity:0.6; margin-top:8px;">
+                        <i class="bi bi-hand-index-thumb"></i> Clic para más info
+                    </p>
+                </div>
+                <div class="flip-back">
+                    <h3>Mar Abierto</h3>
+                    <p>Cruceros por el Caribe, Mediterráneo y Fiordos noruegos. La experiencia náutica definitiva.</p>
+                    <ul style="list-style:none; padding:0; text-align:left; font-size:0.9rem; margin-top:8px;">
+                        <li><i class="bi bi-check-circle-fill me-1"></i>Cruceros de lujo</li>
+                        <li><i class="bi bi-check-circle-fill me-1"></i>Cabinas premium</li>
+                        <li><i class="bi bi-check-circle-fill me-1"></i>Excursiones en puerto</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+ 
+        <!-- Agencia 6 -->
+        <div class="flip-card" tabindex="0" aria-label="Nómade Digital, clic para ver detalles">
+            <div class="flip-inner">
+                <div class="flip-front">
+                    <i class="bi bi-laptop" style="font-size:2.5rem; color:#6c757d"></i>
+                    <h3>Nómade Digital</h3>
+                    <p class="review">Rosario, Argentina</p>
+                    <div class="rating" data-score="4" aria-label="Puntuación 4 de 5"></div>
+                    <p style="font-size:0.8rem; opacity:0.6; margin-top:8px;">
+                        <i class="bi bi-hand-index-thumb"></i> Clic para más info
+                    </p>
+                </div>
+                <div class="flip-back">
+                    <h3>Nómade Digital</h3>
+                    <p>Para quienes trabajan mientras viajan. Coworking, WiFi garantizado y comunidades locales.</p>
+                    <ul style="list-style:none; padding:0; text-align:left; font-size:0.9rem; margin-top:8px;">
+                        <li><i class="bi bi-check-circle-fill me-1"></i>WiFi garantizado</li>
+                        <li><i class="bi bi-check-circle-fill me-1"></i>Coworking incluido</li>
+                        <li><i class="bi bi-check-circle-fill me-1"></i>Comunidad nómade</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+ 
+    </div>
+</main>
+ 
+<!-- FOOTER -->
+<footer>
+    <div class="footer-grid">
+        <!-- Newsletter -->
+        <section class="newsletter">
+            <h3>Suscríbete</h3>
+            <form onsubmit="return false;">
+                <input type="email" placeholder="Tu correo" required>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+        <!-- Redes -->
+        <section class="redes">
+            <h3>Síguenos</h3>
+            <a href="#"><i class="bi bi-facebook me-1"></i>Facebook</a>
+            <a href="#"><i class="bi bi-instagram me-1"></i>Instagram</a>
+            <a href="#"><i class="bi bi-twitter-x me-1"></i>Twitter</a>
+        </section>
+        <!-- Mapa -->
+        <section class="mapa">
+            <h3>Ubicación</h3>
+            <iframe
+                src="https://www.google.com/maps?q=Jujuy&output=embed"
+                width="100%"
+                height="200"
+                style="border:0;"
+                loading="lazy"
+                title="Mapa de ubicación Jujuy">
+            </iframe>
+        </section>
+    </div>
+</footer>
+ 
+<script src="../javascript/darkmode.js"></script>
+<script>
+$(document).ready(function () {
+ 
+    /* =====================================================
+       1. RATING CON ESTRELLAS (jQuery)
+          Lee data-score y genera íconos de Bootstrap Icons
+    ===================================================== */
+    $('.rating').each(function () {
+        const score = parseFloat($(this).data('score'));
+        let html = '';
+        for (let i = 1; i <= 5; i++) {
+            if (i <= Math.floor(score)) {
+                html += '<i class="bi bi-star-fill star filled"></i>';
+            } else if (i === Math.ceil(score) && score % 1 !== 0) {
+                html += '<i class="bi bi-star-half star half"></i>';
+            } else {
+                html += '<i class="bi bi-star star"></i>';
+            }
+        }
+        html += '<span class="ms-2 small fw-semibold">' + score + '/5</span>';
+        $(this).html(html);
+    });
+ 
+    /* =====================================================
+       2. FLIP CON CLICK — jQuery .toggleClass()
+          El hover CSS ya funciona en desktop.
+          El clic con jQuery sirve para mobile (touch).
+    ===================================================== */
+    $('.flip-card').on('click', function () {
+        $(this).toggleClass('flipped');
+    });
+ 
+    // Accesibilidad: Enter y Espacio también flipean
+    $('.flip-card').on('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            $(this).toggleClass('flipped');
+        }
+    });
+ 
+});
+</script>
+ 
 </body>
 </html>

@@ -264,33 +264,22 @@ button:hover, a:hover {
 /* ====================== PAGINA BLOG ======================== */
 
 /* ================= FILTROS ================= */
-input[type="radio"] {
-    display: none;
-}
-
-.filtros {
-    margin-top: 10px;
-    text-align: center;
-    padding: 20px;
-}
-
-.filtros h2{
-    margin-bottom: 17px;
-}
-
-.filtros label {
-    margin: 5px;
-    padding: 10px 15px;
-    background: #ddd;
+.btn-filter {
+    padding: 8px 18px;
     border-radius: 20px;
+    border: 2px solid var(--color-primary);
+    background: transparent;
+    color: var(--color-primary);
+    font-weight: 500;
     cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.9rem;
 }
-
-input:checked + label {
-    background: #333;
+.btn-filter:hover,
+.btn-filter.active-filter {
+    background: var(--color-primary);
     color: white;
 }
-
 /* ====================== COMENTARIOS ====================== */
 
 .comments {
@@ -362,53 +351,6 @@ input:checked + label {
     transform: translateY(-50%);
     color: red;
     font-size: 14px;
-}
-
-/* FILTROS */
-
-#todos:checked ~ .comments .card,
-#todos:checked ~ .tabla-container tr {
-    display: table-row;
-}
-
-#todos:checked ~ .comments .card {
-    display: block;
-}
-
-/* CULTURAL */
-#cultural:checked ~ .comments .card:not(.cultural),
-#cultural:checked ~ .tabla-container tr:not(.cultural) {
-    display: none;
-}
-
-/* NATURALEZA */
-#naturaleza:checked ~ .comments .card:not(.naturaleza),
-#naturaleza:checked ~ .tabla-container tr:not(.naturaleza) {
-    display: none;
-}
-
-/* PLAYA */
-#playa:checked ~ .comments .card:not(.playa),
-#playa:checked ~ .tabla-container tr:not(.playa) {
-    display: none;
-}
-
-/* GASTRONOMÍA */
-#gastronomia:checked ~ .comments .card:not(.gastronomia),
-#gastronomia:checked ~ .tabla-container tr:not(.gastronomia) {
-    display: none;
-}
-
-/* RELIGIOSO */
-#religioso:checked ~ .comments .card:not(.religioso),
-#religioso:checked ~ .tabla-container tr:not(.religioso) {
-    display: none;
-}
-
-/* AVENTURA */
-#aventura:checked ~ .comments .card:not(.aventura),
-#aventura:checked ~ .tabla-container tr:not(.aventura) {
-    display: none;
 }
 
 /* ===== USER ===== */
@@ -574,7 +516,7 @@ footer p {
 
 /* ================= DARK MODE ================= */
 
-.dark-mode {
+[data-bs-theme="dark"] {
     /* 🎨 COLORES PRINCIPALES */
     --color-primary: #0a84ff;
     --color-accent: #00d4ff;
@@ -592,63 +534,63 @@ footer p {
 
 /* ================= BASE ================= */
 
-.dark-mode body {
+[data-bs-theme="dark"] body {
     background: var(--color-light);
     color: var(--text-dark);
 }
 
 /* ================= HEADER ================= */
 
-.dark-mode header {
+[data-bs-theme="dark"] header {
     background: rgba(13, 17, 23, 0.95);
 }
 
 /* ================= FILTROS ================= */
 
-.dark-mode .filtros label {
+[data-bs-theme="dark"] .filtros label {
     background: var(--color-gray);
     color: var(--text-dark);
 }
 
 /* activo */
-.dark-mode #todos:checked ~ .filtros label[for="todos"],
-.dark-mode #cultural:checked ~ .filtros label[for="cultural"],
-.dark-mode #naturaleza:checked ~ .filtros label[for="naturaleza"],
-.dark-mode #playa:checked ~ .filtros label[for="playa"],
-.dark-mode #gastronomia:checked ~ .filtros label[for="gastronomia"],
-.dark-mode #religioso:checked ~ .filtros label[for="religioso"] {
+[data-bs-theme="dark"] #todos:checked ~ .filtros label[for="todos"],
+[data-bs-theme="dark"] #cultural:checked ~ .filtros label[for="cultural"],
+[data-bs-theme="dark"] #naturaleza:checked ~ .filtros label[for="naturaleza"],
+[data-bs-theme="dark"] #playa:checked ~ .filtros label[for="playa"],
+[data-bs-theme="dark"] #gastronomia:checked ~ .filtros label[for="gastronomia"],
+[data-bs-theme="dark"] #religioso:checked ~ .filtros label[for="religioso"] {
     background: var(--color-accent);
     color: black;
 }
 
 /* ================= TABLA ================= */
 
-.dark-mode table {
+[data-bs-theme="dark"] table {
     background: var(--color-gray);
     color: var(--text-dark);
 }
 
-.dark-mode td {
+[data-bs-theme="dark"] td {
     border-bottom: 1px solid #333;
 }
 
-.dark-mode tbody tr:nth-child(even) {
+[data-bs-theme="dark"] tbody tr:nth-child(even) {
     background: #2a2a2a;
 }
 
-.dark-mode tbody tr:hover {
+[data-bs-theme="dark"] tbody tr:hover {
     background: rgba(0, 212, 255, 0.15);
 }
 
 /* ================= FOOTER ================= */
 
-.dark-mode footer {
+[data-bs-theme="dark"] footer {
     background: var(--color-dark);
 }
 
 /* ================= BOTÓN ================= */
 
-.dark-toggle {
+[data-bs-theme="dark"] .dark-toggle {
     background: none;
     border: 2px solid white;
     color: white;
@@ -658,6 +600,34 @@ footer p {
     transition: var(--transition);
 }
 
-.dark-toggle:hover {
+[data-bs-theme="dark"] .dark-toggle:hover {
     background: rgba(255,255,255,0.2);
+}
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+.flip-card.flipped .flip-inner {
+    transform: rotateY(180deg);
+}
+.comentario-area {
+    border-top: 1px solid #eee;
+    padding-top: 12px;
+    margin-top: 10px;
+}
+.comentarios-lista {
+    background: var(--color-gray);
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 0.88rem;
+}
+.comentario-item {
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    padding-bottom: 8px;
+    margin-bottom: 8px;
 }
