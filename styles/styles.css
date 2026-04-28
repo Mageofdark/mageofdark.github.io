@@ -468,44 +468,7 @@ footer p {
     filter: brightness(1.2);
 }
 
-/* ============ PHISHING BANNER ============ */
-.phishing-banner {
-    background: linear-gradient(135deg, #fff3cd, #ffe69c);
-    border-top: 3px solid #ffc107;
-    border-bottom: 3px solid #ffc107;
-}
 
-.phishing-banner .btn-warning {
-    font-weight: 600;
-    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
-    transition: var(--transition);
-}
-
-.phishing-banner .btn-warning:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(255, 193, 7, 0.4);
-}
-
-/* ============ MODAL PHISHING ============ */
-.modal-header.bg-warning {
-    border-bottom: 2px solid #ffc107;
-}
-
-.modal-content {
-    border: 2px solid #ffc107;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-}
-
-/* responsive modal */
-@media (max-width: 768px) {
-    .modal-dialog {
-        margin: 1rem;
-    }
-    
-    .row.g-3 {
-        gap: 1rem !important;
-    }
-}
 
 /* ============ DARK MODE NEWSLETTER ============ */
 [data-bs-theme="dark"] .newsletter input {
@@ -572,8 +535,6 @@ footer p {
     color: var(--text-dark);
 }
 
-/* ================= HEADER ================= */
-/* Estilos del navbar ahora están en el HTML inline */
 
 /* ================= FILTROS ================= */
 
