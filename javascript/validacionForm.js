@@ -7,46 +7,46 @@ $(document).ready(function () {
     const $spinner = $btn.find('.spinner-border');
 
     // 1_ VALIDACIÓN AL SUBMIT
-    // $form.on('submit', function (e) {
+    $form.on('submit', function (e) {
 
-    //     const form = this;
-    //     const isValid = form.checkValidity();
+        const form = this;
+        const isValid = form.checkValidity();
 
-    //     e.preventDefault();
-    //     e.stopPropagation();
+        e.preventDefault();
+        e.stopPropagation();
 
-    //     // activa estilos bootstrap
-    //     $(form).addClass('was-validated');
+        // activa estilos bootstrap
+        $(form).addClass('was-validated');
 
-    //     if (!isValid) return;
+        if (!isValid) return;
 
-    //     // =========================
-    //     // SPINNER ON
-    //     // =========================
-    //     $btn.prop('disabled', true);
-    //     $text.addClass('d-none');
-    //     $spinner.removeClass('d-none');
+        // =========================
+        // SPINNER ON
+        // =========================
+        $btn.prop('disabled', true);
+        $text.addClass('d-none');
+        $spinner.removeClass('d-none');
 
-    //     setTimeout(() => {
+        setTimeout(() => {
 
-    //         // =========================
-    //         // RESET FORM
-    //         // =========================
-    //         form.reset();
+            // =========================
+            // RESET FORM
+            // =========================
+            form.reset();
 
-    //         // QUITAR ESTADOS DE VALIDACIÓN
-    //         $(form)
-    //             .removeClass('was-validated')
-    //             .find('.form-control')
-    //             .removeClass('is-valid is-invalid');
+            // QUITAR ESTADOS DE VALIDACIÓN
+            $(form)
+                .removeClass('was-validated')
+                .find('.form-control')
+                .removeClass('is-valid is-invalid');
 
-    //         // RESTAURAR BOTÓN
-    //         $btn.prop('disabled', false);
-    //         $text.removeClass('d-none');
-    //         $spinner.addClass('d-none');
+            // RESTAURAR BOTÓN
+            $btn.prop('disabled', false);
+            $text.removeClass('d-none');
+            $spinner.addClass('d-none');
 
-    //     }, 1500);
-    // });
+        }, 1500);
+    });
     // $form.on('submit', function (e) {
 
     //     if (!this.checkValidity()) {
