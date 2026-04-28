@@ -1,24 +1,27 @@
-// Aplicar tema al cargar la página
-(function () {
-  const savedTheme = localStorage.getItem("theme");
-
-  if (savedTheme === "dark") {
-    document.documentElement.classList.add("dark-mode");
-  } else if (!savedTheme) {
-    // Si no hay preferencia guardada, usar la del sistema
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      document.documentElement.classList.add("dark-mode");
-    }
-  }
-})();
-
-// Función para alternar modo oscuro
 function toggleDarkMode() {
-  const isDark = document.documentElement.classList.toggle("dark-mode");
+    const html = document.documentElement;
+    const isDark = html.getAttribute("data-bs-theme") === "dark";
 
-  if (isDark) {
-    localStorage.setItem("theme", "dark");
-  } else {
-    localStorage.setItem("theme", "light");
-  }
+    const newTheme = isDark ? "light" : "dark";
+    html.setAttribute("data-bs-theme", newTheme);
+
+    localStorage.setItem("theme", newTheme);
+
+    if(newTheme === "dark"){
+      themeToggle.innerHTML = '<i class="bi bi-moon"></i>';
+    }else{
+      themeToggle.innerHTML = '<i class="bi bi-sun-fill"></i>';
+    }
+}
+
+// al cargar
+const savedTheme = localStorage.getItem("theme") || "light";
+document.documentElement.setAttribute("data-bs-theme", savedTheme);
+
+const themeToggle = document.getElementById("themeToggle");
+
+if(savedTheme === "dark"){
+    themeToggle.innerHTML = '<i class="bi bi-moon"></i>';
+}else{
+    themeToggle.innerHTML = '<i class="bi bi-sun-fill"></i>';
 }
