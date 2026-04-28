@@ -1,40 +1,73 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-bs-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Precios - Turismo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../styles/precios.css">
 </head>
 
 <body>
 
 <header>
-        <div class="logo">
-            <h1>Grand Tour GT</h1>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary py-3">
+        <div class="container-fluid">
+
+            <!-- Brand -->
+            <a class="navbar-brand fs-1 ps-5 py-2 fw-bold" href="../index.html">
+                Grand Tour GT
+            </a>
+
+            <!-- Toggler -->
+            <button class="navbar-toggler" type="button" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#navbarToggler" 
+                aria-controls="navbarToggler" 
+                aria-expanded="false" 
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Menu -->
+            <div class="collapse navbar-collapse" id="navbarToggler">
+                <ul class="navbar-nav ms-auto fs-4 gap-3">
+
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link py-3 px-3">Inicio</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="destinos.html" class="nav-link py-3 px-3">Destinos</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="agencias.html" class="nav-link py-3 px-3">Agencias</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="blog.html" class="nav-link py-3 px-3">Blog</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="contacto.html" class="nav-link active py-3 px-3" aria-current="page">Contacto</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="precios.html" class="nav-link py-3 px-3">Precios</a>
+                    </li>
+
+                    <li class="nav-item pe-5">
+                        <button id="themeToggle" class="nav-link fs-4 px-3 py-3 border-0 bg-transparent" onclick=toggleDarkMode()>
+                            <i class="bi bi-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
         </div>
-
-        <nav>
-            <ul class="menu">
-                
-                <li><a href="../index.html">Inicio</a></li>
-
-                <li><a href="destinos.html">Destinos</a></li>
-
-                <li><a href="agencias.html">Agencias</a></li>
-
-                <li><a href="blog.html">Blog</a></li>
-
-                <li><a href="contacto.html">Contacto</a></li>
-
-                <li><a href="precios.html">Ofertas</a></li>
-
-                <li>
-                  <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
-                </li>
-            </ul>
-        </nav>
-    </header>
+    </nav>
+</header>
 
 <section class="hero">
     <video autoplay muted loop class="hero-video">
@@ -42,170 +75,350 @@
     </video>
 
     <div class="hero-overlay">
-        <h2>Ofertas de Viaje</h2>
-        <p>Incluye vuelo, estancia y guía turístico</p>
+        <h2 class="display-3 fw-semibold">Ofertas de Viaje</h2>
+        <p class="fs-4">Incluye vuelo, estancia y guía turístico</p>
     </div>
 </section>
 
 <!-- OFERTAS -->
-<section class="precios">
-    <h2>Ofertas Disponibles</h2>
+<section class="precios p-5 mx-2">
+    <h2 class="fw-semibold fs-2 text-center mb-4">Ofertas Disponibles</h2>
 
-    <div class="precios-grid">
+    <div class="row">
 
         <!-- CULTURAL -->
-        <article class="card">
-            <img src="../img/cuscoperu.jpg">
-            <div class="card-content">
-                <h3>Cusco (Perú)</h3>
-                <span class="categoria">Cultural</span>
-                <p>Incluye estancia + vuelo + guía turístico.</p>
-                <h4>$1350</h4>
-            </div>
-        </article>
+         <div class="col-6 mb-4">
+            <article class="card">
+                <img src="../img/cuscoperu.jpg"
+                data-bs-toggle="tooltip" 
+                title="Destino histórico andino, ideal para explorar la cultura inca y paisajes únicos.">
+                <div class="p-3">
+                    <h3 class="mb-2">Cusco (Perú)</h3>
+                    <span class="categoria badge rounded-pill mb-2 px-3 py-1">Cultural</span>
+                    <p class="lh-base">Incluye estancia + vuelo + guía turístico.</p>
+                    <h4 class="mt-3 fw-bold fs-4">$1350</h4>
+                    <button 
+                        class="btn btn-sm btn-primary btn-comparar"
+                        data-nombre="Cusco (Perú)"
+                        data-categoria="Cultural"
+                        data-pack="estancia + vuelo + guia turistico"
+                        data-precio="$1350">
+                        Añadir a la Comparacion
+                    </button>
+                </div>
+            </article>
+        </div>
 
-        <article class="card">
-            <img src="../img/romaItaly.jfif">
-            <div class="card-content">
-                <h3>Roma (Italia)</h3>
-                <span class="categoria">Cultural</span>
-                <p>Incluye estancia + vuelo + guía turístico.</p>
-                <h4>$1650</h4>
-            </div>
-        </article>
+        <div class="col-6 mb-4">
+            <article class="card">
+                <img src="../img/romaItaly.jfif"
+                    data-bs-toggle="tooltip" 
+                    title="Ciudad histórica con una rica herencia cultural, arte y arquitectura.">
+                <div class="p-3">
+                    <h3 class="mb-2">Roma (Italia)</h3>
+                    <span class="categoria badge rounded-pill mb-2 px-3 py-1">Cultural</span>
+                    <p class="lh-base">Incluye estancia + vuelo + guía turístico.</p>
+                    <h4 class="mt-3 fw-bold fs-4">$1650</h4>
+                    <button 
+                        class="btn btn-sm btn-primary btn-comparar"
+                        data-nombre="Roma (Italia)"
+                        data-categoria="Cultural"
+                        data-pack="estancia + vuelo + guia turistico"
+                        data-precio="$1650">
+                        Añadir a la Comparacion
+                    </button>
+                </div>
+            </article>
+        </div>
 
-        <article class="card">
-            <img src="../img/kiotojapan.jfif">
-            <div class="card-content">
-                <h3>Kioto (Japón)</h3>
-                <span class="categoria">Cultural</span>
-                <p>Incluye estancia + vuelo + guía turístico.</p>
-                <h4>$1950</h4>
-            </div>
-        </article>
+        <div class="col-6 mb-4">
+            <article class="card">
+                <img src="../img/kiotojapan.jfif"
+                    data-bs-toggle="tooltip" 
+                    title="Ciudad histórica con templos, jardines y cultura tradicional japonesa.">
+                <div class="p-3">
+                    <h3 class="mb-2">Kioto (Japón)</h3>
+                    <span class="categoria badge rounded-pill mb-2 px-3 py-1">Cultural</span>
+                    <p class="lh-base">Incluye estancia + vuelo + guía turístico.</p>
+                    <h4 class="mt-3 fw-bold fs-4">$1950</h4>
+                    <button 
+                        class="btn btn-sm btn-primary btn-comparar"
+                        data-nombre="Kioto (Japón)"
+                        data-categoria="Cultural"
+                        data-pack="estancia + vuelo + guia turistico"
+                        data-precio="$1950">
+                        Añadir a la Comparacion
+                    </button>
+                </div>
+            </article>
+        </div>
 
         <!-- NATURALEZA -->
-        <article class="card">
-            <img src="../img/amazonas.jfif">
-            <div class="card-content">
-                <h3>Amazonas (Brasil)</h3>
-                <span class="categoria">Naturaleza</span>
-                <p>Incluye estancia + vuelo + guía turístico.</p>
-                <h4>$1050</h4>
-            </div>
-        </article>
+        <div class="col-6 mb-4">
+            <article class="card">
+                <img src="../img/amazonas.jfif"
+                    data-bs-toggle="tooltip" 
+                    title="Experiencia natural única con una biodiversidad excepcional y ríos emblanqueados.">
+                <div class="p-3">
+                    <h3 class="mb-2">Amazonas (Brasil)</h3>
+                    <span class="categoria badge rounded-pill mb-2 px-3 py-1">Naturaleza</span>
+                    <p class="lh-base">Incluye estancia + vuelo + guía turístico.</p>
+                    <h4 class="mt-3 fw-bold fs-4">$1050</h4>
+                    <button 
+                        class="btn btn-sm btn-primary btn-comparar"
+                        data-nombre="Amazonas (Brasil)"
+                        data-categoria="Naturaleza"
+                        data-pack="estancia + vuelo + guia turistico"
+                        data-precio="$1050">
+                        Añadir a la Comparacion
+                    </button>
+                </div>
+            </article>
+        </div>
 
-        <article class="card">
-            <img src="../img/patagony.jfif">
-            <div class="card-content">
-                <h3>Patagonia (Argentina)</h3>
-                <span class="categoria">Naturaleza</span>
-                <p>Incluye estancia + vuelo + guía turístico.</p>
-                <h4>$1250</h4>
-            </div>
-        </article>
+        <div class="col-6 mb-4">
+            <article class="card">
+                <img src="../img/patagony.jfif"
+                    data-bs-toggle="tooltip" 
+                    title="Región de paisajes imponentes, ideal para turismo de aventura y naturaleza.">
+                <div class="p-3">
+                    <h3 class="mb-2">Patagonia (Argentina)</h3>
+                    <span class="categoria badge rounded-pill mb-2 px-3 py-1">Naturaleza</span>
+                    <p class="lh-base">Incluye estancia + vuelo + guía turístico.</p>
+                    <h4 class="mt-3 fw-bold fs-4">$1250</h4>
+                    <button 
+                        class="btn btn-sm btn-primary btn-comparar"
+                        data-nombre="Patagonia (Argentina)"
+                        data-categoria="Naturaleza"
+                        data-pack="estancia + vuelo + guia turistico"
+                        data-precio="$1250">
+                        Añadir a la Comparacion
+                    </button>
+                </div>
+            </article>
+        </div>
 
-        <article class="card">
-            <img src="../img/yellowstone.webp">
-            <div class="card-content">
-                <h3>Yellowstone (EE.UU)</h3>
-                <span class="categoria">Naturaleza</span>
-                <p>Incluye estancia + vuelo + guía turístico.</p>
-                <h4>$1550</h4>
-            </div>
-        </article>
+        <div class="col-6 mb-4">
+            <article class="card">
+                <img src="../img/yellowstone.webp"
+                    data-bs-toggle="tooltip" 
+                    title="Parque nacional famoso por sus géiseres, lagos y vida silvestre.">
+                <div class="p-3">
+                    <h3 class="mb-2">Yellowstone (EE.UU)</h3>
+                    <span class="categoria badge rounded-pill mb-2 px-3 py-1">Naturaleza</span>
+                    <p class="lh-base">Incluye estancia + vuelo + guía turístico.</p>
+                    <h4 class="mt-3 fw-bold fs-4">$1550</h4>
+                    <button 
+                        class="btn btn-sm btn-primary btn-comparar"
+                        data-nombre="Yellowstone (EE. UU.)"
+                        data-categoria="Naturaleza"
+                        data-pack="estancia + vuelo + guia turistico"
+                        data-precio="$1550">
+                        Añadir a la Comparacion
+                    </button>
+                </div>
+            </article>
+        </div>
 
         <!-- PLAYA -->
-        <article class="card">
-            <img src="../img/cancun.webp">
-            <div class="card-content">
-                <h3>Cancún (México)</h3>
-                <span class="categoria">Playa</span>
-                <p>Incluye estancia + vuelo + guía turístico.</p>
-                <h4>$1700</h4>
-            </div>
-        </article>
+        <div class="col-6 mb-4">
+            <article class="card">
+                <img src="../img/cancun.webp"
+                    data-bs-toggle="tooltip" 
+                    title="Ciudad de playa tropical con resorts de lujo y actividades acuáticas.">
+                <div class="p-3">
+                    <h3 class="mb-2">Cancún (México)</h3>
+                    <span class="categoria badge rounded-pill mb-2 px-3 py-1">Playa</span>
+                    <p class="lh-base">Incluye estancia + vuelo + guía turístico.</p>
+                    <h4 class="mt-3 fw-bold fs-4">$1700</h4>
+                    <button 
+                        class="btn btn-sm btn-primary btn-comparar"
+                        data-nombre="Cancún (Mexico)"
+                        data-categoria="Playa"
+                        data-pack="estancia + vuelo + guia turistico"
+                        data-precio="$1700">
+                        Añadir a la Comparacion
+                    </button>
+                </div>
+            </article>
+        </div>
 
-        <article class="card">
-            <img src="../img/puntacana.jfif">
-            <div class="card-content">
-                <h3>Punta Cana</h3>
-                <span class="categoria">Playa</span>
-                <p>Incluye estancia + vuelo + guía turístico.</p>
-                <h4>$1500</h4>
-            </div>
-        </article>
+        <div class="col-6 mb-4">
+            <article class="card">
+                <img src="../img/puntacana.jfif"
+                    data-bs-toggle="tooltip" 
+                    title="Lugar ideal para descanso con playas de arena blanca y aguas cristalinas.">
+                <div class="p-3">
+                    <h3 class="mb-2">Punta Cana (República Dominicana)</h3>
+                    <span class="categoria badge rounded-pill mb-2 px-3 py-1">Playa</span>
+                    <p class="lh-base">Incluye estancia + vuelo + guía turístico.</p>
+                    <h4 class="mt-3 fw-bold fs-4">$1500</h4>
+                    <button 
+                        class="btn btn-sm btn-primary btn-comparar"
+                        data-nombre="Punta Cana (República Dominicana)"
+                        data-categoria="Playa"
+                        data-pack="estancia + vuelo + guia turistico"
+                        data-precio="$1500">
+                        Añadir a la Comparacion
+                    </button>
+                </div>
+            </article>
+        </div>
 
-        <article class="card">
-            <img src="../img/maldivas.jfif">
-            <div class="card-content">
-                <h3>Maldivas</h3>
-                <span class="categoria">Playa</span>
-                <p>Incluye estancia + vuelo + guía turístico.</p>
-                <h4>$2700</h4>
-            </div>
-        </article>
+        <div class="col-6 mb-4">
+            <article class="card">
+                <img src="../img/maldivas.jfif"
+                    data-bs-toggle="tooltip" 
+                    title="Destino exclusivo con islas tropicales y resorts sobre el mar.">
+                <div class="p-3">
+                    <h3 class="mb-2">Maldivas</h3>
+                    <span class="categoria badge rounded-pill mb-2 px-3 py-1">Playa</span>
+                    <p class="lh-base">Incluye estancia + vuelo + guía turístico.</p>
+                    <h4 class="mt-3 fw-bold fs-4">$2700</h4>
+                    <button 
+                        class="btn btn-sm btn-primary btn-comparar"
+                        data-nombre="Maldivas"
+                        data-categoria="Playa"
+                        data-pack="estancia + vuelo + guia turistico"
+                        data-precio="$2700">
+                        Añadir a la Comparacion
+                    </button>
+                </div>
+            </article>
+        </div>
 
         <!-- GASTRONOMIA -->
-        <article class="card">
-            <img src="../img/lima peru.jpg">
-            <div class="card-content">
-                <h3>Lima (Perú)</h3>
-                <span class="categoria">Gastronomía</span>
-                <p>Incluye estancia + vuelo + guía turístico.</p>
-                <h4>$1150</h4>
-            </div>
-        </article>
+        <div class="col-6 mb-4">
+            <article class="card">
+                <img src="../img/lima peru.jpg"
+                    data-bs-toggle="tooltip" 
+                    title="Ciudad conocida por su rica cocina peruana y su vibrante vida cultural.">
+                <div class="p-3">
+                    <h3 class="mb-2">Lima (Perú)</h3>
+                    <span class="categoria badge rounded-pill mb-2 px-3 py-1">Gastronomía</span>
+                    <p class="lh-base">Incluye estancia + vuelo + guía turístico.</p>
+                    <h4 class="mt-3 fw-bold fs-4">$1150</h4>
+                    <button 
+                        class="btn btn-sm btn-primary btn-comparar"
+                        data-nombre="Lima (Perú)"
+                        data-categoria="Cultural"
+                        data-pack="estancia + vuelo + guia turistico"
+                        data-precio="$1150">
+                        Añadir a la Comparacion
+                    </button>
+                </div>
+            </article>
+        </div>
 
-        <article class="card">
-            <img src="../img/parisfrancia.jpg">
-            <div class="card-content">
-                <h3>París (Francia)</h3>
-                <span class="categoria">Gastronomía</span>
-                <p>Incluye estancia + vuelo + guía turístico.</p>
-                <h4>$1850</h4>
-            </div>
-        </article>
+        <div class="col-6 mb-4">
+            <article class="card">
+                <img src="../img/parisfrancia.jpg"
+                    data-bs-toggle="tooltip" 
+                    title="Ciudad icónica del arte, el amor, la moda y la gastronomía mundial.">
+                <div class="p-3">
+                    <h3 class="mb-2">París (Francia)</h3>
+                    <span class="categoria badge rounded-pill mb-2 px-3 py-1">Gastronomía</span>
+                    <p class="lh-base">Incluye estancia + vuelo + guía turístico.</p>
+                    <h4 class="mt-3 fw-bold fs-4">$1850</h4>
+                    <button 
+                        class="btn btn-sm btn-primary btn-comparar"
+                        data-nombre="París (Francia)"
+                        data-categoria="Gastronomía"
+                        data-pack="estancia + vuelo + guia turistico"
+                        data-precio="$1850">
+                        Añadir a la Comparacion
+                    </button>
+                </div>
+            </article>
+        </div>
 
-        <article class="card">
-            <img src="../img/tokiojapon.jpg">
-            <div class="card-content">
-                <h3>Tokio (Japón)</h3>
-                <span class="categoria">Gastronomía</span>
-                <p>Incluye estancia + vuelo + guía turístico.</p>
-                <h4>$2150</h4>
-            </div>
-        </article>
+        <div class="col-6 mb-4">
+            <article class="card">
+                <img src="../img/tokiojapon.jpg"
+                    data-bs-toggle="tooltip" 
+                    title="Ciudad moderna con una mezcla única de tradición y tecnología.">
+                <div class="p-3">
+                    <h3 class="mb-2">Tokio (Japón)</h3>
+                    <span class="categoria badge rounded-pill mb-2 px-3 py-1">Gastronomía</span>
+                    <p class="lh-base">Incluye estancia + vuelo + guía turístico.</p>
+                    <h4 class="mt-3 fw-bold fs-4">$2150</h4>
+                    <button 
+                        class="btn btn-sm btn-primary btn-comparar"
+                        data-nombre="Tokio (Japón)"
+                        data-categoria="Gastronomía"
+                        data-pack="estancia + vuelo + guia turistico"
+                        data-precio="$2150">
+                        Añadir a la Comparacion
+                    </button>
+                </div>
+            </article>
+        </div>
 
-        <article class="card">
-            <img src="../img/vaticano.jpeg">
-            <div class="card-content">
-                <h3>Vaticano</h3>
-                <span class="categoria">Religioso</span>
-                <p>Incluye estancia + vuelo + guía turístico.</p>
-                <h4>$1550</h4>
-            </div>
-        </article>
+        <div class="col-6 mb-4">
+            <article class="card">
+                <img src="../img/vaticano.jpeg"
+                    data-bs-toggle="tooltip" 
+                    title="Centro espiritual con gran valor histórico y artístico.">
+                <div class="p-3">
+                    <h3 class="mb-2">Vaticano</h3>
+                    <span class="categoria badge rounded-pill mb-2 px-3 py-1">Religioso</span>
+                    <p class="lh-base">Incluye estancia + vuelo + guía turístico.</p>
+                    <h4 class="mt-3 fw-bold fs-4">$1550</h4>
+                    <button 
+                        class="btn btn-sm btn-primary btn-comparar"
+                        data-nombre="Vaticano"
+                        data-categoria="Religioso"
+                        data-pack="estancia + vuelo + guia turistico"
+                        data-precio="$1550">
+                        Añadir a la Comparacion
+                    </button>
+                </div>
+            </article>
+        </div>
 
-        <article class="card">
-            <img src="../img/lameca.webp">
-            <div class="card-content">
-                <h3>La Meca</h3>
-                <span class="categoria">Religioso</span>
-                <p>Incluye estancia + vuelo + guía turístico.</p>
-                <h4>$2400</h4>
-            </div>
-        </article>
+        <div class="col-6 mb-4">
+            <article class="card">
+                <img src="../img/lameca.webp"
+                    data-bs-toggle="tooltip" 
+                    title="Destino religioso con una rica historia y cultura islámica.">
+                <div class="p-3">
+                    <h3 class="mb-2">La Meca (Arabia Saudita)</h3>
+                    <span class="categoria badge rounded-pill mb-2 px-3 py-1">Religioso</span>
+                    <p class="lh-base">Incluye estancia + vuelo + guía turístico.</p>
+                    <h4 class="mt-3 fw-bold fs-4">$2400</h4>
+                    <button 
+                        class="btn btn-sm btn-primary btn-comparar"
+                        data-nombre="La Meca (Arabia Saudita)"
+                        data-categoria="Religioso"
+                        data-pack="estancia + vuelo + guia turistico"
+                        data-precio="$2400">
+                        Añadir a la Comparacion
+                    </button>
+                </div>
+            </article>
+        </div>
 
-        <article class="card">
-            <img src="../img/jerusalen.jpg">
-            <div class="card-content">
-                <h3>Jerusalén</h3>
-                <span class="categoria">Religioso</span>
-                <p>Incluye estancia + vuelo + guía turístico.</p>
-                <h4>$1750</h4>
-            </div>
-        </article>
+        <div class="col-6 mb-4">
+            <article class="card">
+                <img src="../img/jerusalen.jpg"
+                    data-bs-toggle="tooltip" 
+                    title="Ciudad sagrada con relevancia histórica para múltiples religiones.">
+                <div class="p-3">
+                    <h3 class="mb-2">Jerusalén (Israel)</h3>
+                    <span class="categoria badge rounded-pill mb-2 px-3 py-1">Religioso</span>
+                    <p class="lh-base">Incluye estancia + vuelo + guía turístico.</p>
+                    <h4 class="mt-3 fw-bold fs-4">$1750</h4>
+                    <button 
+                        class="btn btn-sm btn-primary btn-comparar"
+                        data-nombre="Jerusalén (Israel)"
+                        data-categoria="Religioso"
+                        data-pack="estancia + vuelo + guia turistico"
+                        data-precio="$1750">
+                        Añadir a la Comparacion
+                    </button>
+                </div>
+            </article>
+        </div>
 
     </div>
 </section>
@@ -248,6 +461,134 @@
 
     </footer>
 
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1050;">
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary btn-comparador">Comparar</button>
+                <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="visually-hidden">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu lista-comparador">
+                </ul>
+            </div>
+    </div>
+
+    <div class="modal fade tabla-comparacion" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Comparacion</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <table class="table table-bordered text-center">
+                    <thead class="table-dark">
+                        <tr>
+                        <th>Destino</th>
+                        <th>Categoría</th>
+                        <th>Paquete</th>
+                        <th>Precio</th>
+                        </tr>
+                    </thead>
+                    <tbody class="contenido-comparacion "></tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     <script src="../javascript/darkmode.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+
+        let comparador = [];
+
+        $(".btn-comparar").click(function(){
+            let item = {
+                nombre: $(this).data("nombre"),
+                categoria: $(this).data("categoria"),
+                pack: $(this).data("pack"),
+                precio: $(this).data("precio")
+            };
+        
+        let existe = comparador.find( x => x.nombre === item.nombre);
+
+        if(existe){
+            alert("Ya esta agregado");
+        return;
+        }
+
+        if(comparador.length >=5){
+            alert("Solo puede tener 5 elementos para comparar");
+            return;
+        }
+
+        comparador.push(item);
+        actualizarDropdown();
+
+        }
+    );
+
+    function actualizarDropdown(){
+        let lista = $(".lista-comparador");
+        lista.empty();
+
+        comparador.forEach((item, index) => {
+            lista.append(`
+            <li class="d-flex justify-content-between align-items-center px-2">            
+                <span>${item.nombre}</span>
+                <button class="btn btn-sm btn-danger btn-eliminar data-index="${index}">X</button>
+            </li>
+                `);
+        });
+    }
+
+    $(document).on("click", ".btn-eliminar", function(){
+        let index = $(this).data("index");
+        comparador.splice(index, 1);
+        actualizarDropdown();
+    });
+
+    $(".btn-comparador").click(function(){
+
+        if(comparador.length === 0){
+            alert("No hay elementos para comparar");
+            return;
+        }
+
+        let tabla = $(".contenido-comparacion");
+        tabla.empty();
+
+        comparador.forEach(item => {
+            tabla.append(`
+            <tr>
+                <td>${item.nombre}</td>
+                <td>${item.categoria}</td>
+                <td>${item.pack}</td>
+                <td>${item.precio}</td>
+            </tr>
+            `);
+
+        });
+
+        let modal = new bootstrap.Modal(document.querySelector('.tabla-comparacion'));
+        modal.show();
+    });
+
+});
+    </script>   
 </body>
 </html>
