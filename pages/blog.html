@@ -12,7 +12,19 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous" defer></script>
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="../styles/styles_agencias.css">
+    <!-- link rel="stylesheet" href="../styles/styles_agencias.css" -->
+     <style>
+    /* Scroll reveal */
+    .blog-item {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .blog-item.revealed {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    </style>
 </head>
 <body>
  
@@ -20,40 +32,53 @@
 <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary py-3">
         <div class="container-fluid">
-            <a class="navbar-brand fs-1 ps-5 py-2 fw-bold" href="../index.html">
+
+            <!-- Brand -->
+            <a class="navbar-brand fs-1 ps-5 py-2 fw-bold" href="index.html">
                 Grand Tour GT
             </a>
-            <button class="navbar-toggler" type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarToggler"
-                aria-controls="navbarToggler"
-                aria-expanded="false"
+
+            <!-- Toggler -->
+            <button class="navbar-toggler" type="button" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#navbarToggler" 
+                aria-controls="navbarToggler" 
+                aria-expanded="false" 
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
+            <!-- Menu -->
             <div class="collapse navbar-collapse" id="navbarToggler">
                 <ul class="navbar-nav ms-auto fs-4 gap-3">
+
                     <li class="nav-item">
-                        <a href="../index.html" class="nav-link py-3 px-3">Inicio</a>
+                        <a href="../index.html" class="nav-link py-3 px-3" aria-current="page">Inicio</a>
                     </li>
+
                     <li class="nav-item">
                         <a href="destinos.html" class="nav-link py-3 px-3">Destinos</a>
                     </li>
+
                     <li class="nav-item">
                         <a href="agencias.html" class="nav-link py-3 px-3">Agencias</a>
                     </li>
+
                     <li class="nav-item">
-                        <a href="blog.html" class="nav-link active py-3 px-3" aria-current="page">Blog</a>
+                        <a href="blog.html" class="nav-link active py-3 px-3">Blog</a>
                     </li>
+
                     <li class="nav-item">
                         <a href="contacto.html" class="nav-link py-3 px-3">Contacto</a>
                     </li>
+
                     <li class="nav-item">
                         <a href="precios.html" class="nav-link py-3 px-3">Precios</a>
                     </li>
+
                     <li class="nav-item pe-5">
-                        <button id="themeToggle" class="nav-link fs-4 px-3 py-3 border-0 bg-transparent" onclick="toggleDarkMode()">
-                            <i class="bi bi-moon"></i>
+                        <button id="themeToggle" class="nav-link fs-4 px-3 py-3 border-0 bg-transparent" onclick=toggleDarkMode()>
+                            <i class="bi bi-sun-fill"></i>
                         </button>
                     </li>
                 </ul>
@@ -62,369 +87,382 @@
     </nav>
 </header>
  
-<main class="blog-container">
+<main class="container-fluid px-4 pt-4">
  
-    <!-- FILTROS — reemplaza los radio inputs por botones jQuery -->
-    <section class="filtros">
-        <h2>Filtrar por Categoría</h2>
-        <div class="filtros-botones">
-            <button class="btn-filter active-filter" data-filter="todos">Todos</button>
-            <button class="btn-filter" data-filter="cultural">Cultural</button>
-            <button class="btn-filter" data-filter="naturaleza">Naturaleza</button>
-            <button class="btn-filter" data-filter="playa">Playa</button>
-            <button class="btn-filter" data-filter="aventura">Aventura</button>
-            <button class="btn-filter" data-filter="gastronomia">Gastronomía</button>
-            <button class="btn-filter" data-filter="religioso">Religioso</button>
+    <!-- FILTROS -->
+    <section class="container my-4 text-center">
+        <h2 class="mb-3">Filtrar por Categoría</h2>
+        <div class="d-flex flex-wrap justify-content-center gap-2">
+            <button class="btn btn-secondary active btn-filter" data-filter="todos">Todos</button>
+            <button class="btn btn-outline-secondary btn-filter" data-filter="cultural">Cultural</button>
+            <button class="btn btn-outline-secondary btn-filter" data-filter="naturaleza">Naturaleza</button>
+            <button class="btn btn-outline-secondary btn-filter" data-filter="playa">Playa</button>
+            <button class="btn btn-outline-secondary btn-filter" data-filter="aventura">Aventura</button>
+            <button class="btn btn-outline-secondary btn-filter" data-filter="gastronomia">Gastronomía</button>
+            <button class="btn btn-outline-secondary btn-filter" data-filter="religioso">Religioso</button>
         </div>
-        <p id="resultado-count"></p>
+        <p id="resultado-count" class="text-muted small mt-2"></p>
     </section>
  
-    <!-- CARDS — se agrega data-categoria y clase reveal a cada article -->
-    <section class="comments">
- 
-        <article class="card xl playa reveal" tabindex="0" data-categoria="playa">
-            <ul class="tags">
-                <li class="tag">Playa</li>
-            </ul>
-            <h2>Maldivas</h2>
-            <p>Un paraíso total. Agua cristalina y paisajes de otro mundo.</p>
-            <div class="user">
-                <div class="avatar1">VL</div>
-                <small> — Valentina López</small>
-            </div>
-            <div class="like">32</div>
-            <!-- Comentarios simulados -->
-            <div class="comentario-area">
-                <button class="toggle-comentarios" data-target="com-1">
-                    <i class="bi bi-chat-dots me-1"></i>Ver comentarios (2)
-                </button>
-                <div class="comentarios-lista" id="com-1" style="display:none;">
-                    <div class="comentario-item">
-                        <strong>Sofía R.</strong><span class="text-muted small"> — hace 2 días</span>
-                        <p>¡Sueño con ir! ¿Cuánto gastaron aproximadamente?</p>
+    <!-- CARDS -->
+    <section class="container mb-5" id="cards-container">
+    <div class="row g-4">
+
+        <!-- Card xl: ocupa 8 columnas (la más destacada) -->
+        <div class="col-12 col-md-8 blog-item" data-categoria="playa">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                    <span class="badge bg-info text-dark mb-2">Playa</span>
+                    <h3 class="card-title">Maldivas</h3>
+                    <p class="card-text">Un paraíso total. Agua cristalina y paisajes de otro mundo.</p>
+                    <div class="d-flex align-items-center gap-2 mt-3">
+                        <div class="rounded-circle bg-info text-white d-flex align-items-center justify-content-center fw-bold" style="width:38px;height:38px;font-size:0.8rem;">VL</div>
+                        <small class="text-muted">— Valentina López</small>
+                        <span class="ms-auto badge bg-light text-danger border"><i class="bi bi-heart-fill"></i> 32</span>
                     </div>
-                    <div class="comentario-item">
-                        <strong>Valentina López</strong><span class="text-muted small"> — hace 1 día</span>
-                        <p>¡Vale cada centavo! Te mando info por privado 😊</p>
-                    </div>
-                    <div class="agregar-comentario">
-                        <input type="text" class="nuevo-comentario" placeholder="Escribe un comentario..." maxlength="200" aria-label="Nuevo comentario">
-                        <button class="enviar-comentario" data-target="com-1">
-                            <i class="bi bi-send me-1"></i>Comentar
-                        </button>
+                </div>
+                <div class="card-footer bg-transparent border-top-0">
+                    <button class="btn btn-sm btn-outline-secondary toggle-comentarios w-100" data-target="com-1">
+                        <i class="bi bi-chat-dots me-1"></i>Ver comentarios (2)
+                    </button>
+                    <div id="com-1" style="display:none;" class="mt-2 bg-body-secondary rounded p-3">
+                        <div class="mb-2 pb-2 border-bottom">
+                            <strong>Sofía R.</strong> <span class="text-muted small">— hace 2 días</span>
+                            <p class="mb-0 small">¡Sueño con ir! ¿Cuánto gastaron aproximadamente?</p>
+                        </div>
+                        <div class="mb-2 pb-2 border-bottom">
+                            <strong>Valentina López</strong> <span class="text-muted small">— hace 1 día</span>
+                            <p class="mb-0 small">¡Vale cada centavo! Te mando info por privado 😊</p>
+                        </div>
+                        <div class="input-group input-group-sm mt-2">
+                            <input type="text" class="form-control nuevo-comentario" placeholder="Escribe un comentario..." maxlength="200">
+                            <button class="btn btn-primary enviar-comentario" data-target="com-1"><i class="bi bi-send"></i></button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </article>
- 
-        <article class="card aventura reveal" tabindex="0" data-categoria="aventura">
-            <ul class="tags">
-                <li class="tag">Aventura</li>
-            </ul>
-            <h2>Escalada en los Alpes</h2>
-            <p>La emoción de conquistar las cumbres...</p>
-            <div class="user">
-                <div class="avatar1">MS</div>
-                <small> — Martín Silva</small>
-            </div>
-            <div class="like">21</div>
-            <div class="comentario-area">
-                <button class="toggle-comentarios" data-target="com-2">
-                    <i class="bi bi-chat-dots me-1"></i>Ver comentarios (1)
-                </button>
-                <div class="comentarios-lista" id="com-2" style="display:none;">
-                    <div class="comentario-item">
-                        <strong>Pedro M.</strong><span class="text-muted small"> — hace 5 días</span>
-                        <p>¡Qué coraje! ¿Se necesita experiencia previa?</p>
+        </div>
+
+        <!-- Card normal: 4 columnas -->
+        <div class="col-12 col-md-4 blog-item" data-categoria="aventura">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                    <span class="badge bg-warning text-dark mb-2">Aventura</span>
+                    <h3 class="card-title">Escalada en los Alpes</h3>
+                    <p class="card-text">La emoción de conquistar las cumbres...</p>
+                    <div class="d-flex align-items-center gap-2 mt-3">
+                        <div class="rounded-circle bg-info text-white d-flex align-items-center justify-content-center fw-bold" style="width:38px;height:38px;font-size:0.8rem;">MS</div>
+                        <small class="text-muted">— Martín Silva</small>
+                        <span class="ms-auto badge bg-light text-danger border"><i class="bi bi-heart-fill"></i> 21</span>
                     </div>
-                    <div class="agregar-comentario">
-                        <input type="text" class="nuevo-comentario" placeholder="Escribe un comentario..." maxlength="200" aria-label="Nuevo comentario">
-                        <button class="enviar-comentario" data-target="com-2">
-                            <i class="bi bi-send me-1"></i>Comentar
-                        </button>
+                </div>
+                <div class="card-footer bg-transparent border-top-0">
+                    <button class="btn btn-sm btn-outline-secondary toggle-comentarios w-100" data-target="com-2">
+                        <i class="bi bi-chat-dots me-1"></i>Ver comentarios (1)
+                    </button>
+                    <div id="com-2" style="display:none;" class="mt-2 bg-body-secondary rounded p-3">
+                        <div class="mb-2 pb-2 border-bottom">
+                            <strong>Pedro M.</strong> <span class="text-muted small">— hace 5 días</span>
+                            <p class="mb-0 small">¡Qué coraje! ¿Se necesita experiencia previa?</p>
+                        </div>
+                        <div class="input-group input-group-sm mt-2">
+                            <input type="text" class="form-control nuevo-comentario" placeholder="Escribe un comentario..." maxlength="200">
+                            <button class="btn btn-primary enviar-comentario" data-target="com-2"><i class="bi bi-send"></i></button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </article>
- 
-        <article class="card cultural reveal" tabindex="0" data-categoria="cultural">
-            <ul class="tags">
-                <li class="tag">Cultural</li>
-            </ul>
-            <h2>Cusco (Perú)</h2>
-            <p>Una experiencia increíble llena de historia y cultura. Volvería sin dudarlo.</p>
-            <div class="user">
-                <div class="avatar2"></div>
-                <small> — María González</small>
-            </div>
-            <div class="like">13</div>
-            <div class="comentario-area">
-                <button class="toggle-comentarios" data-target="com-3">
-                    <i class="bi bi-chat-dots me-1"></i>Ver comentarios (0)
-                </button>
-                <div class="comentarios-lista" id="com-3" style="display:none;">
-                    <p class="text-muted small">Sé el primero en comentar.</p>
-                    <div class="agregar-comentario">
-                        <input type="text" class="nuevo-comentario" placeholder="Escribe un comentario..." maxlength="200" aria-label="Nuevo comentario">
-                        <button class="enviar-comentario" data-target="com-3">
-                            <i class="bi bi-send me-1"></i>Comentar
-                        </button>
+        </div>
+
+        <!-- Card normal: 4 columnas -->
+        <div class="col-12 col-md-4 blog-item" data-categoria="cultural">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                    <span class="badge bg-danger mb-2">Cultural</span>
+                    <h3 class="card-title">Cusco (Perú)</h3>
+                    <p class="card-text">Una experiencia increíble llena de historia y cultura. Volvería sin dudarlo.</p>
+                    <div class="d-flex align-items-center gap-2 mt-3">
+                        <div class="rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center fw-bold" style="width:38px;height:38px;font-size:0.8rem;"><i class="bi bi-person-fill"></i></div>
+                        <small class="text-muted">— María González</small>
+                        <span class="ms-auto badge bg-light text-danger border"><i class="bi bi-heart-fill"></i> 13</span>
+                    </div>
+                </div>
+                <div class="card-footer bg-transparent border-top-0">
+                    <button class="btn btn-sm btn-outline-secondary toggle-comentarios w-100" data-target="com-3">
+                        <i class="bi bi-chat-dots me-1"></i>Ver comentarios (0)
+                    </button>
+                    <div id="com-3" style="display:none;" class="mt-2 bg-body-secondary rounded p-3">
+                        <p class="text-muted small mb-2">Sé el primero en comentar.</p>
+                        <div class="input-group input-group-sm">
+                            <input type="text" class="form-control nuevo-comentario" placeholder="Escribe un comentario..." maxlength="200">
+                            <button class="btn btn-primary enviar-comentario" data-target="com-3"><i class="bi bi-send"></i></button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </article>
- 
-        <article class="card large playa reveal" tabindex="0" data-categoria="playa">
-            <ul class="tags">
-                <li class="tag">Playa</li>
-            </ul>
-            <h2>Cancún (México)</h2>
-            <p>Playas hermosas y excelente servicio. Perfecto para relajarse.</p>
-            <div class="user">
-                <div class="avatar1">DR</div>
-                <small> — Diego Ramírez</small>
-            </div>
-            <div class="like">17</div>
-            <div class="comentario-area">
-                <button class="toggle-comentarios" data-target="com-4">
-                    <i class="bi bi-chat-dots me-1"></i>Ver comentarios (1)
-                </button>
-                <div class="comentarios-lista" id="com-4" style="display:none;">
-                    <div class="comentario-item">
-                        <strong>Lucía P.</strong><span class="text-muted small"> — hace 3 días</span>
-                        <p>¡Nosotros fuimos el año pasado! Es increíble.</p>
+        </div>
+
+        <!-- Card large: 8 columnas -->
+        <div class="col-12 col-md-8 blog-item" data-categoria="playa">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                    <span class="badge bg-info text-dark mb-2">Playa</span>
+                    <h3 class="card-title">Cancún (México)</h3>
+                    <p class="card-text">Playas hermosas y excelente servicio. Perfecto para relajarse.</p>
+                    <div class="d-flex align-items-center gap-2 mt-3">
+                        <div class="rounded-circle bg-info text-white d-flex align-items-center justify-content-center fw-bold" style="width:38px;height:38px;font-size:0.8rem;">DR</div>
+                        <small class="text-muted">— Diego Ramírez</small>
+                        <span class="ms-auto badge bg-light text-danger border"><i class="bi bi-heart-fill"></i> 17</span>
                     </div>
-                    <div class="agregar-comentario">
-                        <input type="text" class="nuevo-comentario" placeholder="Escribe un comentario..." maxlength="200" aria-label="Nuevo comentario">
-                        <button class="enviar-comentario" data-target="com-4">
-                            <i class="bi bi-send me-1"></i>Comentar
-                        </button>
+                </div>
+                <div class="card-footer bg-transparent border-top-0">
+                    <button class="btn btn-sm btn-outline-secondary toggle-comentarios w-100" data-target="com-4">
+                        <i class="bi bi-chat-dots me-1"></i>Ver comentarios (1)
+                    </button>
+                    <div id="com-4" style="display:none;" class="mt-2 bg-body-secondary rounded p-3">
+                        <div class="mb-2 pb-2 border-bottom">
+                            <strong>Lucía P.</strong> <span class="text-muted small">— hace 3 días</span>
+                            <p class="mb-0 small">¡Nosotros fuimos el año pasado! Es increíble.</p>
+                        </div>
+                        <div class="input-group input-group-sm mt-2">
+                            <input type="text" class="form-control nuevo-comentario" placeholder="Escribe un comentario..." maxlength="200">
+                            <button class="btn btn-primary enviar-comentario" data-target="com-4"><i class="bi bi-send"></i></button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </article>
- 
-        <article class="card gastronomia cultural reveal" tabindex="0" data-categoria="gastronomia cultural">
-            <ul class="tags">
-                <li class="tag">Gastronomía</li>
-                <li class="tag">Cultural</li>
-            </ul>
-            <h2>Lima (Perú)</h2>
-            <p>La comida es espectacular. Cada plato fue una sorpresa increíble.</p>
-            <div class="user">
-                <div class="avatar1">JF</div>
-                <small> — Joaquin Figueroa</small>
-            </div>
-            <div class="like">26</div>
-            <div class="comentario-area">
-                <button class="toggle-comentarios" data-target="com-5">
-                    <i class="bi bi-chat-dots me-1"></i>Ver comentarios (0)
-                </button>
-                <div class="comentarios-lista" id="com-5" style="display:none;">
-                    <p class="text-muted small">Sé el primero en comentar.</p>
-                    <div class="agregar-comentario">
-                        <input type="text" class="nuevo-comentario" placeholder="Escribe un comentario..." maxlength="200" aria-label="Nuevo comentario">
-                        <button class="enviar-comentario" data-target="com-5">
-                            <i class="bi bi-send me-1"></i>Comentar
-                        </button>
+        </div>
+
+        <!-- Card normal: 4 col -->
+        <div class="col-12 col-md-4 blog-item" data-categoria="gastronomia cultural">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                    <span class="badge bg-danger mb-1">Cultural</span>
+                    <span class="badge bg-success mb-1">Gastronomía</span>
+                    <h3 class="card-title mt-1">Lima (Perú)</h3>
+                    <p class="card-text">La comida es espectacular. Cada plato fue una sorpresa increíble.</p>
+                    <div class="d-flex align-items-center gap-2 mt-3">
+                        <div class="rounded-circle bg-info text-white d-flex align-items-center justify-content-center fw-bold" style="width:38px;height:38px;font-size:0.8rem;">JF</div>
+                        <small class="text-muted">— Joaquín Figueroa</small>
+                        <span class="ms-auto badge bg-light text-danger border"><i class="bi bi-heart-fill"></i> 26</span>
+                    </div>
+                </div>
+                <div class="card-footer bg-transparent border-top-0">
+                    <button class="btn btn-sm btn-outline-secondary toggle-comentarios w-100" data-target="com-5">
+                        <i class="bi bi-chat-dots me-1"></i>Ver comentarios (0)
+                    </button>
+                    <div id="com-5" style="display:none;" class="mt-2 bg-body-secondary rounded p-3">
+                        <p class="text-muted small mb-2">Sé el primero en comentar.</p>
+                        <div class="input-group input-group-sm">
+                            <input type="text" class="form-control nuevo-comentario" placeholder="Escribe un comentario..." maxlength="200">
+                            <button class="btn btn-primary enviar-comentario" data-target="com-5"><i class="bi bi-send"></i></button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </article>
- 
-        <article class="card religioso reveal" tabindex="0" data-categoria="religioso">
-            <ul class="tags">
-                <li class="tag">Religioso</li>
-            </ul>
-            <h2>Jerusalén (Israel)</h2>
-            <p>Una experiencia única, cargada de significado cultural y religioso.</p>
-            <div class="user">
-                <div class="avatar2"></div>
-                <small> — Laura Díaz</small>
-            </div>
-            <div class="like">13</div>
-            <div class="comentario-area">
-                <button class="toggle-comentarios" data-target="com-6">
-                    <i class="bi bi-chat-dots me-1"></i>Ver comentarios (0)
-                </button>
-                <div class="comentarios-lista" id="com-6" style="display:none;">
-                    <p class="text-muted small">Sé el primero en comentar.</p>
-                    <div class="agregar-comentario">
-                        <input type="text" class="nuevo-comentario" placeholder="Escribe un comentario..." maxlength="200" aria-label="Nuevo comentario">
-                        <button class="enviar-comentario" data-target="com-6">
-                            <i class="bi bi-send me-1"></i>Comentar
-                        </button>
+        </div>
+
+        <!-- Card normal: 4 col -->
+        <div class="col-12 col-md-4 blog-item" data-categoria="religioso">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                    <span class="badge bg-secondary mb-2">Religioso</span>
+                    <h3 class="card-title">Jerusalén (Israel)</h3>
+                    <p class="card-text">Una experiencia única, cargada de significado cultural y religioso.</p>
+                    <div class="d-flex align-items-center gap-2 mt-3">
+                        <div class="rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center fw-bold" style="width:38px;height:38px;font-size:0.8rem;"><i class="bi bi-person-fill"></i></div>
+                        <small class="text-muted">— Laura Díaz</small>
+                        <span class="ms-auto badge bg-light text-danger border"><i class="bi bi-heart-fill"></i> 13</span>
+                    </div>
+                </div>
+                <div class="card-footer bg-transparent border-top-0">
+                    <button class="btn btn-sm btn-outline-secondary toggle-comentarios w-100" data-target="com-6">
+                        <i class="bi bi-chat-dots me-1"></i>Ver comentarios (0)
+                    </button>
+                    <div id="com-6" style="display:none;" class="mt-2 bg-body-secondary rounded p-3">
+                        <p class="text-muted small mb-2">Sé el primero en comentar.</p>
+                        <div class="input-group input-group-sm">
+                            <input type="text" class="form-control nuevo-comentario" placeholder="Escribe un comentario..." maxlength="200">
+                            <button class="btn btn-primary enviar-comentario" data-target="com-6"><i class="bi bi-send"></i></button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </article>
- 
-        <article class="card xl naturaleza reveal" tabindex="0" data-categoria="naturaleza">
-            <ul class="tags">
-                <li class="tag">Naturaleza</li>
-            </ul>
-            <h2>Patagonia (Argentina)</h2>
-            <p>Paisajes únicos y naturaleza pura. Ideal para desconectar completamente.</p>
-            <div class="user">
-                <div class="avatar2"></div>
-                <small> — Lucas Fernández</small>
-            </div>
-            <div class="like">26</div>
-            <div class="comentario-area">
-                <button class="toggle-comentarios" data-target="com-7">
-                    <i class="bi bi-chat-dots me-1"></i>Ver comentarios (1)
-                </button>
-                <div class="comentarios-lista" id="com-7" style="display:none;">
-                    <div class="comentario-item">
-                        <strong>Carla V.</strong><span class="text-muted small"> — hace 1 semana</span>
-                        <p>La Patagonia es mágica. ¿Fuiste al Glaciar Perito Moreno?</p>
+        </div>
+
+        <!-- Card xl: 8 col -->
+        <div class="col-12 col-md-8 blog-item" data-categoria="naturaleza">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                    <span class="badge bg-success mb-2">Naturaleza</span>
+                    <h3 class="card-title">Patagonia (Argentina)</h3>
+                    <p class="card-text">Paisajes únicos y naturaleza pura. Ideal para desconectar completamente.</p>
+                    <div class="d-flex align-items-center gap-2 mt-3">
+                        <div class="rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center fw-bold" style="width:38px;height:38px;font-size:0.8rem;"><i class="bi bi-person-fill"></i></div>
+                        <small class="text-muted">— Lucas Fernández</small>
+                        <span class="ms-auto badge bg-light text-danger border"><i class="bi bi-heart-fill"></i> 26</span>
                     </div>
-                    <div class="agregar-comentario">
-                        <input type="text" class="nuevo-comentario" placeholder="Escribe un comentario..." maxlength="200" aria-label="Nuevo comentario">
-                        <button class="enviar-comentario" data-target="com-7">
-                            <i class="bi bi-send me-1"></i>Comentar
-                        </button>
+                </div>
+                <div class="card-footer bg-transparent border-top-0">
+                    <button class="btn btn-sm btn-outline-secondary toggle-comentarios w-100" data-target="com-7">
+                        <i class="bi bi-chat-dots me-1"></i>Ver comentarios (1)
+                    </button>
+                    <div id="com-7" style="display:none;" class="mt-2 bg-body-secondary rounded p-3">
+                        <div class="mb-2 pb-2 border-bottom">
+                            <strong>Carla V.</strong> <span class="text-muted small">— hace 1 semana</span>
+                            <p class="mb-0 small">La Patagonia es mágica. ¿Fuiste al Glaciar Perito Moreno?</p>
+                        </div>
+                        <div class="input-group input-group-sm mt-2">
+                            <input type="text" class="form-control nuevo-comentario" placeholder="Escribe un comentario..." maxlength="200">
+                            <button class="btn btn-primary enviar-comentario" data-target="com-7"><i class="bi bi-send"></i></button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </article>
- 
-        <article class="card large gastronomia reveal" tabindex="0" data-categoria="gastronomia">
-            <ul class="tags">
-                <li class="tag">Gastronomía</li>
-            </ul>
-            <h2>París (Francia)</h2>
-            <p>Una experiencia gourmet única. Todo es elegante y delicioso.</p>
-            <div class="user">
-                <div class="avatar1">CT</div>
-                <small> — Camila Torres</small>
-            </div>
-            <div class="like">20</div>
-            <div class="comentario-area">
-                <button class="toggle-comentarios" data-target="com-8">
-                    <i class="bi bi-chat-dots me-1"></i>Ver comentarios (0)
-                </button>
-                <div class="comentarios-lista" id="com-8" style="display:none;">
-                    <p class="text-muted small">Sé el primero en comentar.</p>
-                    <div class="agregar-comentario">
-                        <input type="text" class="nuevo-comentario" placeholder="Escribe un comentario..." maxlength="200" aria-label="Nuevo comentario">
-                        <button class="enviar-comentario" data-target="com-8">
-                            <i class="bi bi-send me-1"></i>Comentar
-                        </button>
+        </div>
+
+        <!-- Card normal: 4 col -->
+        <div class="col-12 col-md-4 blog-item" data-categoria="gastronomia">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                    <span class="badge bg-success mb-2">Gastronomía</span>
+                    <h3 class="card-title">París (Francia)</h3>
+                    <p class="card-text">Una experiencia gourmet única. Todo es elegante y delicioso.</p>
+                    <div class="d-flex align-items-center gap-2 mt-3">
+                        <div class="rounded-circle bg-info text-white d-flex align-items-center justify-content-center fw-bold" style="width:38px;height:38px;font-size:0.8rem;">CT</div>
+                        <small class="text-muted">— Camila Torres</small>
+                        <span class="ms-auto badge bg-light text-danger border"><i class="bi bi-heart-fill"></i> 20</span>
+                    </div>
+                </div>
+                <div class="card-footer bg-transparent border-top-0">
+                    <button class="btn btn-sm btn-outline-secondary toggle-comentarios w-100" data-target="com-8">
+                        <i class="bi bi-chat-dots me-1"></i>Ver comentarios (0)
+                    </button>
+                    <div id="com-8" style="display:none;" class="mt-2 bg-body-secondary rounded p-3">
+                        <p class="text-muted small mb-2">Sé el primero en comentar.</p>
+                        <div class="input-group input-group-sm">
+                            <input type="text" class="form-control nuevo-comentario" placeholder="Escribe un comentario..." maxlength="200">
+                            <button class="btn btn-primary enviar-comentario" data-target="com-8"><i class="bi bi-send"></i></button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </article>
- 
-        <article class="card cultural reveal" tabindex="0" data-categoria="cultural">
-            <ul class="tags">
-                <li class="tag">Cultural</li>
-            </ul>
-            <h2>Roma (Italia)</h2>
-            <p>Caminar por sus calles es como viajar en el tiempo. Todo es impresionante.</p>
-            <div class="user">
-                <div class="avatar1">JP</div>
-                <small> — Juan Pérez</small>
-            </div>
-            <div class="like">8</div>
-            <div class="comentario-area">
-                <button class="toggle-comentarios" data-target="com-9">
-                    <i class="bi bi-chat-dots me-1"></i>Ver comentarios (0)
-                </button>
-                <div class="comentarios-lista" id="com-9" style="display:none;">
-                    <p class="text-muted small">Sé el primero en comentar.</p>
-                    <div class="agregar-comentario">
-                        <input type="text" class="nuevo-comentario" placeholder="Escribe un comentario..." maxlength="200" aria-label="Nuevo comentario">
-                        <button class="enviar-comentario" data-target="com-9">
-                            <i class="bi bi-send me-1"></i>Comentar
-                        </button>
+        </div>
+
+        <!-- Card normal: 4 col -->
+        <div class="col-12 col-md-4 blog-item" data-categoria="cultural">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                    <span class="badge bg-danger mb-2">Cultural</span>
+                    <h3 class="card-title">Roma (Italia)</h3>
+                    <p class="card-text">Caminar por sus calles es como viajar en el tiempo. Todo es impresionante.</p>
+                    <div class="d-flex align-items-center gap-2 mt-3">
+                        <div class="rounded-circle bg-info text-white d-flex align-items-center justify-content-center fw-bold" style="width:38px;height:38px;font-size:0.8rem;">JP</div>
+                        <small class="text-muted">— Juan Pérez</small>
+                        <span class="ms-auto badge bg-light text-danger border"><i class="bi bi-heart-fill"></i> 8</span>
+                    </div>
+                </div>
+                <div class="card-footer bg-transparent border-top-0">
+                    <button class="btn btn-sm btn-outline-secondary toggle-comentarios w-100" data-target="com-9">
+                        <i class="bi bi-chat-dots me-1"></i>Ver comentarios (0)
+                    </button>
+                    <div id="com-9" style="display:none;" class="mt-2 bg-body-secondary rounded p-3">
+                        <p class="text-muted small mb-2">Sé el primero en comentar.</p>
+                        <div class="input-group input-group-sm">
+                            <input type="text" class="form-control nuevo-comentario" placeholder="Escribe un comentario..." maxlength="200">
+                            <button class="btn btn-primary enviar-comentario" data-target="com-9"><i class="bi bi-send"></i></button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </article>
- 
-        <article class="card playa cultural reveal" tabindex="0" data-categoria="playa cultural">
-            <ul class="tags">
-                <li class="tag">Playa</li>
-                <li class="tag">Cultural</li>
-            </ul>
-            <h2>Río de Janeiro</h2>
-            <p>Playas icónicas y un carnaval vibrante.</p>
-            <div class="user">
-                <div class="avatar1">AM</div>
-                <small> — Ana Mamani</small>
-            </div>
-            <div class="like">11</div>
-            <div class="comentario-area">
-                <button class="toggle-comentarios" data-target="com-10">
-                    <i class="bi bi-chat-dots me-1"></i>Ver comentarios (0)
-                </button>
-                <div class="comentarios-lista" id="com-10" style="display:none;">
-                    <p class="text-muted small">Sé el primero en comentar.</p>
-                    <div class="agregar-comentario">
-                        <input type="text" class="nuevo-comentario" placeholder="Escribe un comentario..." maxlength="200" aria-label="Nuevo comentario">
-                        <button class="enviar-comentario" data-target="com-10">
-                            <i class="bi bi-send me-1"></i>Comentar
-                        </button>
+        </div>
+
+        <!-- Card large: 8 col -->
+        <div class="col-12 col-md-8 blog-item" data-categoria="playa cultural">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                    <span class="badge bg-info text-dark mb-1">Playa</span>
+                    <span class="badge bg-danger mb-1">Cultural</span>
+                    <h3 class="card-title mt-1">Río de Janeiro</h3>
+                    <p class="card-text">Playas icónicas y un carnaval vibrante.</p>
+                    <div class="d-flex align-items-center gap-2 mt-3">
+                        <div class="rounded-circle bg-info text-white d-flex align-items-center justify-content-center fw-bold" style="width:38px;height:38px;font-size:0.8rem;">AM</div>
+                        <small class="text-muted">— Ana Mamani</small>
+                        <span class="ms-auto badge bg-light text-danger border"><i class="bi bi-heart-fill"></i> 11</span>
+                    </div>
+                </div>
+                <div class="card-footer bg-transparent border-top-0">
+                    <button class="btn btn-sm btn-outline-secondary toggle-comentarios w-100" data-target="com-10">
+                        <i class="bi bi-chat-dots me-1"></i>Ver comentarios (0)
+                    </button>
+                    <div id="com-10" style="display:none;" class="mt-2 bg-body-secondary rounded p-3">
+                        <p class="text-muted small mb-2">Sé el primero en comentar.</p>
+                        <div class="input-group input-group-sm">
+                            <input type="text" class="form-control nuevo-comentario" placeholder="Escribe un comentario..." maxlength="200">
+                            <button class="btn btn-primary enviar-comentario" data-target="com-10"><i class="bi bi-send"></i></button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </article>
- 
-        <article class="card large naturaleza reveal" tabindex="0" data-categoria="naturaleza">
-            <ul class="tags">
-                <li class="tag">Naturaleza</li>
-            </ul>
-            <h2>Patagonia (Argentina)</h2>
-            <p>Paisajes únicos y naturaleza pura. Ideal para desconectar completamente.</p>
-            <div class="user">
-                <div class="avatar2"></div>
-                <small> — Lautaro Luque</small>
-            </div>
-            <div class="like">13</div>
-            <div class="comentario-area">
-                <button class="toggle-comentarios" data-target="com-11">
-                    <i class="bi bi-chat-dots me-1"></i>Ver comentarios (0)
-                </button>
-                <div class="comentarios-lista" id="com-11" style="display:none;">
-                    <p class="text-muted small">Sé el primero en comentar.</p>
-                    <div class="agregar-comentario">
-                        <input type="text" class="nuevo-comentario" placeholder="Escribe un comentario..." maxlength="200" aria-label="Nuevo comentario">
-                        <button class="enviar-comentario" data-target="com-11">
-                            <i class="bi bi-send me-1"></i>Comentar
-                        </button>
+        </div>
+
+        <!-- Card normal: 4 col -->
+        <div class="col-12 col-md-4 blog-item" data-categoria="naturaleza">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                    <span class="badge bg-success mb-2">Naturaleza</span>
+                    <h3 class="card-title">Torres del Paine</h3>
+                    <p class="card-text">Paisajes únicos y naturaleza pura. Ideal para desconectar completamente.</p>
+                    <div class="d-flex align-items-center gap-2 mt-3">
+                        <div class="rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center fw-bold" style="width:38px;height:38px;font-size:0.8rem;"><i class="bi bi-person-fill"></i></div>
+                        <small class="text-muted">— Lautaro Luque</small>
+                        <span class="ms-auto badge bg-light text-danger border"><i class="bi bi-heart-fill"></i> 13</span>
+                    </div>
+                </div>
+                <div class="card-footer bg-transparent border-top-0">
+                    <button class="btn btn-sm btn-outline-secondary toggle-comentarios w-100" data-target="com-11">
+                        <i class="bi bi-chat-dots me-1"></i>Ver comentarios (0)
+                    </button>
+                    <div id="com-11" style="display:none;" class="mt-2 bg-body-secondary rounded p-3">
+                        <p class="text-muted small mb-2">Sé el primero en comentar.</p>
+                        <div class="input-group input-group-sm">
+                            <input type="text" class="form-control nuevo-comentario" placeholder="Escribe un comentario..." maxlength="200">
+                            <button class="btn btn-primary enviar-comentario" data-target="com-11"><i class="bi bi-send"></i></button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </article>
- 
-        <article class="card large religioso reveal" tabindex="0" data-categoria="religioso">
-            <ul class="tags">
-                <li class="tag">Religioso</li>
-            </ul>
-            <h2>Vaticano</h2>
-            <p>Un lugar lleno de historia y espiritualidad. Muy impactante.</p>
-            <div class="user">
-                <div class="avatar2"></div>
-                <small> — Andrés Morales</small>
-            </div>
-            <div class="like">12</div>
-            <div class="comentario-area">
-                <button class="toggle-comentarios" data-target="com-12">
-                    <i class="bi bi-chat-dots me-1"></i>Ver comentarios (0)
-                </button>
-                <div class="comentarios-lista" id="com-12" style="display:none;">
-                    <p class="text-muted small">Sé el primero en comentar.</p>
-                    <div class="agregar-comentario">
-                        <input type="text" class="nuevo-comentario" placeholder="Escribe un comentario..." maxlength="200" aria-label="Nuevo comentario">
-                        <button class="enviar-comentario" data-target="com-12">
-                            <i class="bi bi-send me-1"></i>Comentar
-                        </button>
+        </div>
+
+        <!-- Card normal: 4 col -->
+        <div class="col-12 col-md-4 blog-item" data-categoria="religioso">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                    <span class="badge bg-secondary mb-2">Religioso</span>
+                    <h3 class="card-title">Vaticano</h3>
+                    <p class="card-text">Un lugar lleno de historia y espiritualidad. Muy impactante.</p>
+                    <div class="d-flex align-items-center gap-2 mt-3">
+                        <div class="rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center fw-bold" style="width:38px;height:38px;font-size:0.8rem;"><i class="bi bi-person-fill"></i></div>
+                        <small class="text-muted">— Andrés Morales</small>
+                        <span class="ms-auto badge bg-light text-danger border"><i class="bi bi-heart-fill"></i> 12</span>
+                    </div>
+                </div>
+                <div class="card-footer bg-transparent border-top-0">
+                    <button class="btn btn-sm btn-outline-secondary toggle-comentarios w-100" data-target="com-12">
+                        <i class="bi bi-chat-dots me-1"></i>Ver comentarios (0)
+                    </button>
+                    <div id="com-12" style="display:none;" class="mt-2 bg-body-secondary rounded p-3">
+                        <p class="text-muted small mb-2">Sé el primero en comentar.</p>
+                        <div class="input-group input-group-sm">
+                            <input type="text" class="form-control nuevo-comentario" placeholder="Escribe un comentario..." maxlength="200">
+                            <button class="btn btn-primary enviar-comentario" data-target="com-12"><i class="bi bi-send"></i></button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </article>
- 
+        </div>
+
+    </div>
     </section>
  
     <!-- Mensaje cuando no hay resultados -->
@@ -436,48 +474,79 @@
 </main>
  
 <!-- FOOTER -->
-<footer>
-    <div class="footer-grid">
-        <!-- Newsletter -->
-        <section class="newsletter">
-            <h3>Suscríbete</h3>
-            <form onsubmit="return false;">
-                <input type="email" placeholder="Tu correo" required>
-                <button type="submit">Enviar</button>
-            </form>
-        </section>
-        <!-- Redes -->
-        <section class="redes">
-            <h3>Síguenos</h3>
-            <a href="#"><i class="bi bi-facebook me-1"></i>Facebook</a>
-            <a href="#"><i class="bi bi-instagram me-1"></i>Instagram</a>
-            <a href="#"><i class="bi bi-twitter-x me-1"></i>Twitter</a>
-        </section>
-        <!-- Mapa -->
-        <section class="mapa">
-            <h3>Ubicación</h3>
-            <iframe
-                src="https://www.google.com/maps?q=Jujuy&output=embed"
-                width="100%"
-                height="200"
-                style="border:0;"
-                loading="lazy"
-                title="Mapa de ubicación Jujuy">
-            </iframe>
-        </section>
+<footer class="bg-body-tertiary py-5 mt-5">
+    <div class="container">
+
+        <div class="row g-4">
+
+            <!-- Newsletter -->
+            <div class="col-12 col-md-4">
+                <h5 class="mb-3 fw-bold">Suscríbete</h5>
+
+                <form class="d-flex flex-column gap-2">
+                    <input 
+                        type="email" 
+                        class="form-control needs-validation" 
+                        placeholder="Tu correo" 
+                        required
+                    >
+                    <button type="submit" class="btn btn-primary w-100">
+                        Enviar
+                    </button>
+                </form>
+            </div>
+
+            <!-- Redes -->
+            <div class="col-12 col-md-4 text-center">
+                <h5 class="mb-3 fw-bold">Síguenos</h5>
+
+                <div class="d-flex justify-content-center gap-3 fs-3">
+
+                    <a href="#" class="text-body" aria-label="Facebook">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+
+                    <a href="https://www.instagram.com/nacho367_/" class="text-body" aria-label="Instagram">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+
+                    <a href="#" class="text-body" aria-label="Twitter">
+                        <i class="bi bi-twitter"></i>
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- Mapa -->
+            <div class="col-12 col-md-4">
+                <h5 class="mb-3 fw-bold">Ubicación</h5>
+
+                <div class="ratio ratio-16x9">
+                    <iframe 
+                        src="https://www.google.com/maps?q=Jujuy&output=embed"
+                        style="border:0;"
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+
+        </div>
+
+        <hr class="my-4">
+
+        <div class="text-center small opacity-75">
+            © 2026 Turismo Jujuy - Todos los derechos reservados
+        </div>
+
     </div>
 </footer>
  
 <script src="../javascript/darkmode.js"></script>
 <script>
 $(document).ready(function () {
- 
-    /* =====================================================
-       1. FILTROS CON JQUERY (.hide / .show)
-    ===================================================== */
     function actualizarContador() {
-        const visibles = $('.card:visible').length;
-        const total = $('.card').length;
+        const visibles = $('.blog-item:visible').length;
+        const total = $('.blog-item').length;
         $('#resultado-count').text('Mostrando ' + visibles + ' de ' + total + ' publicaciones');
         if (visibles === 0) {
             $('#no-results').show();
@@ -490,16 +559,16 @@ $(document).ready(function () {
         const filtro = $(this).data('filter');
  
         // Actualizar botón activo
-        $('.btn-filter').removeClass('active-filter');
-        $(this).addClass('active-filter');
+        $('.btn-filter').removeClass('btn-secondary').addClass("btn-outline-secondary");
+        $(this).removeClass("btn-outline-secondary").addClass("btn-secondary");
  
         if (filtro === 'todos') {
-            $('.card').show();
+            $('.blog-item').show().addClass('revealed');
         } else {
-            $('.card').each(function () {
+            $('.blog-item').each(function () {
                 const cats = $(this).data('categoria') || '';
                 if (cats.includes(filtro)) {
-                    $(this).show();
+                    $(this).show().addClass('revealed');
                 } else {
                     $(this).hide();
                 }
@@ -508,37 +577,33 @@ $(document).ready(function () {
  
         actualizarContador();
     });
- 
-    // Inicializar contador
     actualizarContador();
  
-    /* =====================================================
-       2. SCROLL REVEAL CON JQUERY
-          jQuery escucha el scroll y agrega clase .revealed
-    ===================================================== */
+    /* 
+    SCROLL REVEAL CON JQUERY
+   */
     function checkReveal() {
         const windowBottom = $(window).scrollTop() + $(window).height();
-        $('.reveal').each(function () {
+        $('.blog-item').each(function () {
             if (windowBottom > $(this).offset().top + 60) {
                 $(this).addClass('revealed');
             }
         });
     }
     $(window).on('scroll', checkReveal);
-    checkReveal(); // ejecutar al cargar también
+    checkReveal(); 
  
-    /* =====================================================
-       3. TOGGLE COMENTARIOS CON JQUERY (.slideToggle)
-    ===================================================== */
+    /* 
+    TOGGLE COMENTARIOS CON JQUERY
+    */
     $(document).on('click', '.toggle-comentarios', function () {
         const $lista = $('#' + $(this).data('target'));
         $lista.slideToggle(250);
     });
  
-    /* =====================================================
-       4. COMENTARIOS SIMULADOS CON JQUERY
-          Sanitización básica incluida
-    ===================================================== */
+    /*
+    COMENTARIOS SIMULADOS CON JQUERY
+    */
     $(document).on('click', '.enviar-comentario', function () {
         const $input = $(this).siblings('.nuevo-comentario');
         const texto = $.trim($input.val());
