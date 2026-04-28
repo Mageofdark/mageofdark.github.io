@@ -10,15 +10,16 @@ $(document).ready(function () {
     $form.on('submit', function (e) {
 
         const form = this;
-        const isValid = form.checkValidity();
 
         e.preventDefault();
         e.stopPropagation();
 
-        // activa estilos bootstrap
-        $(form).addClass('was-validated');
+        if (!form.checkValidity()) {
+            $(form).addClass('was-validated');
+            return;
+        }
 
-        if (!isValid) return;
+        $(form).addClass('was-validated');
 
         // =========================
         // SPINNER ON
@@ -33,20 +34,27 @@ $(document).ready(function () {
             // RESET FORM
             // =========================
             form.reset();
+            $(form).removeClass('was-validated');
 
-            // QUITAR ESTADOS DE VALIDACIÓN
-            $(form)
-                .removeClass('was-validated')
-                .find('.form-control')
-                .removeClass('is-valid is-invalid');
-
-            // RESTAURAR BOTÓN
+            // =========================
+            // SPINNER OFF
+            // =========================
             $btn.prop('disabled', false);
             $text.removeClass('d-none');
             $spinner.addClass('d-none');
 
+            // =========================
+            // MODAL SUCCESS
+            // =========================
+            const modal = new bootstrap.Modal(
+                document.getElementById('successModal')
+            );
+
+            modal.show();
+
         }, 1500);
     });
+
     // $form.on('submit', function (e) {
 
     //     if (!this.checkValidity()) {
@@ -93,15 +101,17 @@ $(document).ready(function () {
     });
 
     // Teléfono (simple)
+    const phoneRegex = /^[0-9+\s-]{8,15}$/;
+
     $('#numeroTelefono').on('input', function () {
         const value = $(this).val().trim();
 
-        if(value.length === 0){
+        if (value.length === 0) {
             $(this).removeClass('is-valid is-invalid');
             return;
         }
 
-        const valid = value.length >= 8;
+        const valid = phoneRegex.test(value);
 
         $(this).toggleClass('is-valid', valid);
         $(this).toggleClass('is-invalid', !valid);

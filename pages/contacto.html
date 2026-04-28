@@ -111,7 +111,7 @@
                     class="form-control"
                     placeholder="Ej: +54 9 3884 49-0630"
                     required
-                    pattern="^[0-9+\s-]{8,15}$">
+                    pattern="^[0-9+\-\s]{8,15}$">
                 <div class="invalid-feedback">
                     Ingrese un teléfono válido (mínimo 8 caracteres, solo números, +, espacios o -)
                 </div>
@@ -168,6 +168,33 @@
 
         </form>
     </section>
+
+    <!-- MODAL -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+            <div class="modal-header bg-success text-white">
+                <h5 class="modal-title">
+                <i class="bi bi-check-circle-fill me-2"></i>
+                Envío exitoso
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+                Tu formulario fue enviado correctamente.
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">
+                Cerrar
+                </button>
+            </div>
+
+            </div>
+        </div>
+    </div>
 </main>
 
 <!-- FOOTER -->
