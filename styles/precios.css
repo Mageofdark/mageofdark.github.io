@@ -4,7 +4,8 @@
     --color-accent: #00b4d8;
     --color-dark: #1a1a2e;
     --color-light: #f8f9fa;
-    --color-gray: #e9ecef;
+    --color-light-gray: #f0e9e9;
+    --color-gray: #929496;
     --text-dark: #222;
     --text-light: #fff;
 
@@ -145,7 +146,7 @@ header {
 /* ====================== SECCION PRECIOS ====================== */
 .precios {
     padding: 100px 5%;
-    background: white;
+    background: var(--color-light);
 }
 
 .precios h2 {
@@ -163,7 +164,7 @@ header {
 
 /* ====================== TARJETAS ====================== */
 .card {
-    background: white;
+    background: var(--color-light-gray);
     border-radius: 15px;
     overflow: hidden;
     box-shadow: var(--shadow-sm);
@@ -200,7 +201,6 @@ header {
 
 /* TEXTO */
 .card p {
-    color: #555;
     line-height: 1.5;
 }
 
@@ -308,7 +308,7 @@ footer p {
 /* ================= DARK MODE ================= */
 
 .dark-mode {
-    /* 🎨 COLORES PRINCIPALES */
+    --color-light-gray: #1e1e1e;
     --color-primary: #0a84ff;
     --color-accent: #00d4ff;
     --color-dark: #0d1117;
