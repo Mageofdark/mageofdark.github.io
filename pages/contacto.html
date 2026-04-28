@@ -75,63 +75,127 @@
         <h1 class="mt-5 mb-4 text-center">Contacto</h1>
 
         <form class="row g-3 needs-validation" novalidate>
+            <!-- Nombre -->
             <div class="col-12">
                 <label for="nombreCompleto" class="form-label">Nombre completo</label>
-                <input type="text" name="nombre" class="form-control" placeholder="Nombre completo" id="nombreCompleto" required>
+                <input type="text"
+                    id="nombreCompleto"
+                    name="nombre"
+                    class="form-control"
+                    placeholder="Nombre completo"
+                    required
+                    minlength="3"
+                    pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{3,}$">
             </div>
+
+            <!-- Email -->
             <div class="col-md-6">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" name="email" class="form-control" placeholder="Email" id="email" required>
+                <input type="email"
+                    id="email"
+                    name="email"
+                    class="form-control"
+                    placeholder="Email"
+                    required>
                 <div class="invalid-feedback">
                     Ingrese un email válido (ej: nombre@dominio.com)
                 </div>
             </div>
 
+            <!-- Teléfono -->
             <div class="col-md-6">
                 <label for="numeroTelefono" class="form-label">Número de teléfono</label>
-                <input type="tel" name="telefono" class="form-control" placeholder="Ej: +54 9 3884 49-0630" id="numeroTelefono">
+                <input type="tel"
+                    id="numeroTelefono"
+                    name="telefono"
+                    class="form-control"
+                    placeholder="Ej: +54 9 3884 49-0630"
+                    required
+                    pattern="^[0-9+\-\s]{8,15}$">
+                <div class="invalid-feedback">
+                    Ingrese un teléfono válido (mínimo 8 caracteres, solo números, +, espacios o -)
+                </div>
             </div>
 
+            <!-- Fecha llegada -->
             <div class="col-md-6">
                 <label for="fechaDeLlegada" class="form-label">Fecha de llegada</label>
-                <input type="date" name="fecha_llegada" class="form-control" id="fechaDeLlegada">
+                <input type="date"
+                    id="fechaDeLlegada"
+                    name="fecha_llegada"
+                    class="form-control"
+                    >
                 <div class="invalid-feedback">
-                    La fecha de llegada debe estar antes que la fecha de salida.
+                    Debe seleccionar una fecha válida.
                 </div>
             </div>
 
+            <!-- Fecha salida -->
             <div class="col-md-6">
                 <label for="fechaDeSalida" class="form-label">Fecha de salida</label>
-                <input type="date" name="fecha_salida" class="form-control" id="fechaDeSalida">
+                <input type="date"
+                    id="fechaDeSalida"
+                    name="fecha_salida"
+                    class="form-control"
+                    >
             </div>
 
+            <!-- Mensaje -->
             <div class="col-md-12">
-                <label for="mensaje" class="form-label">Describanos su destino de interés</label>
-                <textarea name="mensaje" id="mensaje" class="form-control" rows="6" placeholder="¿Qué lugares te gustaría visitar?" required style="resize: none;"></textarea>
+                <label for="mensaje" class="form-label">Destino de interés</label>
+                <textarea id="mensaje"
+                        name="mensaje"
+                        class="form-control"
+                        rows="6"
+                        placeholder="¿Qué lugares te gustaría visitar?"
+                        required
+                        minlength="15"
+                        maxlength="300"
+                        style="resize: none;"></textarea>
+
                 <div class="invalid-feedback">
-                    Debe tener al menos 15 caracteres.
+                    El mensaje debe tener entre 15 y 300 caracteres.
                 </div>
             </div>
 
+            <!-- Botón -->
             <div class="col-md-4 m-auto mt-4">
-                <button type="submit" class="btn btn-success w-100">
-                    Enviar consulta
+                <button type="submit" class="btn btn-success w-100" id="submitBtn">
+                    <span class="btn-text">Enviar consulta</span>
+                    <span class="spinner-border spinner-border-sm d-none"></span>
                 </button>
             </div>
-        </form>
-        
-        <!-- SPINNER NO HACER TODAVIA-->
-        <div class="spinner"></div>
-    </section>
-</main>
 
-<!-- MODAL -->
-<div class="modal">
-    <div class="modal-content">
-        <p>Mensaje enviado correctamente</p>
-        <button>Cerrar</button>
+        </form>
+    </section>
+
+    <!-- MODAL -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+            <div class="modal-header bg-success text-white">
+                <h5 class="modal-title">
+                <i class="bi bi-check-circle-fill me-2"></i>
+                Envío exitoso
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+                Tu formulario fue enviado correctamente.
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">
+                Cerrar
+                </button>
+            </div>
+
+            </div>
+        </div>
     </div>
-</div>
+</main>
 
 <!-- FOOTER -->
 
