@@ -303,13 +303,57 @@
             </div>
 
             <div class="modal-body">
-                <p>Email sospechoso:</p>
+                <p>Alerta sospechoso:</p>
+
                 <div class="alert alert-warning">
-                    "Su cuenta fue bloqueada, haga click aquí"
+                    "Su cuenta fue bloqueada, ingrese sus datos para recuperarla"
                 </div>
 
-            <button id="verificarBtn" class="btn btn-primary">Ver respuesta</button>
-                <p id="feedback"></p>
+                <!-- FORMULARIO FALSO -->
+                <form id="phishingForm">
+
+                    <input 
+                        type="text" 
+                        class="form-control mb-2" 
+                        placeholder="Usuario" 
+                        required
+                    >
+
+                    <input 
+                        type="email" 
+                        class="form-control mb-2" 
+                        placeholder="Correo electrónico" 
+                        required
+                    >
+
+                    <input 
+                        type="password" 
+                        class="form-control mb-2" 
+                        placeholder="Contraseña" 
+                        required
+                    >
+
+                    <input 
+                        type="text" 
+                        class="form-control mb-2" 
+                        placeholder="Dirección" 
+                        required
+                    >
+
+                    <input 
+                        type="tel" 
+                        class="form-control mb-2" 
+                        placeholder="Teléfono" 
+                        required
+                    >
+
+                    <button type="submit" class="btn btn-danger w-100">
+                        Recuperar cuenta
+                    </button>
+
+                </form>
+ 
+                <p id="feedback" class="mt-3"></p>
             </div>
 
         </div>
@@ -360,10 +404,6 @@
 
             });
 
-             $('#verificarBtn').click(function() {
-                    $('#feedback').html(' Esto es phishing. Nunca hagas click en enlaces sospechosos.');
-             });
-
             // Submit del formulario
             $form.on('submit', function(e) {
                 e.preventDefault();
@@ -403,6 +443,15 @@
                 if (email !== '' && !validateEmail(email)) {
                     $email.addClass('is-invalid');
                 }
+            });
+
+            // ========== PHISHING FORM ==========
+            $('#phishingForm').submit(function(e) {
+                e.preventDefault();
+
+                $('#feedback').html(
+                    '<div class="alert alert-danger mt-2">⚠️ Esto es phishing. Nunca ingreses tus datos en enlaces sospechosos.</div>'
+                );
             });
 
             // ========== ANIMACIÓN CONTADORES ==========
