@@ -51,11 +51,11 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="contacto.html" class="nav-link active py-3 px-3" aria-current="page">Contacto</a>
+                        <a href="contacto.html" class="nav-link py-3 px-3">Contacto</a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="precios.html" class="nav-link py-3 px-3">Precios</a>
+                        <a href="precios.html" class="nav-link active py-3 px-3" aria-current="page">Precios</a>
                     </li>
 
                     <li class="nav-item pe-5">
@@ -69,12 +69,12 @@
     </nav>
 </header>
 
-<section class="hero">
-    <video autoplay muted loop class="hero-video">
+<section class="position-relative vh-100">
+    <video autoplay muted loop class="w-100 h-100 object-fit-cover">
         <source src="../img/videodinero.mp4" type="video/mp4">
     </video>
 
-    <div class="hero-overlay">
+    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center text-white text-center px-3 bg-dark bg-opacity-50">
         <h2 class="display-3 fw-semibold">Ofertas de Viaje</h2>
         <p class="fs-4">Incluye vuelo, estancia y guía turístico</p>
     </div>
@@ -87,14 +87,17 @@
     <div class="row">
 
         <!-- CULTURAL -->
-         <div class="col-6 mb-4">
-            <article class="card">
-                <img src="../img/cuscoperu.jpg"
-                data-bs-toggle="tooltip" 
-                title="Destino histórico andino, ideal para explorar la cultura inca y paisajes únicos.">
+         <div class="col-12 col-md-6 mb-4">
+            <article class="card rounded-4 overflow-hidden">
+                <div class="ratio ratio-650x250">
+                    <img src="../img/cuscoperu.jpg"
+                        class="w-100 h-100 object-fit-cover"
+                        data-bs-toggle="tooltip" 
+                        title="Destino histórico andino, ideal para explorar la cultura inca y paisajes únicos.">
+                </div>
                 <div class="p-3">
                     <h3 class="mb-2">Cusco (Perú)</h3>
-                    <span class="categoria badge rounded-pill mb-2 px-3 py-1">Cultural</span>
+                    <span class="bg-primary badge rounded-pill mb-2 px-3 py-1">Cultural</span>
                     <p class="lh-base">Incluye estancia + vuelo + guía turístico.</p>
                     <h4 class="mt-3 fw-bold fs-4">$1350</h4>
                     <button 
@@ -109,14 +112,17 @@
             </article>
         </div>
 
-        <div class="col-6 mb-4">
-            <article class="card">
-                <img src="../img/romaItaly.jfif"
-                    data-bs-toggle="tooltip" 
-                    title="Ciudad histórica con una rica herencia cultural, arte y arquitectura.">
+        <div class="col-12 col-md-6 mb-4">
+            <article class="card rounded-4 overflow-hidden">
+                <div class="ratio ratio-650x250">
+                    <img src="../img/romaItaly.jfif"
+                        class="w-100 h-100 object-fit-cover"
+                        data-bs-toggle="tooltip" 
+                        title="Ciudad histórica con una rica herencia cultural, arte y arquitectura.">
+                </div>
                 <div class="p-3">
                     <h3 class="mb-2">Roma (Italia)</h3>
-                    <span class="categoria badge rounded-pill mb-2 px-3 py-1">Cultural</span>
+                    <span class="bg-primary badge rounded-pill mb-2 px-3 py-1">Cultural</span>
                     <p class="lh-base">Incluye estancia + vuelo + guía turístico.</p>
                     <h4 class="mt-3 fw-bold fs-4">$1650</h4>
                     <button 
@@ -131,14 +137,17 @@
             </article>
         </div>
 
-        <div class="col-6 mb-4">
-            <article class="card">
-                <img src="../img/kiotojapan.jfif"
-                    data-bs-toggle="tooltip" 
-                    title="Ciudad histórica con templos, jardines y cultura tradicional japonesa.">
+        <div class="col-12 col-md-6 mb-4">
+            <article class="card rounded-4 overflow-hidden">
+                <div class="ratio ratio-650x250">
+                    <img src="../img/kiotojapan.jfif"
+                        class="w-100 h-100 object-fit-cover"
+                        data-bs-toggle="tooltip" 
+                        title="Ciudad histórica con templos, jardines y cultura tradicional japonesa.">
+                </div>
                 <div class="p-3">
                     <h3 class="mb-2">Kioto (Japón)</h3>
-                    <span class="categoria badge rounded-pill mb-2 px-3 py-1">Cultural</span>
+                    <span class="bg-primary badge rounded-pill mb-2 px-3 py-1">Cultural</span>
                     <p class="lh-base">Incluye estancia + vuelo + guía turístico.</p>
                     <h4 class="mt-3 fw-bold fs-4">$1950</h4>
                     <button 
@@ -154,14 +163,17 @@
         </div>
 
         <!-- NATURALEZA -->
-        <div class="col-6 mb-4">
-            <article class="card">
-                <img src="../img/amazonas.jfif"
-                    data-bs-toggle="tooltip" 
-                    title="Experiencia natural única con una biodiversidad excepcional y ríos emblanqueados.">
+        <div class="col-12 col-md-6 mb-4">
+            <article class="card rounded-4 overflow-hidden">
+                <div class="ratio ratio-650x250">
+                    <img src="../img/amazonas.jfif"
+                        class="w-100 h-100 object-fit-cover"
+                        data-bs-toggle="tooltip" 
+                        title="Experiencia natural única con una biodiversidad excepcional y ríos emblanqueados.">
+                </div>
                 <div class="p-3">
                     <h3 class="mb-2">Amazonas (Brasil)</h3>
-                    <span class="categoria badge rounded-pill mb-2 px-3 py-1">Naturaleza</span>
+                    <span class="bg-primary badge rounded-pill mb-2 px-3 py-1">Naturaleza</span>
                     <p class="lh-base">Incluye estancia + vuelo + guía turístico.</p>
                     <h4 class="mt-3 fw-bold fs-4">$1050</h4>
                     <button 
@@ -176,14 +188,17 @@
             </article>
         </div>
 
-        <div class="col-6 mb-4">
-            <article class="card">
-                <img src="../img/patagony.jfif"
-                    data-bs-toggle="tooltip" 
-                    title="Región de paisajes imponentes, ideal para turismo de aventura y naturaleza.">
+        <div class="col-12 col-md-6 mb-4">
+            <article class="card rounded-4 overflow-hidden">
+                <div class="ratio ratio-650x250">
+                    <img src="../img/patagony.jfif"
+                        class="w-100 h-100 object-fit-cover"
+                        data-bs-toggle="tooltip" 
+                        title="Región de paisajes imponentes, ideal para turismo de aventura y naturaleza.">
+                </div>
                 <div class="p-3">
                     <h3 class="mb-2">Patagonia (Argentina)</h3>
-                    <span class="categoria badge rounded-pill mb-2 px-3 py-1">Naturaleza</span>
+                    <span class="bg-primary badge rounded-pill mb-2 px-3 py-1">Naturaleza</span>
                     <p class="lh-base">Incluye estancia + vuelo + guía turístico.</p>
                     <h4 class="mt-3 fw-bold fs-4">$1250</h4>
                     <button 
@@ -198,14 +213,17 @@
             </article>
         </div>
 
-        <div class="col-6 mb-4">
-            <article class="card">
-                <img src="../img/yellowstone.webp"
-                    data-bs-toggle="tooltip" 
-                    title="Parque nacional famoso por sus géiseres, lagos y vida silvestre.">
+        <div class="col-12 col-md-6 mb-4">
+            <article class="card rounded-4 overflow-hidden">
+                <div class="ratio ratio-650x250">
+                    <img src="../img/yellowstone.webp"
+                        class="w-100 h-100 object-fit-cover"
+                        data-bs-toggle="tooltip" 
+                        title="Parque nacional famoso por sus géiseres, lagos y vida silvestre.">
+                </div>
                 <div class="p-3">
                     <h3 class="mb-2">Yellowstone (EE.UU)</h3>
-                    <span class="categoria badge rounded-pill mb-2 px-3 py-1">Naturaleza</span>
+                    <span class="bg-primary badge rounded-pill mb-2 px-3 py-1">Naturaleza</span>
                     <p class="lh-base">Incluye estancia + vuelo + guía turístico.</p>
                     <h4 class="mt-3 fw-bold fs-4">$1550</h4>
                     <button 
@@ -221,14 +239,17 @@
         </div>
 
         <!-- PLAYA -->
-        <div class="col-6 mb-4">
-            <article class="card">
-                <img src="../img/cancun.webp"
-                    data-bs-toggle="tooltip" 
-                    title="Ciudad de playa tropical con resorts de lujo y actividades acuáticas.">
+        <div class="col-12 col-md-6 mb-4">
+            <article class="card rounded-4 overflow-hidden">
+                <div class="ratio ratio-650x250">
+                    <img src="../img/cancun.webp"
+                        class="w-100 h-100 object-fit-cover"
+                        data-bs-toggle="tooltip" 
+                        title="Ciudad de playa tropical con resorts de lujo y actividades acuáticas.">
+                </div>
                 <div class="p-3">
                     <h3 class="mb-2">Cancún (México)</h3>
-                    <span class="categoria badge rounded-pill mb-2 px-3 py-1">Playa</span>
+                    <span class="bg-primary badge rounded-pill mb-2 px-3 py-1">Playa</span>
                     <p class="lh-base">Incluye estancia + vuelo + guía turístico.</p>
                     <h4 class="mt-3 fw-bold fs-4">$1700</h4>
                     <button 
@@ -243,14 +264,17 @@
             </article>
         </div>
 
-        <div class="col-6 mb-4">
-            <article class="card">
-                <img src="../img/puntacana.jfif"
-                    data-bs-toggle="tooltip" 
-                    title="Lugar ideal para descanso con playas de arena blanca y aguas cristalinas.">
+        <div class="col-12 col-md-6 mb-4">
+            <article class="card rounded-4 overflow-hidden">
+                <div class="ratio ratio-650x250">
+                    <img src="../img/puntacana.jfif"
+                        class="w-100 h-100 object-fit-cover"
+                        data-bs-toggle="tooltip" 
+                        title="Lugar ideal para descanso con playas de arena blanca y aguas cristalinas.">
+                </div>
                 <div class="p-3">
                     <h3 class="mb-2">Punta Cana (República Dominicana)</h3>
-                    <span class="categoria badge rounded-pill mb-2 px-3 py-1">Playa</span>
+                    <span class="bg-primary badge rounded-pill mb-2 px-3 py-1">Playa</span>
                     <p class="lh-base">Incluye estancia + vuelo + guía turístico.</p>
                     <h4 class="mt-3 fw-bold fs-4">$1500</h4>
                     <button 
@@ -265,14 +289,17 @@
             </article>
         </div>
 
-        <div class="col-6 mb-4">
-            <article class="card">
-                <img src="../img/maldivas.jfif"
-                    data-bs-toggle="tooltip" 
-                    title="Destino exclusivo con islas tropicales y resorts sobre el mar.">
+        <div class="col-12 col-md-6 mb-4">
+            <article class="card rounded-4 overflow-hidden">
+                <div class="ratio ratio-650x250">
+                    <img src="../img/maldivas.jfif"
+                        class="w-100 h-100 object-fit-cover"
+                        data-bs-toggle="tooltip" 
+                        title="Destino exclusivo con islas tropicales y resorts sobre el mar.">
+                    </div>
                 <div class="p-3">
                     <h3 class="mb-2">Maldivas</h3>
-                    <span class="categoria badge rounded-pill mb-2 px-3 py-1">Playa</span>
+                    <span class="bg-primary badge rounded-pill mb-2 px-3 py-1">Playa</span>
                     <p class="lh-base">Incluye estancia + vuelo + guía turístico.</p>
                     <h4 class="mt-3 fw-bold fs-4">$2700</h4>
                     <button 
@@ -288,14 +315,17 @@
         </div>
 
         <!-- GASTRONOMIA -->
-        <div class="col-6 mb-4">
-            <article class="card">
-                <img src="../img/lima peru.jpg"
-                    data-bs-toggle="tooltip" 
-                    title="Ciudad conocida por su rica cocina peruana y su vibrante vida cultural.">
+        <div class="col-12 col-md-6 mb-4">
+            <article class="card rounded-4 overflow-hidden">
+                <div class="ratio ratio-650x250">
+                    <img src="../img/lima peru.jpg"
+                        class="w-100 h-100 object-fit-cover"
+                        data-bs-toggle="tooltip" 
+                        title="Ciudad conocida por su rica cocina peruana y su vibrante vida cultural.">
+                </div>
                 <div class="p-3">
                     <h3 class="mb-2">Lima (Perú)</h3>
-                    <span class="categoria badge rounded-pill mb-2 px-3 py-1">Gastronomía</span>
+                    <span class="bg-primary badge rounded-pill mb-2 px-3 py-1">Gastronomía</span>
                     <p class="lh-base">Incluye estancia + vuelo + guía turístico.</p>
                     <h4 class="mt-3 fw-bold fs-4">$1150</h4>
                     <button 
@@ -310,14 +340,17 @@
             </article>
         </div>
 
-        <div class="col-6 mb-4">
-            <article class="card">
-                <img src="../img/parisfrancia.jpg"
-                    data-bs-toggle="tooltip" 
-                    title="Ciudad icónica del arte, el amor, la moda y la gastronomía mundial.">
+        <div class="col-12 col-md-6 mb-4">
+            <article class="card rounded-4 overflow-hidden">
+                <div class="ratio ratio-650x250">
+                    <img src="../img/parisfrancia.jpg"
+                        class="w-100 h-100 object-fit-cover"
+                        data-bs-toggle="tooltip" 
+                        title="Ciudad icónica del arte, el amor, la moda y la gastronomía mundial.">
+                    </div>
                 <div class="p-3">
                     <h3 class="mb-2">París (Francia)</h3>
-                    <span class="categoria badge rounded-pill mb-2 px-3 py-1">Gastronomía</span>
+                    <span class="bg-primary badge rounded-pill mb-2 px-3 py-1">Gastronomía</span>
                     <p class="lh-base">Incluye estancia + vuelo + guía turístico.</p>
                     <h4 class="mt-3 fw-bold fs-4">$1850</h4>
                     <button 
@@ -332,14 +365,17 @@
             </article>
         </div>
 
-        <div class="col-6 mb-4">
-            <article class="card">
-                <img src="../img/tokiojapon.jpg"
-                    data-bs-toggle="tooltip" 
-                    title="Ciudad moderna con una mezcla única de tradición y tecnología.">
+        <div class="col-12 col-md-6 mb-4">
+            <article class="card rounded-4 overflow-hidden">
+                <div class="ratio ratio-650x250">
+                    <img src="../img/tokiojapon.jpg"
+                        class="w-100 h-100 object-fit-cover"
+                        data-bs-toggle="tooltip" 
+                        title="Ciudad moderna con una mezcla única de tradición y tecnología.">
+                </div>
                 <div class="p-3">
                     <h3 class="mb-2">Tokio (Japón)</h3>
-                    <span class="categoria badge rounded-pill mb-2 px-3 py-1">Gastronomía</span>
+                    <span class="bg-primary badge rounded-pill mb-2 px-3 py-1">Gastronomía</span>
                     <p class="lh-base">Incluye estancia + vuelo + guía turístico.</p>
                     <h4 class="mt-3 fw-bold fs-4">$2150</h4>
                     <button 
@@ -354,14 +390,17 @@
             </article>
         </div>
 
-        <div class="col-6 mb-4">
-            <article class="card">
-                <img src="../img/vaticano.jpeg"
-                    data-bs-toggle="tooltip" 
-                    title="Centro espiritual con gran valor histórico y artístico.">
+        <div class="col-12 col-md-6 mb-4">
+            <article class="card rounded-4 overflow-hidden">
+                <div class="ratio ratio-650x250">
+                    <img src="../img/vaticano.jpeg"
+                        class="w-100 h-100 object-fit-cover"
+                        data-bs-toggle="tooltip" 
+                        title="Centro espiritual con gran valor histórico y artístico.">
+                    </div>
                 <div class="p-3">
                     <h3 class="mb-2">Vaticano</h3>
-                    <span class="categoria badge rounded-pill mb-2 px-3 py-1">Religioso</span>
+                    <span class="bg-primary badge rounded-pill mb-2 px-3 py-1">Religioso</span>
                     <p class="lh-base">Incluye estancia + vuelo + guía turístico.</p>
                     <h4 class="mt-3 fw-bold fs-4">$1550</h4>
                     <button 
@@ -376,14 +415,17 @@
             </article>
         </div>
 
-        <div class="col-6 mb-4">
-            <article class="card">
-                <img src="../img/lameca.webp"
-                    data-bs-toggle="tooltip" 
-                    title="Destino religioso con una rica historia y cultura islámica.">
+        <div class="col-12 col-md-6 mb-4">
+            <article class="card rounded-4 overflow-hidden">
+                <div class="ratio ratio-650x250">
+                    <img src="../img/lameca.webp"
+                        class="w-100 h-100 object-fit-cover"
+                        data-bs-toggle="tooltip" 
+                        title="Destino religioso con una rica historia y cultura islámica.">
+                    </div>
                 <div class="p-3">
                     <h3 class="mb-2">La Meca (Arabia Saudita)</h3>
-                    <span class="categoria badge rounded-pill mb-2 px-3 py-1">Religioso</span>
+                    <span class="bg-primary badge rounded-pill mb-2 px-3 py-1">Religioso</span>
                     <p class="lh-base">Incluye estancia + vuelo + guía turístico.</p>
                     <h4 class="mt-3 fw-bold fs-4">$2400</h4>
                     <button 
@@ -398,14 +440,17 @@
             </article>
         </div>
 
-        <div class="col-6 mb-4">
-            <article class="card">
-                <img src="../img/jerusalen.jpg"
-                    data-bs-toggle="tooltip" 
-                    title="Ciudad sagrada con relevancia histórica para múltiples religiones.">
+        <div class="col-12 col-md-6 mb-4">
+            <article class="card rounded-4 overflow-hidden">
+                <div class="ratio ratio-650x250">
+                    <img src="../img/jerusalen.jpg"
+                        class="w-100 h-100 object-fit-cover"
+                        data-bs-toggle="tooltip" 
+                        title="Ciudad sagrada con relevancia histórica para múltiples religiones.">
+                    </div>
                 <div class="p-3">
                     <h3 class="mb-2">Jerusalén (Israel)</h3>
-                    <span class="categoria badge rounded-pill mb-2 px-3 py-1">Religioso</span>
+                    <span class="bg-primary badge rounded-pill mb-2 px-3 py-1">Religioso</span>
                     <p class="lh-base">Incluye estancia + vuelo + guía turístico.</p>
                     <h4 class="mt-3 fw-bold fs-4">$1750</h4>
                     <button 
@@ -424,42 +469,72 @@
 </section>
 
 <!-- FOOTER -->
-    <footer>
+<footer class="bg-body-tertiary py-5 mt-5">
+    <div class="container">
 
-        <div class="footer-grid">
+        <div class="row g-4">
 
             <!-- Newsletter -->
-            <section class="newsletter">
-                <h3>Suscríbete</h3>
-                <form>
-                    <input type="email" placeholder="Tu correo" required>
-                    <button type="submit">Enviar</button>
+            <div class="col-12 col-md-4">
+                <h5 class="mb-3 fw-bold">Suscríbete</h5>
+
+                <form class="d-flex flex-column gap-2">
+                    <input 
+                        type="email" 
+                        class="form-control needs-validation" 
+                        placeholder="Tu correo" 
+                        required
+                    >
+                    <button type="submit" class="btn btn-primary w-100">
+                        Enviar
+                    </button>
                 </form>
-            </section>
+            </div>
 
             <!-- Redes -->
-            <section class="redes">
-                <h3>Síguenos</h3>
-                <a href="#">Facebook</a>
-                <a href="#">Instagram</a>
-                <a href="#">Twitter</a>
-            </section>
+            <div class="col-12 col-md-4 text-center">
+                <h5 class="mb-3 fw-bold">Síguenos</h5>
+
+                <div class="d-flex justify-content-center gap-3 fs-3">
+
+                    <a href="#" class="text-body" aria-label="Facebook">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+
+                    <a href="https://www.instagram.com/nacho367_/" class="text-body" aria-label="Instagram">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+
+                    <a href="#" class="text-body" aria-label="Twitter">
+                        <i class="bi bi-twitter"></i>
+                    </a>
+
+                </div>
+            </div>
 
             <!-- Mapa -->
-            <section class="mapa">
-                <h3>Ubicación</h3>
-                <iframe 
-                    src="https://www.google.com/maps?q=Jujuy&output=embed"
-                    width="100%" 
-                    height="200" 
-                    style="border:0;" 
-                    loading="lazy">
-                </iframe>
-            </section>
+            <div class="col-12 col-md-4">
+                <h5 class="mb-3 fw-bold">Ubicación</h5>
+
+                <div class="ratio ratio-16x9">
+                    <iframe 
+                        src="https://www.google.com/maps?q=Jujuy&output=embed"
+                        style="border:0;"
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
 
         </div>
 
-    </footer>
+        <hr class="my-4">
+
+        <div class="text-center small opacity-75">
+            © 2026 Turismo Jujuy - Todos los derechos reservados
+        </div>
+
+    </div>
+</footer>
 
     <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1050;">
             <div class="btn-group">
@@ -550,7 +625,7 @@
             lista.append(`
             <li class="d-flex justify-content-between align-items-center px-2">            
                 <span>${item.nombre}</span>
-                <button class="btn btn-sm btn-danger btn-eliminar data-index="${index}">X</button>
+                <button class="btn btn-sm btn-danger btn-eliminar" data-index="${index}">X</button>
             </li>
                 `);
         });
