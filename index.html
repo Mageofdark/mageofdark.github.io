@@ -185,26 +185,43 @@
 
 </section>
 
+<!-- pushing agregado por ignacio apaza -->
+<section class="container text-center my-5">
+    <h2>Seguridad Digital</h2>
+    <p>Aprendé a detectar phishing</p>
+
+    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#phishingModal">
+        <i class="bi bi-shield-lock-fill"></i> Simulación de Phishing
+    </button>
+</section>
+
 <footer class="bg-body-tertiary py-5 mt-5">
     <div class="container">
 
         <div class="row g-4">
 
-            <!-- Newsletter -->
-            <div class="col-12 col-md-4">
-                <h5 class="mb-3 fw-bold">Suscríbete</h5>
+            <!-- Newsletter cambiado por ignacio aapza-->
+         <div class="col-12 col-md-4">
+             <h5 class="mb-3 fw-bold">Suscríbete</h5>
 
-                <form class="d-flex flex-column gap-2">
-                    <input 
-                        type="email" 
-                        class="form-control needs-validation" 
-                        placeholder="Tu correo" 
-                        required
-                    >
-                    <button type="submit" class="btn btn-primary w-100">
-                        Enviar
-                    </button>
-                </form>
+             <form id="newsletterForm" class="d-flex flex-column gap-2">
+
+                 <input 
+                     id="newsletterEmail"
+                     type="email" 
+                     class="form-control" 
+                     placeholder="Tu correo" 
+                     required
+                 >
+
+                 <small class="email-feedback"></small>
+
+                 <button id="newsletterBtn" type="submit" class="btn btn-primary w-100">
+                     <span class="btn-text">Enviar</span>
+                     <span class="spinner-border spinner-border-sm d-none"></span>
+                 </button>
+
+             </form>
             </div>
 
             <!-- Redes -->
@@ -275,10 +292,33 @@
         </div>
     </div>
 
+    <!-- modal pushing -->
+<div class="modal fade" id="phishingModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header bg-danger text-white">
+                <h5>Simulación de Phishing</h5>
+                <button class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+                <p>Email sospechoso:</p>
+                <div class="alert alert-warning">
+                    "Su cuenta fue bloqueada, haga click aquí"
+                </div>
+
+            <button id="verificarBtn" class="btn btn-primary">Ver respuesta</button>
+                <p id="feedback"></p>
+            </div>
+
+        </div>
+    </div>
+</div>
 
     <!-- Bootstrap JavaScript Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="../javascript/darkmode.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../javascript/darkmode.js"></script>
 
     <script>
         // Verificar que Bootstrap esté cargado
@@ -317,7 +357,12 @@
                     $email.removeClass('is-valid').addClass('is-invalid');
                     $emailFeedback.html('✗').css('color', '#dc3545');
                 }
+
             });
+
+             $('#verificarBtn').click(function() {
+                    $('#feedback').html(' Esto es phishing. Nunca hagas click en enlaces sospechosos.');
+             });
 
             // Submit del formulario
             $form.on('submit', function(e) {
